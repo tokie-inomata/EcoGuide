@@ -5,7 +5,7 @@
 </head>
 <body>
     <div id="header">
-        <img alt="ロゴ" href="/" class="titlelogo">
+        <img alt="Ecoスポットサーチ" href="/" class="titlelogo">
         <nav>
             <ul>
                 <ol><a href="/">ログイン</a></ol>
