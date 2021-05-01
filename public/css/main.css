@@ -1,0 +1,75 @@
+/*             全体のCSS             */
+
+
+
+/*             ヘッダー部分のCSS             */
+
+#header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titlelogo { 
+    margin-left: 150px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 200px;
+}
+
+
+/*             メイン部分のCSS             */
+
+.container {
+    width: 30%;
+    float: right;
+    margin-right: 150px;
+    margin-top: 20px;
+}
+
+article h2 {
+    font-size: 13pt;
+}
+
+article p {
+    font-size: 12pt;
+    box-sizing: border-box;
+}
+
+.area_search {
+    width: 60%;
+    margin-left: 150px;
+    margin-top: 30px;
+}
+
+.area_search h2 {
+    font-size: 13pt;
+    padding-left: 200px;
+}
+
+.area_search img {
+    height: 500px;
+    width: 500px;
+}
+
+/*             フッター部分のCSS             */
+
+#footer {
+    height: 50px;
+}
+
+.copyright , .inquiry {
+    float: left;
+}
+
+.copyright {
+    padding-left: 600px;
+}
+
+.inquiry {
+    margin-top: 15px;
+    padding-left: 300px;
+}
