@@ -10,4 +10,9 @@ class MainController extends Controller
     {
         return view('ess.index');
     }
+
+    public function search(Request $request)
+    {
+        return view('ess.search');
+    }
 }

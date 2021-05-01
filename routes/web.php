@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'MainController@index');
+Route::get('/search', 'MainController@search');

@@ -1,13 +1,11 @@
 @extends('layouts.main')
 
-@section('title' , 'ESS')
-
 @section('main')
 <div class="container">
-    <article>
+    <article class="main_article">
         <h2>Ecoスポットサーチって何？</h2>
-        <p>段ボールがたくさんあったのに回収日に出すのを忘れちゃった！？
-        今日は小型金属の回収日だったの忘れてたー！なんてことはありませんか？
+        <p>段ボールがたくさんあったのに回収日に出すのを忘れちゃった。
+        小型金属の回収日だったの忘れてた。なんてことはありませんか？
         実はこういう資源はリサイクルのためにいろいろなところに回収ボックスが置かれているんです。
         そんな回収ボックスの場所を検索するサイトが、Ecoスポットサーチなんです。
         </p>
@@ -19,7 +17,7 @@
     </article>
 </div>
 <div class="area_search">
-    <h2>エリアから検索</h2>
+    <h2>エリア検索</h2>
     <img src="{{ asset('img/japan_map.jpg') }}" alt="エリア検索">
 </div>
 @endsection

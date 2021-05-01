@@ -1,0 +1,40 @@
+/*             メイン部分CSS             */
+
+table {
+    width: 600px;
+    margin: 0 430px;
+}
+
+.search_button {
+    margin: 0 700px;
+    border: solid #B0E0E6 1px;
+    background-color: #B0E0E6;
+    border-radius: 0 0 5px 5px;
+}
+
+.search_area {
+    border: solid #B0E0E6 1px;
+    border-radius: 10px;
+    background-color: #B0E0E6;
+}
+
+.result {
+    text-align: center;
+}
+
+.display_number {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 400px;
+}
+
+.number {
+    height: 20px;
+    margin-top: 18px;
+    margin-left: 5px;
+}
+
+.search_result {
+    border: solid #708090 1px;
+    border-radius: 10px;
+}

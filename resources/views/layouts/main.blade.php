@@ -1,7 +1,8 @@
 <html>
 <head>
-    <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <title>ESS</title>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}">
 </head>
 <body>
     <div id="header">

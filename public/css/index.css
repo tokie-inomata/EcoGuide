@@ -5,9 +5,10 @@
 /*             ヘッダー部分のCSS             */
 
 #header {
-    height: 60px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
+    padding-top: 30px;
 }
 
 .titlelogo { 
@@ -17,11 +18,16 @@
 ul {
     display: flex;
     justify-content: space-between;
-    margin-right: 200px;
+    margin-right: 160px;
+}
+
+ol {
+    padding-left: 200px;
 }
 
 
-/*             メイン部分のCSS             */
+
+/*             メイン部分のCSS（トップページ）             */
 
 .container {
     width: 30%;
@@ -32,11 +38,20 @@ ul {
 
 article h2 {
     font-size: 13pt;
+    padding-left: 70px;
 }
 
 article p {
     font-size: 12pt;
     box-sizing: border-box;
+}
+
+.main_article {
+    margin: 70px 0;
+}
+
+.main_article h2 {
+    padding-left: 100px;
 }
 
 .area_search {
@@ -55,6 +70,9 @@ article p {
     width: 500px;
 }
 
+
+
+
 /*             フッター部分のCSS             */
 
 #footer {
@@ -71,5 +89,5 @@ article p {
 
 .inquiry {
     margin-top: 15px;
-    padding-left: 300px;
+    padding-left: 330px;
 }
