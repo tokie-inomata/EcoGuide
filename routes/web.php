@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/', 'MainController@index');
 Route::get('/search', 'MainController@search');
+Route::get('/user_add', 'MainController@user_add');

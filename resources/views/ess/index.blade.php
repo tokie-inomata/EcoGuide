@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('main')
+<div class="main_content">
+    <h1>資  源  回  収  B  O  X  検  索  サ  イ  ト  <br>E  c  o  ス  ポ  ッ  ト  サ  ー  チ</h1>
+</div>
 <div class="container">
     <article class="main_article">
         <h2>Ecoスポットサーチって何？</h2>

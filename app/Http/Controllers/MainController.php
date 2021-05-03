@@ -15,4 +15,9 @@ class MainController extends Controller
     {
         return view('ess.search');
     }
+
+    public function user_add(Request $request)
+    {
+        return view("ess.user_add");
+    }
 }

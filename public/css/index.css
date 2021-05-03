@@ -29,6 +29,20 @@ ol {
 
 /*             メイン部分のCSS（トップページ）             */
 
+.main_content {
+    background-size: cover;
+    background-image: url(../img/4211591_m.jpg);
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 200px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 30pt;
+    color: #4169E1;
+}
+
 .container {
     width: 30%;
     float: right;
@@ -89,5 +103,5 @@ article p {
 
 .inquiry {
     margin-top: 15px;
-    padding-left: 330px;
+    margin-left: 330px;
 }
