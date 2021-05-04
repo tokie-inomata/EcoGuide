@@ -2,17 +2,26 @@
 
 table {
     width: 600px;
-    margin: 0 430px;
+    margin: 0 380px;
+}
+
+th {
+    width: 30%;
+}
+
+td {
+    width: 35%;
 }
 
 .search_button {
-    margin: 0 700px;
+    margin: 0 640px;
     border: solid #B0E0E6 1px;
     background-color: #B0E0E6;
     border-radius: 0 0 5px 5px;
 }
 
 .search_area {
+    margin-top: 100px;
     border: solid #B0E0E6 1px;
     border-radius: 10px;
     background-color: #B0E0E6;

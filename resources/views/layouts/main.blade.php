@@ -9,11 +9,11 @@
 </head>
 <body>
     <div id="header">
-        <img alt="Ecoスポットサーチ" href="/" class="titlelogo">
+        <a href="/"><img alt="Ecoスポットサーチ" src="{{ asset('img/eco_spot_search.png') }}" class="titlelogo"></a>
         <nav>
             <ul>
-                <ol><a href="/">ログイン</a></ol>
-                <ol><a href="/">新規登録</a></ol>
+                <ol><a href="/login">ログイン</a></ol>
+                <ol><a href="/user_add">新規登録</a></ol>
             </ul>
         </nav>
     </div>

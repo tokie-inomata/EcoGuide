@@ -1,8 +1,9 @@
 @extends('layouts.main')
 
 @section('main')
-<form action="/search" method="get">
+<form action="/details_search" method="get">
     <table class="search_area">
+        @csrf
         <tr><th>都道府県</th>
         <td>
             <select type="text" class="search_control" name="area">

@@ -1,5 +1,12 @@
 /*             全体のCSS             */
+body {
+    background-color: #FFF5EE;
+}
 
+a:link, a:visited, a:hover, a:active {
+    color: #2F4F4F;
+    text-decoration: none;
+}
 
 
 /*             ヘッダー部分のCSS             */
@@ -8,21 +15,22 @@
     height: 50px;
     display: flex;
     justify-content: space-between;
-    padding-top: 30px;
+    padding: 10px 0 ;
 }
 
 .titlelogo { 
-    margin-left: 150px;
+    height: 70px;
+    margin-left: 80px;
 }
 
 ul {
     display: flex;
     justify-content: space-between;
-    margin-right: 160px;
+    margin-right: 130px;
 }
 
 ol {
-    padding-left: 200px;
+    padding-left: 130px;
 }
 
 
@@ -40,7 +48,7 @@ h1 {
     padding-top: 200px;
     font-family: 'Shippori Mincho B1', serif;
     font-size: 30pt;
-    color: #4169E1;
+    color: #2F4F4F;
 }
 
 .container {

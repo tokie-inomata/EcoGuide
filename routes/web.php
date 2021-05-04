@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+/*             ユーザー側ルート             */
+
+
 Route::get('/', 'MainController@index');
 Route::get('/search', 'MainController@search');
 Route::get('/user_add', 'MainController@user_add');
+Route::get('/details_search', 'MainController@details_search');
+Route::get('/login', 'MainController@login');
+
+
+
+
+/*             管理者側ルート             */

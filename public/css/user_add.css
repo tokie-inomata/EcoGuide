@@ -1,3 +1,22 @@
-.user_add {
+.form_title {
+    margin-top: 80px;
     text-align: center;
+}
+
+.add_form, .user_login {
+    width: 10%;
+    margin: 0 auto;
+}
+
+.button {
+    margin-left: 40px;
+    margin-bottom: 30px;
+    padding: 5px;
+    background-color: #F0FFF0;
+    border-color: #B0E0E6;
+    border-radius: 8px;
+}
+
+.pass_change {
+    margin-left: 580px;
 }

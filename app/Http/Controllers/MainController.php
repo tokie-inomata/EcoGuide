@@ -20,4 +20,14 @@ class MainController extends Controller
     {
         return view("ess.user_add");
     }
+    
+    public function details_search(Request $request)
+    {
+        return view("ess.details_search");
+    }
+
+    public function login(Request $request)
+    {
+        return view("ess.login");
+    }
 }
