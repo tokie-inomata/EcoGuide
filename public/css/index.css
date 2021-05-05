@@ -1,6 +1,7 @@
 /*             全体のCSS             */
+
 body {
-    background-color: #FFF5EE;
+    margin: 0;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -8,24 +9,31 @@ a:link, a:visited, a:hover, a:active {
     text-decoration: none;
 }
 
+.footer_fixed {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+}
 
 /*             ヘッダー部分のCSS             */
 
-#header {
-    height: 50px;
+header {
+    height: 100px;
     display: flex;
     justify-content: space-between;
-    padding: 10px 0 ;
 }
 
 .titlelogo { 
     height: 70px;
+    margin-top: 15px;
     margin-left: 80px;
 }
 
 ul {
     display: flex;
     justify-content: space-between;
+    margin-top: 32px;
     margin-right: 130px;
 }
 
@@ -33,21 +41,22 @@ ol {
     padding-left: 130px;
 }
 
-
-
 /*             メイン部分のCSS（トップページ）             */
 
 .main_content {
     background-size: cover;
     background-image: url(../img/4211591_m.jpg);
+    background-position: center center;
     min-height: 100vh;
 }
 
 h1 {
     text-align: center;
-    padding-top: 200px;
+    margin: 0;
+    padding-top: 150px;
     font-family: 'Shippori Mincho B1', serif;
     font-size: 30pt;
+    letter-spacing: 30px;
     color: #2F4F4F;
 }
 
@@ -92,24 +101,170 @@ article p {
     width: 500px;
 }
 
-
-
-
 /*             フッター部分のCSS             */
 
-#footer {
-    height: 50px;
-}
-
-.copyright , .inquiry {
-    float: left;
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    background-color: #B0E0E6;
 }
 
 .copyright {
-    padding-left: 600px;
+    margin: 0;
+    padding-top: 30px;
+    text-align: center;
 }
 
-.inquiry {
-    margin-top: 15px;
-    margin-left: 330px;
+/*             フォーム             */
+
+.form_title {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.add_form, .user_login, .change_form {
+    width: 19%;
+    margin: 0 auto;
+    text-align: right;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.button {
+    margin: 30px 0 30px 40px;
+    padding: 5px;
+    background-color: #F0FFF0;
+    border-color: #B0E0E6;
+    border-radius: 8px;
+}
+
+/*             ログインページ             */
+
+.pass_change {
+    display: block;
+    margin-left: 580px;
+    padding-bottom: 60px;
+}
+
+/*             ユーザー情報変更             */
+
+.user_change {
+    margin-right: 40px;
+    
+}
+
+/*             テーブル             */
+
+table {
+    width: 600px;
+    margin: 0 380px;
+}
+
+th {
+    width: 30%;
+    border-right: 1px black solid;
+}
+
+td {
+    width: 60%;
+    padding-left: 20px;
+}
+
+.details {
+    display: inline-block;
+    width: 40%;
+}
+
+/*             検索ページ             */
+
+.search_control {
+    margin-left: 80px;
+}
+
+
+.search_button {
+    margin: 0 640px;
+    border: solid #B0E0E6 1px;
+    background-color: #B0E0E6;
+    border-radius: 0 0 5px 5px;
+}
+
+.search_area {
+    margin-top: 100px;
+    border: solid #B0E0E6 1px;
+    border-radius: 10px;
+    background-color: #B0E0E6;
+}
+
+/*             検索結果             */
+
+.result {
+    text-align: center;
+}
+
+.display_number {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 400px;
+}
+
+.number {
+    height: 20px;
+    margin-top: 18px;
+    margin-left: 5px;
+}
+
+.search_result {
+    border: solid #708090 1px;
+    border-radius: 10px;
+}
+
+/*             ２カラム画面             */
+
+#side_menu {
+    width: 25%;
+    height: 75%;
+    float: left;
+}
+
+.menulist {
+    display: block;
+    margin: 50px 0 50px 100px;
+}
+
+#main {
+    height: 75%;
+}
+
+/*             ユーザーページ             */
+
+.user_name, .user_mail {
+    display: block;
+    margin:  0 0 80px 500px;
+}
+
+.user_name {
+    padding-top: 150px;
+}
+
+.change_button {
+    margin-left: 500px;
+    padding: 10px;
+}
+
+/*             登録一覧             */
+
+.place_registration {
+    margin-left: 750px;
+}
+
+.registration {
+    margin-top: 50px;
+    margin-left: 600px;
 }

@@ -5,8 +5,8 @@
 <div class="user_login">
     <form action="/" method="post">
         @csrf
-        <label>メールアドレス<input type="text" name="mail"></label><br><br>
-        <label>パスワード<input type="password" name="pass"></label><br><br>
+        <label>メールアドレス<input type="text" name="mail"></label>
+        <label>パスワード<input type="password" name="pass"></label>
         <input type="submit" value="ログイン" class="button">
     </form>
     

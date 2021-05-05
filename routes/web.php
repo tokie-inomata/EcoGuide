@@ -21,12 +21,15 @@ Route::get('/', function () {
 
 
 Route::get('/', 'MainController@index');
-Route::get('/search', 'MainController@search');
 Route::get('/user_add', 'MainController@user_add');
-Route::get('/details_search', 'MainController@details_search');
 Route::get('/login', 'MainController@login');
+Route::get('/mypage', 'MainController@user_page');
+Route::get('/registration_list', 'MainController@registration_list');
+Route::get('/userdata_change', 'MainController@userdata_change');
 
+/*             検索ルート             */
 
-
+Route::get('/search', 'SearchController@search');
+Route::get('/details_search', 'SearchController@details_search');
 
 /*             管理者側ルート             */

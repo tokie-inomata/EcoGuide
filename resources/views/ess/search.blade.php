@@ -3,7 +3,6 @@
 @section('main')
 <form action="/details_search" method="get">
     <table class="search_area">
-        @csrf
         <tr><th>都道府県</th>
         <td>
             <select type="text" class="search_control" name="area">
@@ -27,10 +26,14 @@
     </select>
 </div>
 <table class="search_result">
-    <tr><th rowspan="6"><img src="/"></th><td></td></tr>
-    <tr><td>名前 :</td></tr>
-    <tr><td>住所 :</td></tr>
-    <tr><td>品目 :</td></tr>
-    <tr><td></td></tr>
+    @foreach ( $spot as $key => $value )
+        @foreach ( $value as $key2 => $value2 )
+            <tr><th rowspan="5"><img src="/"></th><td></td></tr>
+            <tr><td>名前 : {{ $value2 }}</td></tr>
+            <tr><td>住所 : {{ $value2 }}</td></tr>
+            <tr><td>品目 : {{ $value2 }}</td></tr>
+            <tr><td></td></tr>
+        @endforeach
+    @endforeach
 </table>
 @endsection

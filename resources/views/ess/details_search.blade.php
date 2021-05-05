@@ -3,7 +3,6 @@
 @section('main')
 <form action="/search" method="get">
     <table class="search_area">
-        @csrf
         <tr><th>都道府県</th>
         <td>
             <select type="text" class="search_control" name="area">
@@ -14,59 +13,23 @@
         </td>
         </tr>
         <tr>
-            <th rowspan="4">市区町村</th>
-            <td>
-                <input type="radio" name="municipality" value="テスト1">テスト1
-            </td>
-            <td>
-                <input type="radio" name="municipality" value="テスト2">テスト2
-            </td>
+            <th rowspan="{{ count($city) / 2 }}">市区町村</th>
         </tr>
         <tr>
-            <td>
-                <input type="radio" name="municipality" value="テスト3">テスト3
-            </td>
-            <td>
-                <input type="radio" name="municipality" value="テスト4">テスト4
-            </td>
+            @foreach ( $city as $key => $value )
+                <td class="details">
+                    <input type="radio" name="municipality" value="{{ $value }}">{{ $value }}
+                </td>
+            @endforeach
         </tr>
+        <tr></tr>
         <tr>
-            <td>
-                <input type="radio" name="municipality" value="テスト5">テスト5
+            <th rowspan="{{ count($item) / 2 }}">品目</th>
+            @foreach ( $item as $key => $value )
+            <td class="details">
+                <input type="checkbox" name="item" value="{{ $value }}">{{ $value }}
             </td>
-            <td>
-                <input type="radio" name="municipality" value="テスト6">テスト6
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="radio" name="municipality" value="テスト7">テスト7
-            </td>
-        </tr>
-        <tr>
-            <th rowspan="4">品目</th>
-            <td>
-                <input type="checkbox" name="item" value="段ボール">段ボール
-            </td>
-            <td>
-                <input type="checkbox" name="item" value="紙・雑誌">紙・雑誌
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" name="item" value="衣類">衣類
-            </td>
-            <td>
-                <input type="checkbox" name="item" value="小型金属">小型金属            
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" name="item" value="小型家電">小型家電
-            </td>
-            <td>
-                <input type="checkbox" name="item" value="その他">その他            
-            </td>
+            @endforeach
         </tr>
     </table>
     <input type="submit" value="詳細検索" class="search_button">

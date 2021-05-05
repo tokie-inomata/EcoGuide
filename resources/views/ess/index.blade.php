@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="main_content">
-    <h1>資  源  回  収  B  O  X  検  索  サ  イ  ト  <br>E  c  o  ス  ポ  ッ  ト  サ  ー  チ</h1>
+    <h1>資源回収BOX検索サイト<br>Ecoスポットサーチ</h1>
 </div>
 <div class="container">
     <article class="main_article">
