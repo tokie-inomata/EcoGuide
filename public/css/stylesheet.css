@@ -24,20 +24,20 @@ header {
     justify-content: space-between;
 }
 
-.titlelogo { 
-    height: 70px;
-    margin-top: 15px;
-    margin-left: 80px;
+.logo_title { 
+    font-family: 'Girassol', cursive;
+    font-size: 40pt;
+    padding: 18px 50px;
 }
 
-ul {
+.main_menu {
     display: flex;
     justify-content: space-between;
     margin-top: 32px;
     margin-right: 130px;
 }
 
-ol {
+.menu_button {
     padding-left: 130px;
 }
 
@@ -87,18 +87,205 @@ article p {
 
 .area_search {
     width: 60%;
-    margin-left: 150px;
-    margin-top: 30px;
+    margin: 30px 0 50px 150px;
+    position: relative;
 }
 
 .area_search h2 {
-    font-size: 13pt;
-    padding-left: 200px;
+    position: absolute;
+    top: 10px;
+    left: -50px;
+    font-size: 23pt;
 }
 
 .area_search img {
     height: 500px;
     width: 500px;
+}
+
+.hokkaidou_area {
+    width: 70px;
+    position: absolute;
+    top: 20px;
+    left: 510px;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #d4a3c9;
+    border-radius: 10px;
+}
+
+.touhoku_area {
+    width: 125px;
+    position: absolute;
+    top: 140px;
+    left: 455px;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #84b4e2;
+    border-radius: 10px;
+}
+
+.tyuubu_area {
+    width: 125px;
+    position: absolute;
+    top: 105px;
+    left: 140px;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #a2d0a0;
+    border-radius: 10px;
+}
+
+.kantou_area {
+    width: 190px;
+    position: absolute;
+    top: 270px;
+    left: 390px;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #a8dadb;
+    border-radius: 10px;
+}
+
+.kansai_area {
+    width: 125px;
+    position: absolute;
+    top: 370px;
+    left: 220px;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #f6e36a;
+    border-radius: 10px;
+}
+
+.tyuugoku_area {
+    width: 125px;
+    position: absolute;
+    top: 147px;
+    left: 0;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #f4b3bb;
+    border-radius: 10px;
+}
+
+.shikoku_area {
+    width: 125px;
+    position: absolute;
+    top: 412px;
+    left: 80px;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #f1c16b;
+    border-radius: 10px;
+}
+
+.kyuusyuu_area {
+    width: 125px;
+    position: absolute;
+    top: 370px;
+    left: -110px;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #ed7a81;
+    border-radius: 10px;
+}
+
+.okinawa_area {
+    width: 70px;
+    position: absolute;
+    top: 435px;
+    left: 510px;
+    padding-bottom: 10px;
+    font-size: 10pt;
+    color: #2f4f4f;
+    background-color: #ed7980;
+    border-radius: 10px;
+}
+
+.area_group {
+    width: 120px;
+    padding-left: 15px;
+}
+
+.area_list {
+    width: 60px;
+    padding: 0;
+    float: left;
+}
+
+.kantou_group {
+    width: 200px;
+    margin: 0;
+    padding-left: 13px;
+}
+
+.kantou_list {
+    width: 60px;
+    padding: 0;
+    float: left;
+}
+
+.hokkaidou {
+    margin: 10px 0;
+    padding-left: 10px;
+    font-size: 12pt;
+}
+
+.touhoku {
+    margin: 10px 0;
+    padding-left: 30px;
+    font-size: 12pt;
+}
+
+.tyuubu {
+    margin: 10px 0;
+    padding-left: 30px;
+    font-size: 12pt;
+}
+
+.kantou {
+    margin: 10px 0;
+    padding-left: 60px;
+    font-size: 12pt;
+}
+
+.kansai {
+    margin: 10px 0;
+    padding-left: 30px;
+    font-size: 12pt;
+}
+
+.tyuugoku {
+    margin: 10px 0;
+    padding-left: 30px;
+    font-size: 12pt;
+}
+
+.shikoku {
+    margin: 10px 0;
+    padding-left: 30px;
+    font-size: 12pt;
+}
+
+.kyuusyuu {
+    margin: 10px 0;
+    padding-left: 30px;
+    font-size: 12pt;
+}
+
+.okinawa {
+    margin: 10px 0;
+    padding-left: 18px;
+    font-size: 12pt;
 }
 
 /*             フッター部分のCSS             */
@@ -108,7 +295,7 @@ footer {
     bottom: 0;
     height: 80px;
     width: 100%;
-    background-color: #B0E0E6;
+    background-color: #5f9ea0;
 }
 
 .copyright {
@@ -125,7 +312,7 @@ footer {
     text-align: center;
 }
 
-.add_form, .user_login, .change_form {
+.add_form, .user_login, .user_edit_form {
     width: 19%;
     margin: 0 auto;
     text-align: right;
@@ -146,7 +333,7 @@ label {
 
 /*             ログインページ             */
 
-.pass_change {
+.user_pass_edit {
     display: block;
     margin-left: 580px;
     padding-bottom: 60px;
@@ -154,7 +341,7 @@ label {
 
 /*             ユーザー情報変更             */
 
-.user_change {
+.user_edit {
     margin-right: 40px;
     
 }
@@ -163,7 +350,7 @@ label {
 
 table {
     width: 600px;
-    margin: 0 380px;
+    margin: 0 400px;
 }
 
 th {
@@ -189,7 +376,7 @@ td {
 
 
 .search_button {
-    margin: 0 640px;
+    margin: 0 670px;
     border: solid #B0E0E6 1px;
     background-color: #B0E0E6;
     border-radius: 0 0 5px 5px;
@@ -202,13 +389,18 @@ td {
     background-color: #B0E0E6;
 }
 
+.not_spot {
+    text-align: center;
+    padding: 100px 0 ;
+}
+
 /*             検索結果             */
 
-.result {
+.result_title {
     text-align: center;
 }
 
-.display_number {
+.result_number {
     display: flex;
     justify-content: flex-end;
     margin-right: 400px;
@@ -223,6 +415,10 @@ td {
 .search_result {
     border: solid #708090 1px;
     border-radius: 10px;
+}
+
+.result {
+    margin-bottom: 100px;
 }
 
 /*             ２カラム画面             */
@@ -253,18 +449,18 @@ td {
     padding-top: 150px;
 }
 
-.change_button {
+.user_edit_button {
     margin-left: 500px;
     padding: 10px;
 }
 
 /*             登録一覧             */
 
-.place_registration {
+.spot_add_button {
     margin-left: 750px;
 }
 
-.registration {
+.spot_add {
     margin-top: 50px;
     margin-left: 600px;
 }

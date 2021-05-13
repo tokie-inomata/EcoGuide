@@ -2,17 +2,18 @@
 <head>
     <title>ESS</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
 </head>
 <body>
     <div class="footer_fixed">
         <header>
-            <a href="/"><img alt="Ecoスポットサーチ" src="{{ asset('img/eco_spot_search.png') }}" class="titlelogo"></a>
+            <a href="/" class="logo_title">EcoSpotSearch</a>
             <nav>
-                <ul>
-                    <ol><a href="/login">ログイン</a></ol>
-                    <ol><a href="/user_add">新規登録</a></ol>
+                <ul class="main_menu">
+                    <ol class="menu_button"><a href="/login">ログイン</a></ol>
+                    <ol class="menu_button"><a href="/user_add">新規登録</a></ol>
                 </ul>
             </nav>
         </header>

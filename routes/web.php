@@ -11,25 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
-/*             ユーザー側ルート             */
-
 
 Route::get('/', 'MainController@index');
-Route::get('/user_add', 'MainController@user_add');
-Route::get('/login', 'MainController@login');
 Route::get('/mypage', 'MainController@user_page');
-Route::get('/registration_list', 'MainController@registration_list');
-Route::get('/userdata_change', 'MainController@userdata_change');
+
+/*             ユーザー側ルート             */
+Route::get('/user_add', 'UserController@user_add');
+Route::get('/login', 'UserController@login');
+Route::get('/user_edit', 'UserController@user_edit');
 
 /*             検索ルート             */
 
 Route::get('/search', 'SearchController@search');
-Route::get('/details_search', 'SearchController@details_search');
+
+/*             Spotルート             */
+Route::get('/spot_add_list', 'SpotController@spot_add_list');
 
 /*             管理者側ルート             */
