@@ -48,6 +48,9 @@ class SearchController extends Controller
 
         $area = $request -> area;
 
+        $city_count = count($city) / 2;
+        $item_count = count($item) / 2;
+
         $param = [
             'spot' => $spot,
             'flg' => $flg,
@@ -55,6 +58,8 @@ class SearchController extends Controller
             'city' => $city,
             'item' => $item,
             'area' => $area,
+            'city_count' => $city_count,
+            'item_count' => $item_count,
         ];
 
         return view('ess.search', $param);

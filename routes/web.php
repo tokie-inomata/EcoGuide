@@ -26,5 +26,11 @@ Route::get('/search', 'SearchController@search');
 
 /*             Spotルート             */
 Route::get('/spot_add_list', 'SpotController@spot_add_list');
+Route::get('/spot_add', 'SpotController@spot_add');
+Route::get('/spot_edit', 'SpotController@spot_edit');
 
 /*             管理者側ルート             */
+Route::get('/user_list', 'AdminController@admin_user_list');
+Route::get('/spot_list', 'AdminController@admin_spot_list');
+Route::get('/admin_user_edit', 'AdminController@admin_user_edit');
+Route::get('/blacklist', 'AdminController@blacklist');

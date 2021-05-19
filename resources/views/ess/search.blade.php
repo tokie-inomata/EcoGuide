@@ -21,7 +21,7 @@
             </tr>
             @if ($request->flg == 1)
                 <tr>
-                    <th rowspan="{{ count($city) / 2 }}">市区町村</th>
+                    <th rowspan="{{ $city_count }}">市区町村</th>
                 </tr>
                 <tr>
                     @foreach ( $city as $k => $val )
@@ -30,8 +30,9 @@
                         </td>
                     @endforeach
                 </tr>
+                <tr></tr>
                 <tr>
-                    <th rowspan="{{ count($item) / 2 }}">品目</th>
+                    <th rowspan="{{ $item_count }}">品目</th>
                     @foreach ( $item as $k => $val )
                         <td class="details">
                             <input type="checkbox" name="item" value="{{ $val }}">{{ $val }}
@@ -59,16 +60,15 @@
                 <input type="submit" value="表示">
             </form>
         </div>
+        <div class="result">
+            @foreach ( $spot as $k => $val )
+                <table class="search_result">
+                    <tr><th rowspan="5"><img src="/"></th></tr>
+                    <tr><td>名前 : {{ $val['name'] }}</td></tr>
+                    <tr><td>住所 : {{ $val['address'] }}</td></tr>
+                    <tr><td>品目 : {{ $val['item'] }}</td></tr>
+                </table>
+            @endforeach
+        </div>
     @endif
-
-    <div class="result">
-        @foreach ( $spot as $k => $val )
-            <table class="search_result">
-                <tr><th rowspan="5"><img src="/"></th></tr>
-                <tr><td>名前 : {{ $val['name'] }}</td></tr>
-                <tr><td>住所 : {{ $val['address'] }}</td></tr>
-                <tr><td>品目 : {{ $val['item'] }}</td></tr>
-            </table>
-        @endforeach
-    </div>
 @endsection

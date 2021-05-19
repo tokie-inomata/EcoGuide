@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('main')
-    <h2 class="form_title">登録情報変更</h2>
+    <h2 class="user_edit_title">登録情報変更</h2>
     <div class="user_edit_form">
         <form action="/" method="post"></form>
             @csrf

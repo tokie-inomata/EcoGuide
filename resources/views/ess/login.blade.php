@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('main')
-    <h2 class="form_title">ログイン</h2>
+    <h2 class="user_login_title">ログイン</h2>
     <div class="user_login">
         <form action="/" method="post">
             @csrf

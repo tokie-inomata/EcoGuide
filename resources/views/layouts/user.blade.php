@@ -18,8 +18,8 @@
                 </nav>
         </header>
         <div id="side_menu">
-            <a href="/mypage" class="menulist">ユーザー情報</a>
-            <a href="/spot_add_list" class="menulist">登録一覧</a>
+            <a href="/mypage" class="menu_list">ユーザー情報</a>
+            <a href="/spot_add_list" class="menu_list">登録一覧</a>
             @yield('admin_menu')
         </div>
         <div id="user_info">
