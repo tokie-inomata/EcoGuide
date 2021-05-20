@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class SpotController extends Controller
 {
     
-    public function spot_add_list(Request $request)
+    public function index(Request $request)
     {
         $spot = array(
   
@@ -15,7 +15,7 @@ class SpotController extends Controller
         return view("ess.spot_add_list", ['spot' => $spot]);
     }
 
-    public function spot_add(Request $request)
+    public function create(Request $request)
     {
         $item = [
             '0' => '段ボール',
@@ -29,7 +29,7 @@ class SpotController extends Controller
         return view("ess/spot_add", ['item' => $item]);
     }
 
-    public function spot_edit(Request $request)
+    public function edit(Request $request)
     {
         $item = [
             '0' => '段ボール',

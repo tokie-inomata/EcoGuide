@@ -44,9 +44,9 @@ class SearchController extends Controller
             '5' => 'その他',
         ];
 
-        $flg = $request -> flg;
+        $flg = $request->flg;
 
-        $area = $request -> area;
+        $area = $request->area;
 
         $city_count = count($city) / 2;
         $item_count = count($item) / 2;

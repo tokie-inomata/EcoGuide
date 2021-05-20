@@ -16,4 +16,13 @@ class MainController extends Controller
         return view("ess.user_page");
     }
 
+    public function pass_reset(Request $request)
+    {
+        return view('ess.pass_reset');
+    }
+
+    public function pass_edit(Request $request)
+    {
+        return view('ess.pass_edit');
+    }
 }

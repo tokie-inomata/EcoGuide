@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function user_add(Request $request)
+    public function create(Request $request)
     {
         return view("ess.user_add");
     }
@@ -16,7 +16,7 @@ class UserController extends Controller
         return view("ess.login");
     }
 
-    public function user_edit(Request $request)
+    public function edit(Request $request)
     {
         return view("ess.user_edit");
     }

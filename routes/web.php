@@ -14,23 +14,25 @@
 
 Route::get('/', 'MainController@index');
 Route::get('/mypage', 'MainController@user_page');
+Route::get('/pass_reset', 'MainController@pass_reset');
+Route::get('/pass_edit', 'MainController@pass_edit');
 
 /*             ユーザー側ルート             */
-Route::get('/user_add', 'UserController@user_add');
+Route::get('/user/create', 'UserController@create');
 Route::get('/login', 'UserController@login');
-Route::get('/user_edit', 'UserController@user_edit');
+Route::get('/user/edit', 'UserController@edit');
 
 /*             検索ルート             */
 
 Route::get('/search', 'SearchController@search');
 
 /*             Spotルート             */
-Route::get('/spot_add_list', 'SpotController@spot_add_list');
-Route::get('/spot_add', 'SpotController@spot_add');
-Route::get('/spot_edit', 'SpotController@spot_edit');
+Route::get('/spot/index', 'SpotController@index');
+Route::get('/spot/create', 'SpotController@create');
+Route::get('/spot/edit', 'SpotController@edit');
 
 /*             管理者側ルート             */
-Route::get('/user_list', 'AdminController@admin_user_list');
-Route::get('/spot_list', 'AdminController@admin_spot_list');
-Route::get('/admin_user_edit', 'AdminController@admin_user_edit');
+Route::get('/admin/user/index', 'AdminController@user_index');
+Route::get('/admin/spot/index', 'AdminController@spot_index');
+Route::get('/admin/user/edit', 'AdminController@user_edit');
 Route::get('/blacklist', 'AdminController@blacklist');

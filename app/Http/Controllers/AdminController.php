@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function admin_user_list(Request $request)
+    public function user_index(Request $request)
     {
         $user = array(
             [
@@ -39,7 +39,7 @@ class AdminController extends Controller
         return view('ess/admin_user_list', ['user' => $user]);
     }
 
-    public function admin_spot_list(Request $request)
+    public function spot_index(Request $request)
     {
         $spot = [
             [
@@ -59,7 +59,7 @@ class AdminController extends Controller
         return view('ess/admin_spot_list', ['spot' => $spot]);
     }
 
-    public function admin_user_edit(Request $request)
+    public function user_edit(Request $request)
     {
         return view('ess/admin_user_edit');
     }
