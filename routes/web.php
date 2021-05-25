@@ -14,8 +14,9 @@
 
 Route::get('/', 'MainController@index');
 Route::get('/mypage', 'MainController@user_page');
-Route::get('/pass_reset', 'MainController@pass_reset');
 Route::get('/pass_edit', 'MainController@pass_edit');
+Route::get('/pass_forget', 'MainController@pass_forget');
+Route::get('/pass_reset', 'MainController@pass_reset');
 
 /*             ユーザー側ルート             */
 Route::get('/user/create', 'UserController@create');

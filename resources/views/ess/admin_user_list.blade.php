@@ -1,41 +1,41 @@
 @extends('layouts.user')
 
 @section('admin_menu')
-    <a href="/user_list" class="menu_list">全ユーザー一覧</a>
-    <a href="/spot_list" class="menu_list">全登録一覧</a>
-    <a href="/" class="menu_list">ブラックリスト</a>
+    <a href="/admin/user/index" class="menu-list">全ユーザー一覧</a>
+    <a href="/admin/spot/index" class="menu-list">全登録一覧</a>
+    <a href="/blacklist" class="menu-list">ブラックリスト</a>
 @endsection
 
 @section('main')
-    <form action="/" method="post">
+    <h2 class="title">全ユーザー一覧</h2>
+    <form action="/" method="post" class="search-box">
         @csrf
-        <input type="text"><input type="submit" name="user_list_search" value="検索">
+        <input type="text" size="50" name="admin_user_search"><input type="submit" value="検索">
     </form>
-    <h2 class="user_list_title">全ユーザー一覧</h2>
-    <div class="result_number">
+    <div class="result-number">
         <form action="/search" method="get">
             <select type="text" class="number">
-                <option name="result_number" value="10">10件</option>
-                <option name="result_number" value="30">30件</option>
-                <option name="result_number" value="50">50件</option>
+                <option name="result-number" value="10">10件</option>
+                <option name="result-number" value="30">30件</option>
+                <option name="result-number" value="50">50件</option>
             </select>
             <input type="submit" value="表示">
         </form>
     </div>
-    <div class="user_list_reslut">
-        <table class="user_list_table">
+    <div class="user-list-reslut">
+        <table class="user-list-table">
             <tr>
-                <th class="user_list_id">ID</th>
-                <th class="user_list_name">名前</th>
-                <th class="user_list_mail">メールアドレス</th>
-                <th class="user_list_edit">変更</th>
+                <th class="user-list-id">ID</th>
+                <th class="user-list-name">名前</th>
+                <th class="user-list-mail">メールアドレス</th>
+                <th class="user-list-edit">変更</th>
             </tr>
             @foreach($user as $k => $val)
                 <tr>
-                    <td class="user_list_id">{{ $val['id'] }}</td>
-                    <td class="user_list_name">{{ $val['name'] }}</td>
-                    <td class="user_list_mail">{{ $val['mail'] }}</td>
-                    <td class="user_list_edit"><a href="/" class="button admin_user_edit">変更</a></td>
+                    <td class="user-list-id">{{ $val['id'] }}</td>
+                    <td class="user-list-name">{{ $val['name'] }}</td>
+                    <td class="user-list-mail">{{ $val['mail'] }}</td>
+                    <td class="user-list-edit"><a href="/" class="button admin-user-edit">変更</a></td>
                 </tr>
             @endforeach
         </table>

@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
 </head>
 <body>
-    <div class="footer_fixed">
+    <div class="footer-fixed">
         <header>
-            <a href="/" class="logo_title">EcoSpotSearch</a>
+            <a href="/" class="logo-title">EcoSpotSearch</a>
             <nav>
-                <ul class="main_menu">
-                    <ol class="menu_button"><a href="/login">ログイン</a></ol>
-                    <ol class="menu_button"><a href="/user_add">新規登録</a></ol>
+                <ul class="main-menu">
+                    <ol class="menu-button"><a href="/login">ログイン</a></ol>
+                    <ol class="menu-button"><a href="/user/create">新規登録</a></ol>
                 </ul>
             </nav>
         </header>

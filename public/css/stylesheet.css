@@ -1,15 +1,14 @@
 /*             全体のCSS             */
-
 body {
     margin: 0;
 }
 
 a:link, a:visited, a:hover, a:active {
-    color: #2F4F4F;
+    color: #163802;
     text-decoration: none;
 }
 
-.footer_fixed {
+.footer-fixed {
     min-height: 100vh;
     position: relative;
     padding-bottom: 80px;
@@ -22,30 +21,36 @@ header {
     height: 100px;
     display: flex;
     justify-content: space-between;
+    border-bottom: solid 1px #d5f0c5;
 }
 
-.logo_title { 
+.logo-title { 
     font-family: 'Girassol', cursive;
     font-size: 40pt;
     padding: 18px 50px;
 }
 
-.main_menu {
+.main-menu {
     display: flex;
     justify-content: space-between;
     margin-top: 32px;
     margin-right: 130px;
 }
 
-.menu_button {
+.menu-button {
     padding-left: 130px;
 }
 
 /*             メイン部分のCSS（トップページ）             */
+.primary {
+    height: 100vh;
+}
 
-.main_content {
+.main-content {
     background-size: cover;
     background-image: url(../img/index_img.jpg);
+    background-color:rgba(255,255,255,0.2);
+    background-blend-mode:lighten;
     background-position: center center;
     min-height: 100vh;
 }
@@ -77,36 +82,41 @@ article p {
     box-sizing: border-box;
 }
 
-.main_article {
-    margin: 70px 0;
+.main-article {
+    margin: 100px 0;
 }
 
-.main_article h2 {
+.main-article h2 {
     padding-left: 100px;
 }
 
-.area_search {
+.area-search {
     width: 60%;
-    margin: 30px 0 50px 150px;
+    margin: 70px 0 50px 150px;
+    padding-top: 60px;
     position: relative;
 }
 
-.area_search h2 {
+.area-search a {
+    color: #2f4f4f;
+}
+
+.area-search h2 {
     position: absolute;
     top: 10px;
     left: -50px;
     font-size: 23pt;
 }
 
-.area_search img {
+.area-search img {
     height: 500px;
     width: 500px;
 }
 
-.hokkaidou_area {
+.hokkaidou-area {
     width: 70px;
     position: absolute;
-    top: 20px;
+    top: 80px;
     left: 510px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -115,10 +125,10 @@ article p {
     border-radius: 10px;
 }
 
-.touhoku_area {
+.touhoku-area {
     width: 125px;
     position: absolute;
-    top: 140px;
+    top: 190px;
     left: 455px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -127,10 +137,10 @@ article p {
     border-radius: 10px;
 }
 
-.tyuubu_area {
+.tyuubu-area {
     width: 125px;
     position: absolute;
-    top: 105px;
+    top: 145px;
     left: 140px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -139,10 +149,10 @@ article p {
     border-radius: 10px;
 }
 
-.kantou_area {
+.kantou-area {
     width: 190px;
     position: absolute;
-    top: 270px;
+    top: 315px;
     left: 390px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -151,10 +161,10 @@ article p {
     border-radius: 10px;
 }
 
-.kansai_area {
+.kansai-area {
     width: 125px;
     position: absolute;
-    top: 370px;
+    top: 430px;
     left: 220px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -163,10 +173,10 @@ article p {
     border-radius: 10px;
 }
 
-.tyuugoku_area {
+.tyuugoku-area {
     width: 125px;
     position: absolute;
-    top: 147px;
+    top: 187px;
     left: 0;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -175,10 +185,10 @@ article p {
     border-radius: 10px;
 }
 
-.shikoku_area {
+.shikoku-area {
     width: 125px;
     position: absolute;
-    top: 412px;
+    top: 472px;
     left: 80px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -187,10 +197,10 @@ article p {
     border-radius: 10px;
 }
 
-.kyuusyuu_area {
+.kyuusyuu-area {
     width: 125px;
     position: absolute;
-    top: 370px;
+    top: 430px;
     left: -110px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -199,10 +209,10 @@ article p {
     border-radius: 10px;
 }
 
-.okinawa_area {
+.okinawa-area {
     width: 70px;
     position: absolute;
-    top: 435px;
+    top: 495px;
     left: 510px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -211,24 +221,24 @@ article p {
     border-radius: 10px;
 }
 
-.area_group {
+.area-group {
     width: 120px;
     padding-left: 15px;
 }
 
-.area_list {
+.area-list {
     width: 60px;
     padding: 0;
     float: left;
 }
 
-.kantou_group {
+.kantou-group {
     width: 200px;
     margin: 0;
     padding-left: 13px;
 }
 
-.kantou_list {
+.kantou-list {
     width: 60px;
     padding: 0;
     float: left;
@@ -295,7 +305,8 @@ footer {
     bottom: 0;
     height: 80px;
     width: 100%;
-    background-color: #5f9ea0;
+    color: #FFFFFF;
+    background-color: rgba(82,161,128,0.7);
 }
 
 .copyright {
@@ -306,13 +317,13 @@ footer {
 
 /*             フォーム             */
 
-.user_add_title, .user_login_title, .spot_add_list_title, .user_edit_title, .user_list_title {
+.title {
     margin-top: 80px;
     margin-bottom: 50px;
     text-align: center;
 }
 
-.add_form, .user_login, .user_edit_form {
+.add-form, .user-login, .user-edit-form {
     width: 19%;
     margin: 0 auto;
     text-align: right;
@@ -333,7 +344,7 @@ label {
 
 /*             ログインページ             */
 
-.user_pass_edit {
+.user-pass-edit {
     display: block;
     margin-left: 580px;
     padding-bottom: 60px;
@@ -341,7 +352,7 @@ label {
 
 /*             ユーザー情報変更             */
 
-.user_edit {
+.user-edit {
     margin-right: 40px;
     
 }
@@ -370,37 +381,37 @@ td {
 
 /*             検索ページ             */
 
-.search_control {
+.search-control {
     margin-left: 80px;
 }
 
 
-.search_button {
+.search-button {
     margin: 0 670px;
     border: solid #B0E0E6 1px;
     background-color: #B0E0E6;
     border-radius: 0 0 5px 5px;
 }
 
-.search_area {
+.search-area {
     margin-top: 100px;
     border: solid #B0E0E6 1px;
     border-radius: 10px;
     background-color: #B0E0E6;
 }
 
-.not_spot {
+.not-spot {
     text-align: center;
     padding: 100px 0 ;
 }
 
 /*             検索結果             */
 
-.result_title {
+.result-title {
     text-align: center;
 }
 
-.result_number {
+.result-number {
     display: flex;
     justify-content: flex-end;
     margin-right: 400px;
@@ -412,7 +423,7 @@ td {
     margin-left: 5px;
 }
 
-.search_result {
+.search-result {
     border: solid #708090 1px;
     border-radius: 10px;
 }
@@ -424,13 +435,14 @@ td {
 
 /*             ユーザー・アドミン画面             */
 
-#side_menu {
+#side-menu {
     width: 15%;
     height: 75%;
     float: left;
+    background-color: rgba(228, 255, 243, 0.7);
 }
 
-.menu_list {
+.menu-list {
     display: block;
     margin: 50px 0 50px 60px;
 }
@@ -441,62 +453,126 @@ td {
 
 /*             ユーザーページ             */
 
-.user_name, .user_mail {
+.user-name, .user-mail {
     display: block;
     margin:  0 0 80px 500px;
 }
 
-.user_name {
+.user-name {
     padding-top: 150px;
 }
 
-.user_edit_button {
-    margin-left: 500px;
+.user-edit-button {
+    margin-left: 800px;
     padding: 10px;
 }
 
-/*             登録一覧             */
+/*             スポット登録一覧             */
 
-.spot_add_button {
+.spot-add-button {
     margin-left: 750px;
 }
 
-.spot_add {
+.spot-add {
     margin-top: 50px;
     margin-left: 600px;
 }
 
 /*             admin 全ユーザー一覧             */
-.user_list_reslut {
+.search-box {
+    padding-left: 630px;
+}
+
+.admin-search-result {
+    margin-left: 500px;
+}
+
+.user-list-reslut {
     padding-left: 120px;
     margin-bottom: 30px;
 }
 
-.user_list_table {
+.user-list-table {
     border: solid 1px #2F4F4F;
     border-collapse: collapse;
 }
 
-.user_list_id {
+.user-list-id {
     width: 10%;
     border: solid 1px #2F4F4F;
     border-collapse: collapse;
 }
 
-.user_list_name {
+.user-list-name {
     width: 15%;
     border: solid 1px #2F4F4F;
     border-collapse: collapse;
 }
 
-.user_list_mail {
+.user-list-mail {
     width: 40%;
     border: solid 1px #2F4F4F;
     border-collapse: collapse;
 }
 
-.user_list_edit {
+.user-list-edit {
     width: 20%;
     border: solid 1px #2F4F4F;
     border-collapse: collapse;
+}
+
+/*              パスワードリセット              */
+
+h4 {
+    margin-top: 120px;
+    font-size: 22pt;
+    text-align: center;
+}
+
+.pass-reset-form {
+    margin-left: 600px;
+}
+
+.pass-edit-form {
+    margin-left: 600px;
+}
+
+.pass-reset-message {
+    margin-left: 500px;
+}
+
+/*              スポット作成・更新フォーム              */
+h3 {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 15pt;
+}
+
+.spot-create-form {
+    padding-left: 500px;
+    padding-top: 20px;
+}
+
+.spot-add-address-item {
+    padding-left: 115px;
+}
+
+.spot-add-item-list {
+    padding-left: 110px;
+}
+
+.spot-add-image-form {
+    padding-left: 110px;
+}
+
+.spot-add-button {
+    margin-left: 150px;
+}
+
+.spot-edit-button {
+    margin-left: 50px;
+}
+
+.spot-delete-button {
+    margin-left: 150px;
 }
