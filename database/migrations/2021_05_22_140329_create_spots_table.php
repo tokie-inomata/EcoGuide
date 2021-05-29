@@ -15,7 +15,7 @@ class CreateSpotsTable extends Migration
     {
         Schema::create('spots', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('users_id');
+            $table->integer('users_id')->unsigned();
             $table->string('name');
             $table->string('prefecture');
             $table->string('city');

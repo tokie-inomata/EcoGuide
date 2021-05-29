@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpotRecyclingItemsTable extends Migration
+class CreateRecyclingItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateSpotRecyclingItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('spot_recycling_items', function (Blueprint $table) {
+        Schema::create('recycling_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('spot_id');
-            $table->integer('ricycling_items_id');
+            $table->string('recycling_item');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateSpotRecyclingItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spot_recycling_items');
+        Schema::dropIfExists('recycling_items');
     }
 }

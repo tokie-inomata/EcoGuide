@@ -5,7 +5,7 @@
         <div class="spot-add-lists">
             <h2 class="title">登録一覧</h2>
             <div class="spot-signup">
-                <a class="button spot-add-button" href="/spot/create">新規登録</a>
+                <a class="button spot-create-button" href="/spot/create">新規登録</a>
             </div>
             @if (empty($spot))
                 <p class="not-spot">登録されているスポットがありません。</p>

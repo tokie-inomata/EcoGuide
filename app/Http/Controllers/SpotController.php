@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Spot;
+use App\Recycling_item;
+use App\Recycling_item_spot;
 
 class SpotController extends Controller
 {

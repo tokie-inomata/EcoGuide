@@ -13,14 +13,16 @@
 
 
 Route::get('/', 'MainController@index');
-Route::get('/mypage', 'MainController@user_page');
 Route::get('/pass_edit', 'MainController@pass_edit');
 Route::get('/pass_forget', 'MainController@pass_forget');
 Route::get('/pass_reset', 'MainController@pass_reset');
 
 /*             ユーザー側ルート             */
+Route::get('/mypage', 'UserController@mypage')->middleware('auth');
 Route::get('/user/create', 'UserController@create');
-Route::get('/login', 'UserController@login');
+Route::post('user/create', 'UserController@add');
+Route::get('/user/login', 'UserController@login')->name('user_login');
+Route::post('/user/login', 'UserController@signin')->name('user_signin');
 Route::get('/user/edit', 'UserController@edit');
 
 /*             検索ルート             */
@@ -37,3 +39,6 @@ Route::get('/admin/user/index', 'AdminController@user_index');
 Route::get('/admin/spot/index', 'AdminController@spot_index');
 Route::get('/admin/user/edit', 'AdminController@user_edit');
 Route::get('/blacklist', 'AdminController@blacklist');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
