@@ -1,6 +1,8 @@
+<!doctype html>
 <html>
 <head>
     <title>ESS</title>
+    <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
@@ -9,12 +11,12 @@
 <body>
     <div class="footer-fixed">
         <header>
-            <a href="/" class="logo-title">EcoSpotSearch</a>
+        <a href="/" class="logo-title"><image src="{{ asset('img/EcoSpotSearch-logo.png') }}" height="100px"></a>
                 <nav>
                     <ul class="main-menu">
                     @if(Auth::check())
                         <ol class="menu-button"><a href="/mypage">マイページ</a></ol>
-                        <ol class="menu-button"><a href="/">ログアウト</a></ol>
+                        <ol class="menu-button"><a href="{{ route('user_logout') }}">ログアウト</a></ol>
                     @else
                         <ol class="menu-button"><a href="/user/login">ログイン</a></ol>
                         <ol class="menu-button"><a href="/user/create">新規登録</a></ol>
@@ -25,7 +27,12 @@
         <div id="side-menu">
             <a href="/mypage" class="menu-list">ユーザー情報</a>
             <a href="/spot/index" class="menu-list">登録一覧</a>
-            @yield('admin_menu')
+            @if($login_user->admin_flg == 1)
+                <a href="/admin/user/index" class="menu-list">全ユーザー一覧</a>
+                <a href="/admin/spot/index" class="menu-list">全登録一覧</a>
+                <a href="/admin/item/create" class="menu-list">品目一覧</a>
+                <a href="/blacklist" class="menu-list">ブラックリスト</a>
+            @endif
         </div>
         <div id="user-info">
             @yield('main')

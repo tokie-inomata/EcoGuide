@@ -23,6 +23,11 @@ class CreateRecyclingItemSpotTable extends Migration
                   ->references('id')
                   ->on('spots')
                   ->onDelete('cascade');
+
+            $table->foreign('recycling_item_id')
+                  ->references('id')
+                  ->on('recycling_items')
+                  ->onDelete('cascade');
         });
     }
 

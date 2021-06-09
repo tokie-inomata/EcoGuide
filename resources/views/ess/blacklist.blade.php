@@ -1,11 +1,5 @@
 @extends('layouts.user')
 
-@section('admin_menu')
-    <a href="/admin/user/index" class="menu-list">全ユーザー一覧</a>
-    <a href="/admin/spot/index" class="menu-list">全登録一覧</a>
-    <a href="/blacklist" class="menu-list">ブラックリスト</a>
-@endsection
-
 @section('main')
     <h2 class="title">ブラックリスト</h2>
     <form action="/" method="post" class="search-box">

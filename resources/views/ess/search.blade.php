@@ -5,7 +5,7 @@
         <table class="search-area">
             <tr>
                 <th>都道府県</th>
-                <td>
+                <td class="details">
                     <select type="text" class="search-control" name="area">
                     @foreach(config('pref') as $k => $val)
                         @foreach($val as $k2 => $val2 )
@@ -47,7 +47,7 @@
 
     <h2 class="title">検索結果</h2>
 
-    @if(empty($spot))
+    @if(empty($spots))
         <p class="not-spot">登録されているスポットがありません。</p>
     @else
         <div class="result-number">
@@ -61,12 +61,12 @@
             </form>
         </div>
         <div class="result">
-            @foreach ( $spot as $k => $val )
+            @foreach ( $spots as $spot )
                 <table class="search-result">
                     <tr><th rowspan="5"><img src="/"></th></tr>
-                    <tr><td>名前 : {{ $val['name'] }}</td></tr>
-                    <tr><td>住所 : {{ $val['address'] }}</td></tr>
-                    <tr><td>品目 : {{ $val['item'] }}</td></tr>
+                    <tr><td>名前 : {{ $spot->name }}</td></tr>
+                    <tr><td>住所 : {{ $spot->getData() }}</td></tr>
+                    <tr><td>品目 : </td></tr>
                 </table>
             @endforeach
         </div>

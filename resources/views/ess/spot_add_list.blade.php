@@ -7,19 +7,19 @@
             <div class="spot-signup">
                 <a class="button spot-create-button" href="/spot/create">新規登録</a>
             </div>
-            @if (empty($spot))
-                <p class="not-spot">登録されているスポットがありません。</p>
-            @else
+            @if (!empty($spots))
                 <div class="result">
-                    @foreach ( $spot as $k => $val )
+                    @foreach ( $spots as $spot )
                         <table class="search-result">
                             <tr><th rowspan="4"><img src="/"></th></tr>
-                            <tr><td>名前 : {{ $val['name'] }}</td></tr>
-                            <tr><td>住所 : {{ $val['address'] }}</td></tr>
-                            <tr><td>品目 : {{ $val['item'] }}</td></tr>
+                            <tr><td>名前 : {{ $spot->name }}</td></tr>
+                            <tr><td>住所 : {{ $spot->getData() }}</td></tr>
+                            <tr><td>品目 : {{ $spot->recycling_items }}</td></tr>
                         </table>
                     @endforeach
                 </div>
+            @else
+                <p class="not-spot">登録されているスポットがありません。</p>
             @endif
         </div>
     </div>

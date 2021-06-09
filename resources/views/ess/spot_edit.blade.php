@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('main')
-    <h3>スポット情報を変更します。</h3>
+    <h2 class="title">スポット情報を変更します。</h2>
     <div class="spot-create-form">
         <form action="/" method="post">
             @csrf
@@ -23,7 +23,7 @@
             </label>
             <p class="spot-add-item">品目</p>
                 <div class="spot-add-item-list">
-                    @foreach($item as $k => $val)
+                    @foreach($recycling_item as $k => $val)
                         <input type="checkbox" value="{{ $k }}">{{ $val }}
                     @endforeach
                 </div>

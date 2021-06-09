@@ -1,11 +1,5 @@
 @extends('layouts.user')
 
-@section('admin_menu')
-    <a href="/admin/user/index" class="menu-list">全ユーザー一覧</a>
-    <a href="/admin/spot/index" class="menu-list">全登録一覧</a>
-    <a href="/blacklist" class="menu-list">ブラックリスト</a>
-@endsection
-
 @section('main')
     <h2 class="title">全ユーザー一覧</h2>
     <form action="/" method="post" class="search-box">
@@ -30,12 +24,12 @@
                 <th class="user-list-mail">メールアドレス</th>
                 <th class="user-list-edit">変更</th>
             </tr>
-            @foreach($user as $k => $val)
+            @foreach($people as $k )
                 <tr>
-                    <td class="user-list-id">{{ $val['id'] }}</td>
-                    <td class="user-list-name">{{ $val['name'] }}</td>
-                    <td class="user-list-mail">{{ $val['mail'] }}</td>
-                    <td class="user-list-edit"><a href="/" class="button admin-user-edit">変更</a></td>
+                    <td class="user-list-id">{{ $k->id }}</td>
+                    <td class="user-list-name">{{ $k->name }}</td>
+                    <td class="user-list-mail">{{ $k->email }}</td>
+                    <td class="user-list-edit"><a href="/admin/user/edit?id={{ $k->id }}" class="button admin-user-edit">変更</a></td>
                 </tr>
             @endforeach
         </table>

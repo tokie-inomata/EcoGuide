@@ -21,8 +21,8 @@
                 エラー:{{ $errors->first('password-confirm') }}
             @endif
             <label>パスワード確認<input type="password" name="password_confirm"></label>
-            <input type="hidden" value="0" name="admin_flg">
-            <input type="hidden" value="0" name="blacklist_flg">
+            <input type="hidden" value=0 name="admin_flg">
+            <input type="hidden" value=0 name="blacklist_flg">
             <input type="submit" value="登録する" class="button">
         </form>
     </div>

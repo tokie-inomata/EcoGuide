@@ -6,15 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Spot;
 use App\Recycling_item;
 
-class Recycling_Item_Spot extends Model
+class Recycling_item_spot extends Model
 {
-    public function spot()
-    {
-        return $this->belongsTo('App\Spot');
-    }
-
-    public function recycling_item()
-    {
-        return $this->belongsTo('App\Recycling_item');
-    }
+    protected $table = 'recycling_item_spot';
 }

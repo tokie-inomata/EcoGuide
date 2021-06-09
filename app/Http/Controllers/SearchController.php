@@ -3,28 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Spot;
+use App\User;
+use App\Recycling_item;
+use App\Recycling_item_Spot;
 
 class SearchController extends Controller
 {
     public function search(Request $request)
     {
-        $spot = array(
-            array(
-                'name' => 'test1',
-                'address' => 'test2',
-                'item' => 'test3',
-            ),
-            array(
-                'name' => 'test4',
-                'address' => 'test5',
-                'item' => 'test6',
-            ),
-            array(
-                'name' => 'test7',
-                'address' => 'test8',
-                'item' => 'test9',
-            ),
-        );
+        $spots = Spot::all();
 
         $city = [
             '0' => 'テスト1',
@@ -52,7 +40,7 @@ class SearchController extends Controller
         $item_count = count($item) / 2;
 
         $param = [
-            'spot' => $spot,
+            'spots' => $spots,
             'flg' => $flg,
             'request' => $request,
             'city' => $city,
