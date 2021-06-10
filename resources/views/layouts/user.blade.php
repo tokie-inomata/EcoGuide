@@ -11,7 +11,7 @@
 <body>
     <div class="footer-fixed">
         <header>
-        <a href="/" class="logo-title"><image src="{{ asset('img/EcoSpotSearch-logo.png') }}" height="100px"></a>
+        <a href="/" class="logo-title"><image src="{{ asset('img/EcoSpotSearch-logo.png') }}" height="75px"></a>
                 <nav>
                     <ul class="main-menu">
                     @if(Auth::check())

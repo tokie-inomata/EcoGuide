@@ -12,11 +12,15 @@
         @else
             <div class="result">
                 @foreach ( $spots as $spot )
-                    <table class="search-result admin-search-result">
+                    <table class="spot-table search-result">
                         <tr><th rowspan="5"><img src="/"></th></tr>
                         <tr><td>名前   : {{ $spot->name }}</td></tr>
                         <tr><td>住所   : {{ $spot->getData() }}</td></tr>
-                        <tr><td>品目   : {{ $spot->recycling_items }}</td></tr>
+                        <tr><td>品目   :
+                            @foreach( $spot->recycling_items as $recycling_item )
+                                {{ $recycling_item->recycling_item }}
+                            @endforeach
+                        </td></tr>
                         <tr><td>登録者 : {{ $spot->user->name }}</td></tr>
                     </table>
                 @endforeach

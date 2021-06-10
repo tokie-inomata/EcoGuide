@@ -21,21 +21,29 @@
             </tr>
             @if ($request->flg == 1)
                 <tr>
-                    <th rowspan="{{ $city_count }}">市区町村</th>
+                    <th rowspan="2">市区町村</th>
                 </tr>
                 <tr>
                     @foreach ( $city as $k => $val )
-                        <td class="details">
-                            <input type="checkbox" name="municipality" value="{{ $val }}">{{ $val }}
-                        </td>
+                        @if( $k == 'data' )
+                            @foreach( $val as $k2 => $val2 )
+                                @foreach( $val2 as $k3 => $val3 )
+                                    @if( $k3 == 'name' )
+                                        <td class="details">
+                                            <input type="checkbox" name="municipality" value="{{ $val3 }}">{{ $val3 }}
+                                        </td>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        @endif
                     @endforeach
                 </tr>
                 <tr></tr>
                 <tr>
-                    <th rowspan="{{ $item_count }}">品目</th>
+                    <th rowspan="5">品目</th>
                     @foreach ( $item as $k => $val )
                         <td class="details">
-                            <input type="checkbox" name="item" value="{{ $val }}">{{ $val }}
+                            <input type="checkbox" name="item" value="{{ $val->recycling_item }}">{{ $val->recycling_item }}
                         </td>
                     @endforeach
                 </tr>
@@ -62,7 +70,7 @@
         </div>
         <div class="result">
             @foreach ( $spots as $spot )
-                <table class="search-result">
+                <table class="search-result spot-table">
                     <tr><th rowspan="5"><img src="/"></th></tr>
                     <tr><td>名前 : {{ $spot->name }}</td></tr>
                     <tr><td>住所 : {{ $spot->getData() }}</td></tr>

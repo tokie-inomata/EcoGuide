@@ -28,10 +28,12 @@ class AdminController extends Controller
         $login_user = Auth::user();
         $spots = Spot::all();
         $users = User::all();
+        $recycling_items = Recycling_item::all();
         $param = [
             'login_user' => $login_user,
             'spots' => $spots,
             'users' => $users,
+            'recycling_items' => $recycling_items,
         ];
 
         return view('ess/admin_spot_list', $param);

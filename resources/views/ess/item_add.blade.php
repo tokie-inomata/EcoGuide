@@ -16,7 +16,7 @@
                     <form action="" method="post" class="item-delete-form">
                         @csrf
                         <input type="hidden" name="id" value="{{$recycling_item->id}}">
-                        <input type="submit" class="button" name="delete" value="削除">
+                        <input type="submit" class="item-delete-button" name="delete" value="削除">
                     </form>
                 </td>
             </tr>
