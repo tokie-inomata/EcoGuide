@@ -36,6 +36,8 @@ Route::get('/spot/index',   'SpotController@index')  ->middleware('auth');
 Route::get('/spot/create',  'SpotController@create') ->middleware('auth');
 Route::post('/spot/create', 'SpotController@add')    ->name('spot.create');
 Route::get('/spot/edit',    'SpotController@edit')   ->middleware('auth');
+Route::post('/spot/edit',   'SpotController@updata') ->middleware('auth')->name('spot.update');
+Route::get('/spot/show',    'SpotController@show')   ->middleware('auth');
 
 /*             管理者側ルート             */
 Route::get('/admin/user/index', 'AdminController@user_index')  ->middleware('auth');

@@ -38,7 +38,7 @@
                         <h4 class="hokkaidou">{{ $k }}</h4>
                         <ul class="area-group">
                             @foreach($val as $k2 => $val2)
-                                <ol class="area-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>     
+                                <ol class="area-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>     
                             @endforeach
                         </ul>
                     @endif
@@ -50,7 +50,7 @@
                         <h4 class="touhoku">{{ $k }}</h4>
                         <ul class="area-group">
                             @foreach($val as $k2 => $val2)
-                            <ol class="area-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>
+                            <ol class="area-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>
                             @endforeach
                         </ul>
                     @endif
@@ -62,7 +62,7 @@
                         <h4 class="kantou">{{ $k }}</h4>
                         <ul class="kantou-group">
                             @foreach($val as $k2 => $val2)
-                            <ol class="kantou-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>
+                            <ol class="kantou-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>
                             @endforeach
                         </ul>
                     @endif
@@ -74,7 +74,7 @@
                         <h4 class="tyuubu">{{ $k }}</h4>
                         <ul class="area-group">
                             @foreach($val as $k2 => $val2)
-                            <ol class="area-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>
+                            <ol class="area-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>
                             @endforeach
                         </ul>
                     @endif
@@ -86,7 +86,7 @@
                         <h4 class="kansai">{{ $k }}</h4>
                         <ul class="area-group">
                             @foreach($val as $k2 => $val2)
-                            <ol class="area-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>
+                            <ol class="area-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>
                             @endforeach
                         </ul>
                     @endif
@@ -98,7 +98,7 @@
                         <h4 class="tyuugoku">{{ $k }}</h4>
                         <ul class="area-group">
                             @foreach($val as $k2 => $val2)
-                            <ol class="area-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>
+                            <ol class="area-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>
                             @endforeach
                         </ul>
                     @endif
@@ -110,7 +110,7 @@
                         <h4 class="shikoku">{{ $k }}</h4>
                         <ul class="area-group">
                             @foreach($val as $k2 => $val2)
-                            <ol class="area-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>
+                            <ol class="area-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>
                             @endforeach
                         </ul>
                     @endif
@@ -122,7 +122,7 @@
                         <h4 class="kyuusyuu">{{ $k }}</h4>
                         <ul class="area-group">
                             @foreach($val as $k2 => $val2)
-                            <ol class="area-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>
+                            <ol class="area-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>
                             @endforeach
                         </ul>
                     @endif
@@ -134,7 +134,7 @@
                         <h4 class="okinawa">{{ $k }}</h4>
                         <ul class="area-group">
                             @foreach($val as $k2 => $val2)
-                            <ol class="area-list"><a href="/search?area={{ $k2 }}">{{ $val2 }}</a></ol>
+                            <ol class="area-list"><a href="/search?area={{ $k2 }}&paginate=10">{{ $val2 }}</a></ol>
                             @endforeach
                         </ul>
                     @endif

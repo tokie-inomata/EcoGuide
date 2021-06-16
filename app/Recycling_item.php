@@ -10,6 +10,6 @@ class recycling_item extends Model
 {
     public function spots()
     {
-        return $this->belongsToMany('App\Spot');
+        return $this->belongsToMany('App\Spot','App\Recycling_item_spot');
     }
 }

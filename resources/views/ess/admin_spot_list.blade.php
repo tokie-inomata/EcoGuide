@@ -12,6 +12,7 @@
         @else
             <div class="result">
                 @foreach ( $spots as $spot )
+                    <a href="/spot/show?id={{ $spot->id }}">
                     <table class="spot-table search-result">
                         <tr><th rowspan="5"><img src="/"></th></tr>
                         <tr><td>名前   : {{ $spot->name }}</td></tr>
@@ -23,6 +24,7 @@
                         </td></tr>
                         <tr><td>登録者 : {{ $spot->user->name }}</td></tr>
                     </table>
+                    </a>
                 @endforeach
             </div>
         @endif

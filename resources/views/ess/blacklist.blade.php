@@ -24,12 +24,12 @@
                 <th class="user-list-mail">メールアドレス</th>
                 <th class="user-list-edit">変更</th>
             </tr>
-            @foreach($user as $k => $val)
+            @foreach($user as $k )
                 <tr>
-                    <td class="user-list-id">{{ $val['id'] }}</td>
-                    <td class="user-list-name">{{ $val['name'] }}</td>
-                    <td class="user-list-mail">{{ $val['mail'] }}</td>
-                    <td class="user-list-edit"><a href="/" class="button admin-user-edit">変更</a></td>
+                    <td class="user-list-id">{{ $k->id }}</td>
+                    <td class="user-list-name">{{ $k->name }}</td>
+                    <td class="user-list-mail">{{ $k->email }}</td>
+                    <td class="user-list-edit"><a href="/admin/user/edit?id={{ $k->id }}" class="button admin-user-edit">変更</a></td>
                 </tr>
             @endforeach
         </table>
