@@ -36,7 +36,7 @@ class UserController extends Controller
         //ユーザー追加が成功した場合ログイン状態にする
         Auth::guard()->login($user);
 
-        return redirect('/mypage');
+        return redirect('/mypage')->with('flash_message', 'ユーザーを作成しました。');
     }
 
     public function login(Request $request)
@@ -51,12 +51,14 @@ class UserController extends Controller
         //フォームに入力されたパスワード情報取得
         $password = $request->password;
         
-        //もしUserテーブルに同じメールアドレス、パスワードがある場合ログインする
-        if (Auth::attempt(['email' => $email, 'password' => $password]))
-        {
+        //ログイン処理
+        if(Auth::attempt(['email' => $email, 'password' => $password, 'blacklist_flg' => 1])) {
+            Auth::logout();
+            return redirect('/user/login')->with('flash_message', 'このユーザーではログインできません。');
+        } elseif(Auth::attempt(['email' => $email, 'password' => $password])) {
             return redirect("/mypage");
         } else {
-            return redirect('/user/login');
+            return redirect('/user/login')->with('flash_message', 'ログインに失敗しました。');
         }
     }
 
@@ -75,27 +77,21 @@ class UserController extends Controller
             $user = User::find($request->id);
             $user->name          = $request->name;
             $user->email         = $request->email;
-            if(!empty($request->password)){
+            if(!empty($request->password) && $request->password != $user->password){
                 $user->password  = Hash::make($request->password);
             }
             $user->admin_flg     = $request->admin_flg;
-            if(empty($request->admin_flg)){
-                $user->admin_flg = 0;
-            }
             $user->blacklist_flg = $request->blacklist_flg;
-            if(empty($request->blacklist_flg)){
-                $user->blacklist_flg = 0;
-            }
             $user->save();
 
-            return redirect('/mypage');
+            return redirect('/mypage')->with('flash_message', 'ユーザー情報が変更されました。');
 
         //deleteが押された場合
         } elseif (!empty($_POST['delete'])){
             //選択されたユーザーIDを検索し削除
             User::find($request->id)->delete();
 
-            return redirect('/');
+            return redirect('/user/login')->with('flash_message','登録ユーザーを削除しました。');
         }
     }
 

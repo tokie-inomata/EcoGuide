@@ -12,14 +12,17 @@ class AdminController extends Controller
 {
     public function user_index(Request $request)
     {
+        //表示件数取得
+        $paginate = $request->input('paginate');
         //ログインユーザー情報取得
         $login_user = Auth::user();
         //全ユーザー情報取得
-        $people = User::all();
+        $people = User::paginate($paginate);
         
         $param = [
             'login_user' => $login_user,
             'people' => $people,
+            'paginate' => $paginate,
         ];
 
         return view('ess/admin_user_list', $param);
@@ -27,10 +30,12 @@ class AdminController extends Controller
 
     public function spot_index(Request $request)
     {
+        //表示件数取得
+        $paginate = $request->input('paginate');
         //ログインユーザー情報取得
         $login_user = Auth::user();
         //全スポット情報取得
-        $spots = Spot::all();
+        $spots = Spot::paginate($paginate);
         //全ユーザー情報取得
         $users = User::all();
         //全品目取得
@@ -40,6 +45,7 @@ class AdminController extends Controller
             'spots' => $spots,
             'users' => $users,
             'recycling_items' => $recycling_items,
+            'paginate' => $paginate,
         ];
 
         return view('ess/admin_spot_list', $param);
@@ -60,13 +66,16 @@ class AdminController extends Controller
 
     public function blacklist(Request $request)
     {
+        //表示件数取得
+        $paginate = $request->input('paginate');
         //ログインユーザー情報取得
         $login_user = Auth::user();
         //ブラックリストに入ってる全ユーザー情報を取得
-        $user = User::where('blacklist_flg', 1)->get();
+        $user = User::where('blacklist_flg', 1)->paginate($paginate);
         $param = [
             'login_user' => $login_user,
             'user' => $user,
+            'paginate' => $paginate,
         ];
 
         return view('ess/blacklist', $param);

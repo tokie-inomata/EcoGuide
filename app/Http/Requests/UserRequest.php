@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name'             => 'required',
-            'email'            => 'required|email',
+            'email'            => 'required|email|unique:users,email',
             'password'         => 'required',
             'password-confirm' => 'password_confirmed',
         ];
@@ -37,6 +37,7 @@ class UserRequest extends FormRequest
             'name.required'                       => '必須項目です。',
             'email.required'                      => '必須項目です。',
             'email.email'                         => 'メールアドレス形式で記述してください。',
+            'email.unique'                        => '登録済みのメールアドレスです。',
             'password.required'                   => '必須項目です。',
             'password-confirm.password_confirmed' => 'パスワードが一致しません。',
         ];

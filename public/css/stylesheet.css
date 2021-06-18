@@ -35,6 +35,10 @@ header {
     margin-right: 130px;
 }
 
+.main-menu ol {
+    font-size: 10pt;
+}
+
 .menu-button {
     padding-left: 30px;
 }
@@ -121,8 +125,13 @@ article p {
 }
 
 .area-search {
-    padding: 60px 0 60px 33%;
+    padding: 60px 0;
     position: relative;
+}
+
+.area-search-container {
+    position: relative;
+    margin: 60px 33%;
 }
 
 .area-search a {
@@ -145,8 +154,8 @@ article p {
 .hokkaidou-area {
     width: 70px;
     position: absolute;
-    top: 80px;
-    left: 70%;
+    top: 10px;
+    left: 500px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -157,8 +166,8 @@ article p {
 .touhoku-area {
     width: 125px;
     position: absolute;
-    top: 190px;
-    left: 70%;
+    top: 100px;
+    left: 500px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -169,8 +178,8 @@ article p {
 .tyuubu-area {
     width: 125px;
     position: absolute;
-    top: 145px;
-    left: 40%;
+    top: 100px;
+    left: 120px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -181,8 +190,8 @@ article p {
 .kantou-area {
     width: 190px;
     position: absolute;
-    top: 315px;
-    left: 70%;
+    top: 225px;
+    left: 500px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -193,8 +202,8 @@ article p {
 .kansai-area {
     width: 125px;
     position: absolute;
-    top: 430px;
-    left: 50%;
+    top: 400px;
+    left: 240px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -205,8 +214,8 @@ article p {
 .tyuugoku-area {
     width: 125px;
     position: absolute;
-    top: 187px;
-    left: 30%;
+    top: 142px;
+    left: -20px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -217,8 +226,8 @@ article p {
 .shikoku-area {
     width: 125px;
     position: absolute;
-    top: 472px;
-    left: 40%;
+    top: 443px;
+    left: 100px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -229,8 +238,8 @@ article p {
 .kyuusyuu-area {
     width: 125px;
     position: absolute;
-    top: 430px;
-    left: 25%;
+    top: 400px;
+    left: -130px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -241,8 +250,8 @@ article p {
 .okinawa-area {
     width: 70px;
     position: absolute;
-    top: 495px;
-    left: 70%;
+    top: 380px;
+    left: 500px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -344,9 +353,25 @@ footer {
 }
 
 .add-form, .user-login, .user-edit-form {
-    width: 270px;
+    width: 100%;
     margin: 0 auto;
+}
+
+.add-form form{ 
+    width: 100%;
+    margin: 0 20%;
+}
+
+.add-form form dl dt {
+    width: 20%;
+    padding: 10px 5%;
+    float: left;
+    clear: both;
     text-align: right;
+}
+
+.add-form form dl dd {
+    padding: 10px 0;
 }
 
 label {
@@ -355,7 +380,7 @@ label {
 }
 
 .button {
-    margin: 30px 0 30px 40px;
+    margin: 30px 0 30px 28%;
     padding: 5px;
     background-color: #F0FFF0;
     border-color: #B0E0E6;
@@ -618,10 +643,55 @@ h4 {
 }
 
 .spot-table th {
-    width: 20%;
-    border-right: solid 1px black;
+    width: 30%;
+    border-right: solid 1px rgb(0, 0, 0);
 }
 
 .spot-table td {
-    width: 80%;
+    width: 70%;
 }
+
+/*              ペジネーション              */
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination li a, .pagination li span {
+    padding: 5px 10px;
+    font-size: 12pt;
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(0, 0, 0);
+    border-radius: 10%;
+}
+
+/*              フラッシュメッセージ                */
+
+.flash-message {
+    margin: 30px 0;
+    text-align: center;
+    color: rgb(255, 11, 11);
+}
+
+/*              スポット詳細                */
+
+.spot-show-contents {
+    display: flex;
+}
+
+.image-contents {
+    width: 60%;
+    margin-top: 100px; 
+}
+
+.image-contents img {
+    padding-left: 30%;
+    width: 50%;
+    height: 100%;
+}
+
+.spot-details-contents {
+    width: 30%;
+    margin: 200px 5% 0 0; 
+}
+

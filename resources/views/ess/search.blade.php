@@ -41,7 +41,7 @@
                 <tr></tr>
                 <tr>
                     <th rowspan="5">品目</th>
-                    @foreach ( $item as $k => $val )
+                    @foreach ( $items as $k => $val )
                         <td class="details">
                             <input type="checkbox" name="item[]" value="{{ $val->recycling_item }}">{{ $val->recycling_item }}
                         </td>
@@ -80,12 +80,20 @@
         </form>
     </div>
     <div class="result">
-        @if(empty($spots))
+        @if($count_spots == 0)
             <p class="not-spot">登録スポットがありません。</p>
         @elseif(!empty($spots))
             @foreach ( $spots as $spot )
                 <table class="search-result spot-table">
-                    <tr><th rowspan="5"><img src="/"></th></tr>
+                    <tr>
+                        <th rowspan="5">
+                            @if(!empty($spot->image_path))
+                                <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="80%">
+                            @else
+                                <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="50%">
+                            @endif
+                        </th>
+                    </tr>
                     <tr><td>名前 : {{ $spot->name }}</td></tr>
                     <tr><td>住所 : {{ $spot->getData() }}</td></tr>
                     <tr>
@@ -97,6 +105,7 @@
                     </tr>
                 </table>
             @endforeach
+            {{ $spots->appends($search_param)->links() }}
         @endif
     </div>
 @endsection

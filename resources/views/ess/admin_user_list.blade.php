@@ -2,16 +2,28 @@
 
 @section('main')
     <h2 class="title">全ユーザー一覧</h2>
-    <form action="/" method="post" class="search-box">
+    <form action="" method="get" class="search-box">
         @csrf
         <input type="text" size="50" name="admin_user_search"><input type="submit" value="検索">
     </form>
     <div class="result-number">
-        <form action="/search" method="get">
-            <select type="text" class="number">
-                <option name="result-number" value="10">10件</option>
-                <option name="result-number" value="30">30件</option>
-                <option name="result-number" value="50">50件</option>
+        <form action="" method="get">
+            <select type="text" class="number" name="paginate">
+                @if($paginate == 10)
+                    <option value="10" selected>10件</option>
+                @else
+                    <option value="10">10件</option>
+                @endif
+                @if($paginate == 30)
+                    <option value="30" selected>30件</option>
+                @else
+                    <option value="30">30件</option>
+                @endif
+                @if($paginate == 50)
+                    <option value="50" selected>50件</option>
+                @else
+                    <option value="50">50件</option>
+                @endif
             </select>
             <input type="submit" value="表示">
         </form>
@@ -29,7 +41,7 @@
                     <td class="user-list-id">{{ $k->id }}</td>
                     <td class="user-list-name">{{ $k->name }}</td>
                     <td class="user-list-mail">{{ $k->email }}</td>
-                    <td class="user-list-edit"><a href="/admin/user/edit?id={{ $k->id }}" class="button admin-user-edit">変更</a></td>
+                    <td class="user-list-edit"><a href="/admin/user/edit?id={{ $k->id }}" class="admin-user-edit">変更</a></td>
                 </tr>
             @endforeach
         </table>

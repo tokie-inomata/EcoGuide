@@ -14,8 +14,8 @@
                     <label>パスワード確認<input type="password" name="pass_confirm"></label>
                     <label>管理者権限<input type="checkbox" value="1" name="admin_flg"></label>
                     <label>ブラックリスト<input type="checkbox" value="1" name="blacklist_flg"></label>
-                    <input type="submit" value="変更" class="button user-edit" name="edit">
-                    <input type="submit" value="削除" class="button user-edit" name="delete">
+                    <input type="submit" value="変更" class="user-edit" name="edit">
+                    <input type="submit" value="削除" class="user-edit" name="delete">
                 </form>
             @endif
         @endforeach

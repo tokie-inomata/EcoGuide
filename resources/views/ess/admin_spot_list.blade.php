@@ -3,10 +3,32 @@
 @section('main')
 
     <h2 class="title">全登録スポット一覧</h2>
-    <form action="/" method="post" class="search-box">
+    <form action="" method="get" class="search-box">
         @csrf
         <input type="text" size="50" name="admin_spot_search"><input type="submit" value="検索">
     </form>
+    <div class="result-number">
+        <form action="" method="get">
+            <select type="text" class="number" name="paginate">
+                @if($paginate == 10)
+                    <option value="10" selected>10件</option>
+                @else
+                    <option value="10">10件</option>
+                @endif
+                @if($paginate == 30)
+                    <option value="30" selected>30件</option>
+                @else
+                    <option value="30">30件</option>
+                @endif
+                @if($paginate == 50)
+                    <option value="50" selected>50件</option>
+                @else
+                    <option value="50">50件</option>
+                @endif
+            </select>
+            <input type="submit" value="表示">
+        </form>
+    </div>
         @if (empty($spots))
             <p class="not-spot">登録されているスポットがありません。</p>
         @else
@@ -14,7 +36,15 @@
                 @foreach ( $spots as $spot )
                     <a href="/spot/show?id={{ $spot->id }}">
                     <table class="spot-table search-result">
-                        <tr><th rowspan="5"><img src="/"></th></tr>
+                        <tr>
+                            <th rowspan="5">
+                                @if(!empty($spot->image_path))
+                                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="80%">
+                                @else
+                                    <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="50%">
+                                @endif
+                            </th>
+                        </tr>
                         <tr><td>名前   : {{ $spot->name }}</td></tr>
                         <tr><td>住所   : {{ $spot->getData() }}</td></tr>
                         <tr><td>品目   :
