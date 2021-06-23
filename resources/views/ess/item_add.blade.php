@@ -2,7 +2,7 @@
 
 @section('main')
     <h2 class="title">品目一覧</h2>
-    <table class="recycling_item_table">
+    <table class="recycling-item-table">
         <tr>
             <th>ID</th>
             <th>品目</th>

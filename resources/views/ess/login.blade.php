@@ -10,8 +10,12 @@
     <div class="user-login">
         <form action="{{ route('user_signin') }}" method="post">
             @csrf
-            <label>メールアドレス<input type="text" name="email"></label>
-            <label>パスワード<input type="password" name="password"></label>
+            <dl>
+                <dt>メールアドレス</dt>
+                <dd><input type="text" name="email"></dd>
+                <dt>パスワード</dt>
+                <dd><input type="password" name="password"></dd>
+            </dl>
             <input type="submit" value="ログイン" class="button" name="login">
         </form>   
     </div>

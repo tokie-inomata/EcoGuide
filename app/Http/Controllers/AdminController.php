@@ -16,13 +16,29 @@ class AdminController extends Controller
         $paginate = $request->input('paginate');
         //ログインユーザー情報取得
         $login_user = Auth::user();
+        //検索ワードの値を取得
+        $admin_user_search = $request->input('admin_user_search');
+        if(!empty($admin_user_search)) {
+        //検索ワードから条件の合うユーザー情報を取得
+            $user = User::where('id',$admin_user_search)
+                          ->orWhere('name', 'like', '%'.$admin_user_search.'%')
+                          ->orWhere('email', 'like', '%'.$admin_user_search.'%')
+                          ->paginate($paginate);
+        } else {
         //全ユーザー情報取得
-        $people = User::paginate($paginate);
+            $user = User::paginate($paginate);
+        }
+        //ページリンク時のGETパラメータ保持用パラメータ        
+        $search_param = [
+            'admin_user_search' => $admin_user_search,
+            'paginate'          => $paginate,
+        ];
         
         $param = [
             'login_user' => $login_user,
-            'people' => $people,
-            'paginate' => $paginate,
+            'user'       => $user,
+            'paginate'   => $paginate,
+            'search_param'    => $search_param,
         ];
 
         return view('ess/admin_user_list', $param);
@@ -34,18 +50,36 @@ class AdminController extends Controller
         $paginate = $request->input('paginate');
         //ログインユーザー情報取得
         $login_user = Auth::user();
-        //全スポット情報取得
-        $spots = Spot::paginate($paginate);
-        //全ユーザー情報取得
-        $users = User::all();
-        //全品目取得
-        $recycling_items = Recycling_item::all();
+        //検索ワードの値を取得
+        $admin_spot_search = $request->input('admin_spot_search');
+        if(!empty($admin_spot_search)) {
+        //検索ワードの条件に合うスポット情報を取得
+            $spots = Spot::where('id', $admin_spot_search)
+                         ->orWhere('name', 'like', '%'.$admin_spot_search.'%')
+                         ->orWhere('prefecture', 'like', '%'.$admin_spot_search.'%')
+                         ->orWhere('city', 'like', '%'.$admin_spot_search.'%')
+                         ->orWhere('house_number', 'like', '%'.$admin_spot_search.'%')
+                         ->orWhereHas('recycling_items', function($quiry) use ($admin_spot_search) {
+                            $quiry->Where('recycling_item', 'like', '%'.$admin_spot_search.'%');
+                         })
+                         ->orWhereHas('user', function($quiry) use ($admin_spot_search) {
+                            $quiry->Where('name', 'like', '%'.$admin_spot_search.'%');
+                         })
+                         ->paginate($paginate);
+        } else {
+        //全スポット情報を取得
+            $spots = Spot::paginate($paginate);
+        }
+        //ページリンク時のGETパラメータ保持用パラメータ        
+        $search_param = [
+            'admin_spot_search' => $admin_spot_search,
+            'paginate'          => $paginate,
+        ];
         $param = [
-            'login_user' => $login_user,
-            'spots' => $spots,
-            'users' => $users,
-            'recycling_items' => $recycling_items,
-            'paginate' => $paginate,
+            'login_user'      => $login_user,
+            'spots'           => $spots,
+            'paginate'        => $paginate,
+            'search_param'    => $search_param,
         ];
 
         return view('ess/admin_spot_list', $param);
@@ -70,12 +104,29 @@ class AdminController extends Controller
         $paginate = $request->input('paginate');
         //ログインユーザー情報取得
         $login_user = Auth::user();
+        //検索ワードを取得
+        $admin_blacklist_search = $request->input('admin_blacklist_search');
+        if(!empty($admin_blacklist_search)) {
+        //検索ワードの条件に合うブラックリストユーザーを取得
+            $user = User::where('blacklist_flg', 1)
+                        ->Where('id', $admin_blacklist_search)
+                        ->orWhere('name', 'like', '%'.$admin_blacklist_search.'%')
+                        ->orWhere('email', 'like', '%'.$admin_user_search.'%')
+                        ->paginate($paginate);
+        } else {
         //ブラックリストに入ってる全ユーザー情報を取得
-        $user = User::where('blacklist_flg', 1)->paginate($paginate);
+            $user = User::where('blacklist_flg', 1)->paginate($paginate);
+        }
+        //ページリンク時のGETパラメータ保持用パラメータ        
+        $search_param = [
+            'admin_blacklist_search' => $admin_blacklist_search,
+            'paginate'               => $paginate,
+        ];
         $param = [
             'login_user' => $login_user,
-            'user' => $user,
-            'paginate' => $paginate,
+            'user'       => $user,
+            'paginate'   => $paginate,
+            'search_param'    => $search_param,
         ];
 
         return view('ess/blacklist', $param);
@@ -112,7 +163,5 @@ class AdminController extends Controller
 
             return redirect('/admin/item/create');
         }
-
-
     }
 }

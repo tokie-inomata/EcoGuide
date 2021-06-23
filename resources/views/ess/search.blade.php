@@ -88,7 +88,7 @@
                     <tr>
                         <th rowspan="5">
                             @if(!empty($spot->image_path))
-                                <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="80%">
+                                <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="50%">
                             @else
                                 <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="50%">
                             @endif

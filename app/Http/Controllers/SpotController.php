@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SpotRequest;
@@ -55,7 +56,7 @@ class SpotController extends Controller
         $spot->prefecture   = $request->prefecture;
         $spot->city         = $request->city;
         $spot->house_number = $request->house_number;
-        if($request->file('image_path')){
+        if($request->hasFile('image_path')){
             $path = $request->file('image_path')->store('public/spot_image');
             $spot->image_path = basename($path);
         }
@@ -106,7 +107,11 @@ class SpotController extends Controller
             $spot->prefecture = $request->prefecture;
             $spot->city = $request->city;
             $spot->house_number = $request->house_number;
-            if($request->file('image_path')){
+            if($request->hasFile('image_path')) {
+                if(!empty($spot->image_path)) {
+                    $delete_image = $spot->image_path;
+                    Storage::delete('public/spot_image/' . $delete_image);
+                }
                 $path = $request->file('image_path')->store('public/spot_image');
                 $spot->image_path = basename($path);
             }
@@ -119,12 +124,21 @@ class SpotController extends Controller
                 $spot->recycling_items()->sync($recycling_item_ids);
             }
 
-            
-            return redirect('/spot/index')->with('flash_message', 'スポット情報を変更しました。');
+            if($spot->isDirty()) {
+                return redirect('/spot/index')->with('flash_message', 'スポット情報を変更しました。');
+            } else {
+                return redirect('/spot/index')->with('flash_message', 'スポット情報の変更に失敗しました。');
+            }
+
         //deleteが押された場合
         } elseif(!empty($_POST['delete'])) {
-            //全スポットから選択されたスポットIDを検索して削除
-            Spot::find($request->id)->delete();
+            //全スポットから選択されたスポットIDを検索
+            $spot = Spot::find($request->id);
+            //画像パスを取得してストレージ内から削除
+            $delete_image = $spot->image_path;
+            Storage::delete('public/spot_image/' . $delete_image);
+            //スポット情報を削除する
+            $spot->delete();
 
             return redirect('/spot/index')->with('flash_message', '登録スポットを削除しました。');
         }

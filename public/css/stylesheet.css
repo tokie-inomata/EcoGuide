@@ -352,17 +352,17 @@ footer {
     text-align: center;
 }
 
-.add-form, .user-login, .user-edit-form {
-    width: 100%;
-    margin: 0 auto;
+.add-form form, .user-login form, .user-edit-form form { 
+    width: 70%;
+    margin: 0 28%;
 }
 
-.add-form form{ 
+.spot-create-form form {
     width: 100%;
-    margin: 0 20%;
+    margin: 0 15%;
 }
 
-.add-form form dl dt {
+.add-form form dl dt, .user-login form dl dt, .user-edit-form form dl dt, .spot-create-form form dl dt {
     width: 20%;
     padding: 10px 5%;
     float: left;
@@ -370,13 +370,8 @@ footer {
     text-align: right;
 }
 
-.add-form form dl dd {
+.add-form form dl dd, .user-login form dl dd, .user-edit-form form dl dd, .spot-create-form form dl dd {
     padding: 10px 0;
-}
-
-label {
-    display: block;
-    margin-bottom: 15px;
 }
 
 .button {
@@ -387,11 +382,31 @@ label {
     border-radius: 8px;
 }
 
+.user-edit {
+    margin: 30px 0 30px 5%;
+    padding: 5px;
+    background-color: #F0FFF0;
+    border-color: #B0E0E6;
+    border-radius: 8px;
+}
+
+.submit-button {
+    margin-left: 20%;
+}
+
+.spot-add-button {
+    margin-left: 33%;
+}
+
+.spot-create-button {
+    margin: 10px 0 0 65%;
+}
+
 /*             ログインページ             */
 
 .user-pass-edit {
     display: block;
-    margin-left: 580px;
+    margin-left: 43%;
     padding-bottom: 60px;
 }
 
@@ -471,13 +486,14 @@ label {
 .result {
     text-align: center;
     margin-bottom: 100px;
+    margin-top: 50px;
 }
 
 /*             ユーザー・アドミン画面             */
 
 #side-menu {
     width: 200px;
-    height: 670px;
+    height: 100vh;
     float: left;
     background-color: rgba(228, 255, 243, 0.7);
 }
@@ -487,12 +503,8 @@ label {
     margin: 50px 0 0 50px;
 }
 
-#main {
-    height: 670px;
-}
-
-#user-info {
-    height: 670px;
+#user-info {    
+    height: 100vh;
     overflow-y: scroll;
 }
 
@@ -512,17 +524,6 @@ label {
     padding: 10px;
 }
 
-/*             スポット登録一覧             */
-
-.spot-add-button {
-    margin-left: 750px;
-}
-
-.spot-add {
-    margin-top: 50px;
-    margin-left: 600px;
-}
-
 /*             admin 全ユーザー一覧             */
 .search-box {
     padding-left: 400px;
@@ -533,34 +534,40 @@ label {
 }
 
 .user-list-table {
+    width: 70%;
+    margin: 10px 0 10px 15%;
+}
+
+.user-list-table, .user-list-table tr, .user-list-table th, .user-list-table td {
+    text-align: center;
     border: solid 1px #2F4F4F;
     border-collapse: collapse;
 }
 
-.user-list-id {
+.user-list-table th {
+    background-color: #dffd9d63;
+    color: #2F4F4F;
+}
+
+.user-list-table tr th:first-child, .user-list-table tr td:first-child {
     width: 10%;
-    border: solid 1px #2F4F4F;
-    border-collapse: collapse;
 }
 
-.user-list-name {
+.user-list-table tr th:nth-child(2), .user-list-table tr td:nth-child(2) {
+    width: 30%;
+} 
+
+.user-list-table tr th:nth-child(3), .user-list-table tr td:nth-child(3) {
+    width: 45%;
+} 
+
+.user-list-table tr th:last-child, .user-list-table tr td:last-child {
     width: 15%;
-    border: solid 1px #2F4F4F;
-    border-collapse: collapse;
-}
+} 
 
-.user-list-mail {
-    width: 40%;
-    border: solid 1px #2F4F4F;
-    border-collapse: collapse;
+.blasklist-user {
+    background-color: #f651511c;
 }
-
-.user-list-edit {
-    width: 20%;
-    border: solid 1px #2F4F4F;
-    border-collapse: collapse;
-}
-
 /*              パスワードリセット              */
 
 h4 {
@@ -581,53 +588,23 @@ h4 {
     margin-left: 500px;
 }
 
-/*              スポット作成・更新フォーム              */
-
-.spot-create-form {
-    padding-left: 500px;
-    padding-top: 20px;
-}
-
-.spot-add-address-item {
-    padding-left: 115px;
-}
-
-.spot-add-item-list {
-    padding-left: 110px;
-}
-
-.spot-add-image-form {
-    padding-left: 110px;
-}
-
-.spot-create-button {
-    margin-left: 800px;
-}
-
-.spot-edit-button {
-    margin-left: 50px;
-}
-
-.spot-delete-button {
-    margin-left: 150px;
-}
-
 /*              品目登録                */
 
-.recycling_item_table {
-    margin: 30px 0 80px 25%;
+.recycling-item-table {
+    margin: 30px 0 80px 30%;
+    text-align: center;
 }
 
-.recycling_item_table, .recycling_item_table th, .recycling_item_table td {
+.recycling-item-table, .recycling-item-table th, .recycling-item-table td {
     border: solid 1px #2F4F4F;
     border-collapse: collapse;
 }
 
-.recycling_item_table th:first-child, .recycling_item_table td:first-child {
+.recycling-item-table th:first-child, .recycling-item-table td:first-child {
     width: 100px;
 }
 
-.recycling_item_table th:nth-child(2), .recycling_item_table td:nth-child(2) {
+.recycling-item-table th:nth-child(2), .recycling-item-table td:nth-child(2) {
     width: 300px;
 }
 

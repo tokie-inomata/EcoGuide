@@ -3,7 +3,6 @@
 @section('main')
     <h2 class="title">全ユーザー一覧</h2>
     <form action="" method="get" class="search-box">
-        @csrf
         <input type="text" size="50" name="admin_user_search"><input type="submit" value="検索">
     </form>
     <div class="result-number">
@@ -31,19 +30,29 @@
     <div class="user-list-reslut">
         <table class="user-list-table">
             <tr>
-                <th class="user-list-id">ID</th>
-                <th class="user-list-name">名前</th>
-                <th class="user-list-mail">メールアドレス</th>
-                <th class="user-list-edit">変更</th>
+                <th>ID</th>
+                <th>名前</th>
+                <th>メールアドレス</th>
+                <th>変更</th>
             </tr>
-            @foreach($people as $k )
-                <tr>
-                    <td class="user-list-id">{{ $k->id }}</td>
-                    <td class="user-list-name">{{ $k->name }}</td>
-                    <td class="user-list-mail">{{ $k->email }}</td>
-                    <td class="user-list-edit"><a href="/admin/user/edit?id={{ $k->id }}" class="admin-user-edit">変更</a></td>
-                </tr>
+            @foreach($user as $k )
+                @if($k->blacklist_flg == 1)
+                    <tr class="blasklist-user">
+                        <td>{{ $k->id }}</td>
+                        <td>{{ $k->name }}</td>
+                        <td>{{ $k->email }}</td>
+                        <td><a href="/admin/user/edit?id={{ $k->id }}" class="admin-user-edit">変更</a></td>
+                    </tr>
+                @else
+                    <tr>
+                        <td>{{ $k->id }}</td>
+                        <td>{{ $k->name }}</td>
+                        <td>{{ $k->email }}</td>
+                        <td><a href="/admin/user/edit?id={{ $k->id }}" class="admin-user-edit">変更</a></td>
+                    </tr>
+                @endif
             @endforeach
         </table>
+        {{ $user->appends($search_param)->links() }}
     </div>
 @endsection

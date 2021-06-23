@@ -3,7 +3,6 @@
 @section('main')
     <h2 class="title">ブラックリスト</h2>
     <form action="" method="get" class="search-box">
-        @csrf
         <input type="text" size="50" name="admin_blacklist_search"><input type="submit" value="検索">
     </form>
     <div class="result-number">

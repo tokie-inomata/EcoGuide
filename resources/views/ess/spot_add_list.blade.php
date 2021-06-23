@@ -3,9 +3,14 @@
 @section('main')
     <div id="main">
         <div class="spot-add-lists">
+        @if(session('flash_message'))
+            <div class="flash-message">
+                {{ session('flash_message') }}
+            </div>
+        @endif
             <h2 class="title">登録一覧</h2>
             <div class="spot-signup">
-                <a class="spot-create-button" href="/spot/create">新規登録</a>
+                <a class="spot-create-button button" href="/spot/create">スポット登録</a>
             </div>
             @if($spots_count == 0)
                 <p class="not-spot">登録されているスポットがありません。</p>
@@ -17,7 +22,7 @@
                             <tr>
                                 <th rowspan="4">
                                     @if(!empty($spot->image_path))
-                                        <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="80%">
+                                        <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="50%">
                                     @else
                                         <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="50%">
                                     @endif

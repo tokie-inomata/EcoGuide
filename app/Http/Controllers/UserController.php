@@ -80,11 +80,23 @@ class UserController extends Controller
             if(!empty($request->password) && $request->password != $user->password){
                 $user->password  = Hash::make($request->password);
             }
-            $user->admin_flg     = $request->admin_flg;
-            $user->blacklist_flg = $request->blacklist_flg;
+            if(!empty($request->admin_flg)) {
+                $user->admin_flg     = $request->admin_flg;
+            } else {
+                $user->admin_flg = 0;
+            }
+            if(!empty($request->blacklist_flg)) {
+                $user->blacklist_flg = $request->blacklist_flg;
+            } else {
+                $user->blacklist_flg = 0;
+            }
             $user->save();
 
-            return redirect('/mypage')->with('flash_message', 'ユーザー情報が変更されました。');
+            if($user->isDirty()) {
+                return redirect('/mypage')->with('flash_message', 'ユーザー情報が変更されました。');
+            } else {
+                return redirect('/mypage')->with('flash_message', 'ユーザー情報の変更を失敗しました。');
+            }
 
         //deleteが押された場合
         } elseif (!empty($_POST['delete'])){

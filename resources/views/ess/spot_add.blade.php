@@ -5,23 +5,23 @@
     <div class="spot-create-form">
         <form action="{{ route('spot.create') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <label>登録スポット名
-            @if($errors->has('name'))
-                エラー:{{ $errors->first('name') }}
-            @endif
-            <input type="text" name="name"></label>
-            <label>
-                <p class="spot-add-address">住所</p>
-                @if($errors->has('prefecture'))
-                    エラー:{{ $errors->first('prefecture') }}
+            <dl>
+                <dt>登録スポット名</dt>
+                @if($errors->has('name'))
+                    エラー:{{ $errors->first('name') }}
                 @endif
-                @if($errors->has('city'))
-                    エラー:{{ $errors->first('city') }}
-                @endif
-                @if($errors->has('house_number'))
-                    エラー:{{ $errors->first('house_number') }}
-                @endif
-                    <div class="spot-add-address-item">
+                <dd><input type="text" name="name"></dd>
+                <dt>住所<br><br><br></dt>
+                    @if($errors->has('prefecture'))
+                        エラー:{{ $errors->first('prefecture') }}
+                    @endif
+                    @if($errors->has('city'))
+                        エラー:{{ $errors->first('city') }}
+                    @endif
+                    @if($errors->has('house_number'))
+                        エラー:{{ $errors->first('house_number') }}
+                    @endif
+                    <dd>
                         <select name="prefecture">
                             @foreach(config('pref') as $k => $val)
                                 @foreach($val as $k2 => $val2 )
@@ -31,26 +31,26 @@
                         </select><br>
                         <input type="text" name="city" placeholder="○○市××区"><br>
                         <input type="text" name="house_number"><br>
-                    </div>
-            </label>
-            <p class="spot-add-item">品目</p>
-            @if($errors->has('recycling_item'))
-                エラー:{{ $errors->first('recycling_item') }}
-            @endif
-                <div class="spot-add-item-list">
-                    @foreach( $recycling_item as $k )
-                        <input type="checkbox" name="recycling_item_id[]" value="{{ $k->id }}">{{ $k->recycling_item }}
-                    @endforeach
-                </div>
-            <p class="spot-add-image">画像</p>
-            @if($errors->has('image_path'))
-                エラー:{{ $errors->first('image_path') }}
-            @endif
-                <div class="spot-add-image-form">
-                    <input type="file" name="image_path">
-                </div>
+                    </dd>
+                <dt>品目</dt>
+                @if($errors->has('recycling_item'))
+                    エラー:{{ $errors->first('recycling_item') }}
+                @endif
+                    <dd>
+                        @foreach( $recycling_item as $k )
+                            <input type="checkbox" name="recycling_item_id[]" value="{{ $k->id }}">{{ $k->recycling_item }}
+                        @endforeach
+                    </dd>
+                <dt>画像</dt>
+                @if($errors->has('image_path'))
+                    エラー:{{ $errors->first('image_path') }}
+                @endif
+                    <dd>
+                        <input type="file" name="image_path">
+                    </dd>
+            </dl>
             <input type="hidden" name="users_id" value="{{$users_id}}">
-            <input type="submit" name="spot_add" class="spot-add-button button" value="登録">
+            <input type="submit" name="spot_add" class="button spot-add-button" value="登録">
         </form>
     </div>    
 @endsection

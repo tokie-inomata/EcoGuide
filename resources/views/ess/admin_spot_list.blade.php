@@ -1,10 +1,13 @@
 @extends('layouts.user')
 
 @section('main')
-
+    @if(session('flash_message'))
+        <div class="flash-message">
+            {{ session('flash_message') }}
+        </div>
+    @endif
     <h2 class="title">全登録スポット一覧</h2>
     <form action="" method="get" class="search-box">
-        @csrf
         <input type="text" size="50" name="admin_spot_search"><input type="submit" value="検索">
     </form>
     <div class="result-number">
@@ -56,6 +59,7 @@
                     </table>
                     </a>
                 @endforeach
+                {{ $spots->appends($search_param)->links() }}
             </div>
         @endif
 @endsection
