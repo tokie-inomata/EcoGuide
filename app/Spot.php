@@ -16,7 +16,7 @@ class Spot extends Model
 
     public function recycling_items()
     {
-        return $this->belongsToMany('App\Recycling_item','App\Recycling_item_spot');
+        return $this->belongsToMany('App\Recycling_item','App\Recycling_item_spot')->withTimestamps();
     }
 
     public function getData()

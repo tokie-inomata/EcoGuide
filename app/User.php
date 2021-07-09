@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Notifications\PasswordResetNotification;
+use App\Notifications\CustomPasswordReset;
 use App\Spot;
 
 class User extends Authenticatable
@@ -42,5 +42,10 @@ class User extends Authenticatable
     public function spot()
     {
         return $this->hasMany('App\Spot');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new CustomPasswordReset($token));
     }
 }

@@ -3,7 +3,7 @@
 @section('main')
     <h2 class="title">ユーザー登録</h2>
     <div class="add-form">
-        <form action="/user/create" method="post">
+        <form action="" method="post">
             @csrf
             <dl>
                 @if($errors->has('name'))

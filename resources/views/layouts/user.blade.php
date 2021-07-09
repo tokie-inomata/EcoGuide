@@ -3,6 +3,8 @@
 <head>
     <title>ESS</title>
     <meta charset="utf-8">
+    @yield('js')
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
@@ -10,6 +12,8 @@
 </head>
 <body>
     <div class="footer-fixed">
+        <div id="app"></div>
+
         <header>
         <a href="/" class="logo-title"><image src="{{ asset('img/EcoSpotSearch-logo.png') }}" height="75px"></a>
                 <nav>

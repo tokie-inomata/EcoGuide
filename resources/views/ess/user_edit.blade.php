@@ -1,9 +1,15 @@
 @extends('layouts.main')
 
+@section('js')
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script type="module" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+@endsection
+
 @section('main')
     <h2 class="title">登録情報変更</h2>
     <div class="user-edit-form">
-        <form action="" method="post">
+        <form action="" method="post" name="user-edit-form">
             @csrf
             <input type="hidden" name="id" value="{{ $login_user->id }}">
             <dl>
@@ -20,7 +26,7 @@
             <input type="hidden" name="blacklist_flg" value="{{ $login_user->blacklist_flg }}">
             <div class="submit-button">
                 <input type="submit" value="変更" class="user-edit" name="edit">
-                <input type="submit" value="削除" class="user-edit" name="delete">
+                <input type="submit" value="削除" class="user-edit delete" name="delete">
             </div>
         </form>
     </div>

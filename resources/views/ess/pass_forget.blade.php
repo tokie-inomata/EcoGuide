@@ -1,11 +1,20 @@
 @extends('layouts.main')
 
 @section('main')
-    <h4>パスワードを忘れましたか？</h4>
-    <div class="pass-reset-form">
-        <form action="{{ route('password.email') }}" method="post"></form>
+    <h4>パスワードを変更用URLを送ります。</h4>
+    <div class="user-edit-form">
+        @if(session('flash_message'))
+            <div class="flash-message">
+                {{ session('flash_message') }}
+            </div>
+        @endif
+        <form action="{{ route('password.email') }}" method="post">
             @csrf
-            <label>登録メールアドレス<input type="text" name="email"></label>
+
+            <dl>
+                <dt>登録メールアドレス</dt>
+                <dd><input type="text" name="email"></dd>
+            </dl>
             <input type="submit" class="button" value="パスワードを変更する">
         </form>
     </div>

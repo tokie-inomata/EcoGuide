@@ -24,6 +24,6 @@
     </table>
     <form action="" method="post" class="item-create-form">
         @csrf
-        <input type="text" name="recycling_item"><input type="submit"  name="create" value="品目登録">
+        <input type="text" name="recycling_item"><input type="submit"  name="create" class="paginate-button" value="品目登録">
     </form>
 @endsection

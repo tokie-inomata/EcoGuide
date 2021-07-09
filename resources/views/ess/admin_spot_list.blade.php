@@ -8,28 +8,20 @@
     @endif
     <h2 class="title">全登録スポット一覧</h2>
     <form action="" method="get" class="search-box">
-        <input type="text" size="50" name="admin_spot_search"><input type="submit" value="検索">
+        <input type="text" size="45%" name="admin_spot_search"><input type="submit" class="word-search" value="Search">
     </form>
     <div class="result-number">
         <form action="" method="get">
             <select type="text" class="number" name="paginate">
-                @if($paginate == 10)
-                    <option value="10" selected>10件</option>
-                @else
-                    <option value="10">10件</option>
-                @endif
-                @if($paginate == 30)
-                    <option value="30" selected>30件</option>
-                @else
-                    <option value="30">30件</option>
-                @endif
-                @if($paginate == 50)
-                    <option value="50" selected>50件</option>
-                @else
-                    <option value="50">50件</option>
-                @endif
+                @foreach(config('const') as $k => $val)
+                    @if($k == 'paginate_number')
+                        @foreach($val as $k2 => $val2)
+                            <option value="{{$val2}}" {{$paginate == $val2 ? 'selected' : '' }}>{{$val2}}件</option>
+                        @endforeach
+                    @endif
+                @endforeach
             </select>
-            <input type="submit" value="表示">
+            <input type="submit" class="paginate-button" value="表示">
         </form>
     </div>
         @if (empty($spots))
@@ -42,7 +34,7 @@
                         <tr>
                             <th rowspan="5">
                                 @if(!empty($spot->image_path))
-                                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="80%">
+                                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="50%">
                                 @else
                                     <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="50%">
                                 @endif

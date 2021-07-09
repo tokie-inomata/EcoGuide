@@ -59,11 +59,11 @@ class AdminController extends Controller
                          ->orWhere('prefecture', 'like', '%'.$admin_spot_search.'%')
                          ->orWhere('city', 'like', '%'.$admin_spot_search.'%')
                          ->orWhere('house_number', 'like', '%'.$admin_spot_search.'%')
-                         ->orWhereHas('recycling_items', function($quiry) use ($admin_spot_search) {
-                            $quiry->Where('recycling_item', 'like', '%'.$admin_spot_search.'%');
+                         ->orWhereHas('recycling_items', function($query) use ($admin_spot_search) {
+                            $query->Where('recycling_item', 'like', '%'.$admin_spot_search.'%');
                          })
-                         ->orWhereHas('user', function($quiry) use ($admin_spot_search) {
-                            $quiry->Where('name', 'like', '%'.$admin_spot_search.'%');
+                         ->orWhereHas('user', function($query) use ($admin_spot_search) {
+                            $query->Where('name', 'like', '%'.$admin_spot_search.'%');
                          })
                          ->paginate($paginate);
         } else {
@@ -111,7 +111,7 @@ class AdminController extends Controller
             $user = User::where('blacklist_flg', 1)
                         ->Where('id', $admin_blacklist_search)
                         ->orWhere('name', 'like', '%'.$admin_blacklist_search.'%')
-                        ->orWhere('email', 'like', '%'.$admin_user_search.'%')
+                        ->orWhere('email', 'like', '%'.$admin_blacklist_search.'%')
                         ->paginate($paginate);
         } else {
         //ブラックリストに入ってる全ユーザー情報を取得

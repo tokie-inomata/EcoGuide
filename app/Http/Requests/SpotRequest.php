@@ -39,7 +39,7 @@ class SpotRequest extends FormRequest
             'city.required'                    => '市区町村を入力してください。',
             'house_number.required'            => '住所を入力してください。',
             'image_path.mimes'                 => '登録できる拡張子(PNG,JPG)ではありません。',
-            'image_path.max'                   => '画像データが大きすぎます。',
+            'image_path.max'                   => '画像データは１M以下で登録してください。',
         ];
     }
 }

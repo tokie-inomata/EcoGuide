@@ -1,5 +1,11 @@
 @extends('layouts.main')
 
+@section('js')
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script type="module" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+@endsection
+
 @section('main')
     <h2 class="title">ユーザー情報変更</h2>
     <div class="user-edit-form">
@@ -18,20 +24,12 @@
                         <dt>パスワード確認</dt>
                         <dd><input type="password" name="pass_confirm"></dd>
                         <dt>管理者権限</dt>
-                        @if($user->admin_flg == 1)
-                            <dd><input type="checkbox" value="1" name="admin_flg" checked></dd>
-                        @else
-                            <dd><input type="checkbox" value="1" name="admin_flg"></dd>
-                        @endif
+                        <dd><input type="checkbox" value="1" name="admin_flg" {{$user->admin_flg == 1 ? 'checked' : ''}}></dd>
                         <dt>ブラックリスト</dt>
-                        @if($user->blacklist_flg == 1)
-                            <dd><input type="checkbox" value="1" name="blacklist_flg" checked></dd>
-                        @else
-                            <dd><input type="checkbox" value="1" name="blacklist_flg"></dd>
-                        @endif
+                        <dd><input type="checkbox" value="1" name="blacklist_flg" {{$user->blacklist_flg == 1 ? 'checked' : ''}}></dd>
                     </dl>   
                     <input type="submit" value="変更" class="submit-button button" name="edit">
-                    <input type="submit" value="削除" class="submit-button button" name="delete">
+                    <input type="submit" value="削除" class="submit-button button delete" name="delete">
                 </form>
             @endif
         @endforeach

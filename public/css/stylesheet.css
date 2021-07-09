@@ -9,8 +9,8 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .footer-fixed {
-    min-height: 100vh;
     position: relative;
+    min-height: 100vh;
     padding-bottom: 80px;
     box-sizing: border-box;
 }
@@ -21,7 +21,7 @@ header {
     height: 70px;
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 1px #d5f0c5;
+    background-color: #f8fdb11d;
 }
 
 .logo-title { 
@@ -70,11 +70,11 @@ h1 {
     margin-left: 41%;
     text-align: center;
     font-size: 20pt;
-    background-color: #e668ad71;
+    background-color: #1696ff71;
 }
 
 .container {
-    background-color: #f9de9536;
+    background-color: #f9de9521;
 }
 
 .first-article-area {
@@ -91,17 +91,21 @@ h1 {
 
 article h2 {
     font-size: 17pt;
-    border-bottom: solid 5px #04dfeac8;
+    border-bottom: solid 5px #2bb1ff94;
+    border-left: solid 5px #2bb1ff94;
+    padding-left: 3%;
 }
 
 article p {
     font-size: 12pt;
     box-sizing: border-box;
+    line-height: 250%;
+    padding-top: 30px;
 }
 
 .first-article {
     width: calc((100%/12)*5);
-    margin: 100px 0;
+    margin-top: 80px;
 }
 
 .first-article-image{
@@ -114,7 +118,7 @@ article p {
 .second-article {
     width: calc((100%/12)*5);
     margin-right: 10%;
-    padding-top: 100px;
+    padding-top: 30px;
 }
 
 .second-article-image{
@@ -142,7 +146,9 @@ article p {
     position: absolute;
     top: 10px;
     left: 10%;
-    border-bottom: solid 5px #04dfeac8;
+    border-bottom: solid 5px #2bb1ff94;
+    border-left: solid 5px #2bb1ff94;
+    padding-left: 1%;
     font-size: 23pt;
 }
 
@@ -166,7 +172,7 @@ article p {
 .touhoku-area {
     width: 125px;
     position: absolute;
-    top: 100px;
+    top: 140px;
     left: 500px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -179,7 +185,7 @@ article p {
     width: 125px;
     position: absolute;
     top: 100px;
-    left: 120px;
+    left: 130px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -190,7 +196,7 @@ article p {
 .kantou-area {
     width: 190px;
     position: absolute;
-    top: 225px;
+    top: 300px;
     left: 500px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -215,7 +221,7 @@ article p {
     width: 125px;
     position: absolute;
     top: 142px;
-    left: -20px;
+    left: -40px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -227,7 +233,7 @@ article p {
     width: 125px;
     position: absolute;
     top: 443px;
-    left: 100px;
+    left: 70px;
     padding-bottom: 10px;
     font-size: 10pt;
     color: #2f4f4f;
@@ -250,7 +256,7 @@ article p {
 .okinawa-area {
     width: 70px;
     position: absolute;
-    top: 380px;
+    top: 460px;
     left: 500px;
     padding-bottom: 10px;
     font-size: 10pt;
@@ -358,8 +364,8 @@ footer {
 }
 
 .spot-create-form form {
-    width: 100%;
-    margin: 0 15%;
+    width: 70%;
+    margin-left: 25%;
 }
 
 .add-form form dl dt, .user-login form dl dt, .user-edit-form form dl dt, .spot-create-form form dl dt {
@@ -377,16 +383,16 @@ footer {
 .button {
     margin: 30px 0 30px 28%;
     padding: 5px;
-    background-color: #F0FFF0;
-    border-color: #B0E0E6;
+    background-color: #50aef142;
+    border-color: #06365842;
     border-radius: 8px;
 }
 
 .user-edit {
     margin: 30px 0 30px 5%;
     padding: 5px;
-    background-color: #F0FFF0;
-    border-color: #B0E0E6;
+    background-color: #50aef142;
+    border-color: #06365842;
     border-radius: 8px;
 }
 
@@ -425,13 +431,13 @@ footer {
 }
 
 .search-area th {
-    width: 150px;
+    width: 30%;
     border-right: 1px black solid;
 }
 
 .details {
     display: inline-block;
-    width: 200px;
+    width: 40%;
 }
 
 /*             検索ページ             */
@@ -439,7 +445,6 @@ footer {
 .search-control {
     margin-left: 80px;
 }
-
 
 .search-button {
     margin: 0 48%;
@@ -489,13 +494,19 @@ footer {
     margin-top: 50px;
 }
 
+.paginate-button {
+    border: none;
+    background-color: #50aef142;
+    border-radius: 10%;
+}
+
 /*             ユーザー・アドミン画面             */
 
 #side-menu {
     width: 200px;
     height: 100vh;
     float: left;
-    background-color: rgba(228, 255, 243, 0.7);
+    background-color: #97f4a024;
 }
 
 .menu-list {
@@ -526,7 +537,7 @@ footer {
 
 /*             admin 全ユーザー一覧             */
 .search-box {
-    padding-left: 400px;
+    padding-left: 35%;
 }
 
 .user-list-reslut {
@@ -565,8 +576,21 @@ footer {
     width: 15%;
 } 
 
-.blasklist-user {
+.blasklist-user td:first-child {
     background-color: #f651511c;
+}
+
+.admin-user-edit {
+    background-color: #50aef142;
+    padding: 5px;
+    border-radius: 10%;
+}
+
+.word-search {
+    border: none;
+    background-color: #50aef142;
+    padding: 5px;
+    border-radius: 10%;
 }
 /*              パスワードリセット              */
 
@@ -591,8 +615,9 @@ h4 {
 /*              品目登録                */
 
 .recycling-item-table {
-    margin: 30px 0 80px 30%;
+    margin: 30px 0 80px 28%;
     text-align: center;
+    width: 40%;
 }
 
 .recycling-item-table, .recycling-item-table th, .recycling-item-table td {
@@ -601,7 +626,7 @@ h4 {
 }
 
 .recycling-item-table th:first-child, .recycling-item-table td:first-child {
-    width: 100px;
+    width: 15%;
 }
 
 .recycling-item-table th:nth-child(2), .recycling-item-table td:nth-child(2) {
@@ -610,6 +635,11 @@ h4 {
 
 .item-create-form {
     margin: 0 0 50px 40%;
+}
+
+.item-delete-button {
+    border: none;
+    background-color: #50aef142;
 }
 
 /*              スポット用テーブル              */
@@ -621,7 +651,7 @@ h4 {
 
 .spot-table th {
     width: 30%;
-    border-right: solid 1px rgb(0, 0, 0);
+    border-right: solid 1px #000000;
 }
 
 .spot-table td {
@@ -637,9 +667,14 @@ h4 {
 .pagination li a, .pagination li span {
     padding: 5px 10px;
     font-size: 12pt;
-    background-color: rgb(255, 255, 255);
-    border: solid 1px rgb(0, 0, 0);
+    border: solid 1px #000000;
+    background-color: #ffffff;
     border-radius: 10%;
+}
+
+.activ span {
+    box-sizing: border-box;
+    background-color: #83cafd4e;
 }
 
 /*              フラッシュメッセージ                */
@@ -672,3 +707,9 @@ h4 {
     margin: 200px 5% 0 0; 
 }
 
+.spot-edit-button {
+    margin-left: 50%;
+    padding: 5px;
+    border-radius: 10%;
+    background-color: #50aef142;
+}

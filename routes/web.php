@@ -12,10 +12,16 @@
 */
 
 
-Route::get('/',            'MainController@index');
-Route::get('/pass/edit',   'MainController@pass_edit');
-Route::get('/pass/forget', 'MainController@pass_forget');
-Route::get('/pass/reset',  'MainController@pass_reset');
+Route::get('/',                     'MainController@index');
+
+/*             パスワード変更メール送信ルート              */
+Route::get('/pass/edit/{token}',    'Auth\ResetPasswordController@showResetForm')      ->name('pass.edit');
+Route::post('/pass/edit',           'Auth\ResetPasswordController@reset')              ->name('password.update');
+Route::get('/pass/forget',          'MainController@pass_forget');
+Route::get('/pass/reset',           'MainController@pass_reset');
+
+/*             オートコンプリートルート                */
+Route::get('spot/autocomplete',     'AutoCompleteController@autocomplete');
 
 /*             ユーザー側ルート             */
 Route::get('/mypage',      'UserController@mypage')    ->middleware('auth');
@@ -25,19 +31,20 @@ Route::get('/user/login',  'UserController@login')     ->name('user_login');
 Route::post('/user/login', 'UserController@signin')    ->name('user_signin');
 Route::get('/logout',      'UserController@getLogout') ->name('user_logout');
 Route::get('/user/edit',   'UserController@edit')      ->middleware('auth');
-Route::post('/user/edit',  'UserController@update')    ->middleware('auth')->name('user.update');
+Route::post('/user/edit',  'UserController@branch')    ->middleware('auth')->name('user.update');
 
 /*             検索ルート             */
 
-Route::get('/search', 'SearchController@search');
+Route::get('/search',              'SearchController@search');
+Route::get('/citysearch',   'SearchController@city_search');
 
 /*             Spotルート             */
 Route::get('/spot/index',   'SpotController@index')  ->middleware('auth');
 Route::get('/spot/create',  'SpotController@create') ->middleware('auth');
-Route::post('/spot/create', 'SpotController@add')    ->name('spot.create');
+Route::post('/spot/create', 'SpotController@add')    ->middleware('auth')  ->name('spot.create');
 Route::get('/spot/edit',    'SpotController@edit')   ->middleware('auth');
-Route::post('/spot/edit',   'SpotController@updata') ->middleware('auth')->name('spot.update');
-Route::get('/spot/show',    'SpotController@show')   ->middleware('auth');
+Route::post('/spot/edit',   'SpotController@branch') ->middleware('auth')  ->name('spot.update');
+Route::get('/spot/show',    'SpotController@show');
 
 /*             管理者側ルート             */
 Route::get('/admin/user/index',   'AdminController@user_index')  ->middleware('auth');
