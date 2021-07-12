@@ -13,8 +13,8 @@ class UsersTableSeeder extends Seeder
     {
         $param = [
             'name' => '管理者用アカウント',
-            'email' => 'EcoSpotSearch@kanrisya.com',
-            'password' => bcrypt('ecospot1234'),
+            'email' => 'EcoSpotSearch@gmail.com',
+            'password' => bcrypt('ecospot0616'),
             'admin_flg' => '1',
             'blacklist_flg' => '0',
         ];
