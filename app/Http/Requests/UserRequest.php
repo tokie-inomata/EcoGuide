@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
         return [
             'name'             => 'required',
             'email'            => 'required|email|unique:users,email',
-            'password'         => 'required',
+            'password'         => 'required|min:8',
             'password-confirm' => 'password_confirmed',
         ];
     }
@@ -39,6 +39,7 @@ class UserRequest extends FormRequest
             'email.email'                         => 'メールアドレス形式で記述してください。',
             'email.unique'                        => '登録済みのメールアドレスです。',
             'password.required'                   => '必須項目です。',
+            'password.min'                        => '8文字以上で記述してください。',
             'password-confirm.password_confirmed' => 'パスワードが一致しません。',
         ];
     }

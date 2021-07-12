@@ -437,7 +437,7 @@ footer {
 
 .details {
     display: inline-block;
-    width: 40%;
+    width: 48%;
 }
 
 /*             検索ページ             */
@@ -449,7 +449,7 @@ footer {
 .search-button {
     margin: 0 48%;
     border: solid #B0E0E6 1px;
-    background-color: #B0E0E6;
+    background-color: #b0e0e6a9;
     border-radius: 0 0 5px 5px;
 }
 
@@ -457,7 +457,7 @@ footer {
     margin-top: 100px;
     border: solid #B0E0E6 1px;
     border-radius: 10px;
-    background-color: #B0E0E6;
+    background-color: #b0e0e6a9;
 }
 
 .not-spot {
@@ -608,8 +608,8 @@ h4 {
     margin-left: 600px;
 }
 
-.pass-reset-message {
-    margin-left: 500px;
+.pass-reset-message p {
+    text-align: center;
 }
 
 /*              品目登録                */
@@ -682,7 +682,7 @@ h4 {
 .flash-message {
     margin: 30px 0;
     text-align: center;
-    color: rgb(255, 11, 11);
+    color: #ff6363;
 }
 
 /*              スポット詳細                */
@@ -712,4 +712,10 @@ h4 {
     padding: 5px;
     border-radius: 10%;
     background-color: #50aef142;
+}
+
+.errors-message {
+    text-align: center;
+    font-size: 10pt;
+    color: #ff6363
 }

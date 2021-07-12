@@ -21,7 +21,7 @@
                         <table class="spot-table search-result">
                             <tr>
                                 <th rowspan="4">
-                                    @if(!empty($spot->image_path))
+                                    @if(!empty($spot->image_path) && Storage::exists('/public/spot_image/'.$spot->image_path))
                                         <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="50%">
                                     @else
                                         <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="50%">

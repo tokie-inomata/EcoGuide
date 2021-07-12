@@ -17,6 +17,6 @@ return [
     'sent' => 'パスワード再設定用のURLをメールで送りました。',
     'throttled' => 'Please wait before retrying.',
     'token' => 'パスワード再設定用のトークンが不正です。',
-    'user' => "メールアドレスに一致するユーザーが存在しません。",
+    'user' => "",
 
 ];

@@ -7,11 +7,28 @@ $(".delete").on('click', function() {
     }
 });
 
+$(function() {
+    var pref = $('#prefecture option:selected').val();
+        
+    $.ajax({
+        type: "GET",
+        url: "./autocomplete",
+        data: {"pref":pref},
+    })
+    .done(function(data) {
+        // 入力補完を実施する要素に単語リストを設定
+        $( "#city" ).autocomplete({
+            source: $.each(data,function(key,obj){
+                obj;
+            }),
+        });
+    });
+});
+
 //spotの市区町村入力時の入力補完
 $(function() {
     $('#prefecture').on('change', function() {
         var pref = $(this).val();
-        console.log(pref);
         
         $.ajax({
             type: "GET",
@@ -31,7 +48,6 @@ $(function() {
 
 $(function() {
     var area = $('#area option:selected').val();
-    console.log(area);
 
     $.ajax({
         type: "GET",
@@ -48,7 +64,6 @@ $(function() {
 $(function() {
     $('#area').on('change', function() {
         var area = $(this).val();
-        console.log(area);
         $('#city-list').empty();
 
         $.ajax({

@@ -93,8 +93,10 @@ class UserController extends Controller
         $user = User::find($request->id);
         $user->name          = $request->name;
         $user->email         = $request->email;
-        if(!password_verify($request->password, $user->password)) {
-            $user->password  = Hash::make($request->password);
+        if(!empty($request->password)){
+            if(!password_verify($request->password, $user->password)) {
+                $user->password  = Hash::make($request->password);
+            }            
         }
         if(!empty($request->admin_flg)) {
             $user->admin_flg = $request->admin_flg;

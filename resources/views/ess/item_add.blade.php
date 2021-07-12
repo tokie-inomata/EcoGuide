@@ -22,6 +22,9 @@
             </tr>
         @endforeach
     </table>
+    @if($errors->has('recycling_item'))
+        <p class="errors-message">{{$errors->first('recycling_item')}}</p>
+    @endif
     <form action="" method="post" class="item-create-form">
         @csrf
         <input type="text" name="recycling_item"><input type="submit"  name="create" class="paginate-button" value="品目登録">

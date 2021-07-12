@@ -108,8 +108,7 @@ class AdminController extends Controller
         $admin_blacklist_search = $request->input('admin_blacklist_search');
         if(!empty($admin_blacklist_search)) {
         //検索ワードの条件に合うブラックリストユーザーを取得
-            $user = User::where('blacklist_flg', 1)
-                        ->Where('id', $admin_blacklist_search)
+            $user = User::Where('id', $admin_blacklist_search)
                         ->orWhere('name', 'like', '%'.$admin_blacklist_search.'%')
                         ->orWhere('email', 'like', '%'.$admin_blacklist_search.'%')
                         ->paginate($paginate);
@@ -150,6 +149,13 @@ class AdminController extends Controller
     {
         //createが押された場合
         if(!empty($_POST['create'])){
+            $rules = [
+                'recycling_item' => 'required',
+            ];
+            $messages = [
+                'recycling_item.required' => '１文字以上で入力してください。',
+            ];
+            $this->validate($request,$rules,$messages);
             //新しい品目を追加する
             $recycling_item = new recycling_item;
             $recycling_item->recycling_item = $request->recycling_item;

@@ -19,7 +19,11 @@ class MainController extends Controller
 
     public function pass_reset(Request $request)
     {
-        return view('ess.pass_reset');
+        if(empty($_SERVER['HTTP_REFERER'])) {
+            return redirect('/');
+        } else {
+            return view('ess.pass_reset');
+        }
     }
 
     public function pass_edit(Request $request)

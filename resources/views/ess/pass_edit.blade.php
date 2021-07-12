@@ -3,13 +3,23 @@
 @section('main')
     <h4>パスワードをリセットします。</h4>
     <div class="user-edit-form">
+        @if(session('flash_message'))
+            <div class="flash-message">
+                {{ session('flash_message') }}
+            </div>
+        @endif
+        @error('email')
+            <div class="flash-message" role="alert">
+                {{ $message }}
+            </div>
+        @enderror
+        @error('password')
+            <div class="flash-message" role="alert">
+                {{ $message }}
+            </div>
+        @enderror
         <form action="{{ route('password.update') }}" method="post">
             @csrf
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
             <dl>
                 <dt>メールアドレス</dt>
                 <dd><input type="email" name="email"></dd>

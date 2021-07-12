@@ -31,12 +31,14 @@
                 <th class="user-list-edit">変更</th>
             </tr>
             @foreach($user as $k )
-                <tr>
-                    <td class="user-list-id">{{ $k->id }}</td>
-                    <td class="user-list-name">{{ $k->name }}</td>
-                    <td class="user-list-mail">{{ $k->email }}</td>
-                    <td class="user-list-edit"><a href="/admin/user/edit?id={{ $k->id }}" class="admin-user-edit">変更</a></td>
-                </tr>
+                @if($k->blacklist_flg == 1)
+                    <tr>
+                        <td class="user-list-id">{{ $k->id }}</td>
+                        <td class="user-list-name">{{ $k->name }}</td>
+                        <td class="user-list-mail">{{ $k->email }}</td>
+                        <td class="user-list-edit"><a href="/admin/user/edit?id={{ $k->id }}" class="admin-user-edit">変更</a></td>
+                    </tr>
+                @endif
             @endforeach
         </table>
     </div>
