@@ -152,7 +152,6 @@ class SpotController extends Controller
             }
             $path = $request->file('image_path')->store('public/spot_image');
             $spot->image_path = basename($path);
-            $spot->save();
         }
 
 
@@ -165,6 +164,7 @@ class SpotController extends Controller
         $spot->recycling_items()->sync($recycling_item_ids);
 
         if($spot->isDirty() || !empty($before_item) && $before_item != $recycling_item_ids || empty($before_item) && !empty($recycling_item_ids)) {
+            $spot->save();
             return redirect('/spot/index')->with('flash_message', 'スポット情報を変更しました。');
         } else {
             return redirect('/spot/index')->with('flash_message', 'スポット情報の変更をしていません。');

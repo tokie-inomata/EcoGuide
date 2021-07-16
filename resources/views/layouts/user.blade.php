@@ -2,13 +2,15 @@
 <html>
 <head>
     <title>ESS</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8">	
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     @yield('js')
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/smartphone.css') }}" media="screen and (max-width: 480px)">
 </head>
 <body>
     <div class="footer-fixed">

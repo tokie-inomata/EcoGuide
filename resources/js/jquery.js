@@ -9,7 +9,7 @@ $(".delete").on('click', function() {
 
 $(function() {
     var pref = $('#prefecture option:selected').val();
-        
+
     $.ajax({
         type: "GET",
         url: "./autocomplete",
