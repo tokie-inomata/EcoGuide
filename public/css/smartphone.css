@@ -1,0 +1,135 @@
+@media screen and (max-width: 480px) {
+
+    header {
+        height: 50px;
+    }
+
+    .logo-title img {
+        height: 55px;
+    }
+
+    .main-menu {
+        display: none;
+        margin-top: 18px;
+        margin-right: 25px;
+    }
+    
+    .main-menu ol {
+        font-size: 8pt;
+    }
+
+    .main-content {
+        background-size: contain;
+        background-image: url(../img/index_img.jpg);
+        background-color:rgba(255,255,255,0.2);
+        background-blend-mode:lighten;
+        background-position: center center;
+        min-height: auto;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 0;
+        padding-top: 80px;
+        font-family: 'Shippori Mincho B1', serif;
+        font-size: 13pt;
+        letter-spacing: 10px;
+        color: #2F4F4F;
+    }
+
+    .page-link {
+        width: 100px;
+        margin: 95px 0 0 35%;
+        text-align: center;
+        font-size: 15pt;
+        background-color: #1696ffbc;
+    }
+
+    .first-article-area {
+        margin-bottom: 0;
+    }
+
+    .first-article-area img {
+        display: none;
+    }
+
+    .first-article {
+        Width: 80%;
+        margin-top: 30px;
+    }
+
+    article p {
+        padding-top: 0;
+    }
+
+    .second-article-area {
+        display: none;
+    }
+
+    .search-image {
+        display: none;
+    }
+
+    .area-search {
+        padding-bottom: 0;
+    }
+
+    .area-search h2 {
+        position: unset;
+        margin-top: 0;
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .area-search-container {
+        width: 80%;
+        margin: 60px 18%;
+    }
+
+    .hokkaidou-area, .touhoku-area, .kantou-area, .tyuubu-area, .tyuugoku-area, .kansai-area, .shikoku-area, .kyuusyuu-area, .okinawa-area {
+        position: unset;
+        padding-top: 10px;
+        display: flex;
+        width: 80%;
+    }
+
+    .hokkaidou, .touhoku, .kantou, .tyuubu, .tyuugoku, .kansai, .shikoku, .kyuusyuu, .okinawa {
+        text-align: left;
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .hokkaidou-area ul {
+        padding-left: 30px;
+    }
+
+    .kantou-group {
+        width: 120px;
+    }
+
+    form .search-area {
+        width: 80%;
+        margin: 50px 0 0 10%;
+    }
+
+    .search-control {
+        margin-left: 50px;
+    }
+
+    .title {
+        margin-bottom: 0;
+    }
+
+    .search-button {
+        margin: 0 40%;
+    }
+
+    .result-number {
+        margin-right: 5%;
+    }
+
+    .spot-table {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
