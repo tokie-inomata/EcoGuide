@@ -25,6 +25,7 @@
         background-blend-mode:lighten;
         background-position: center center;
         background-repeat: no-repeat;
+        min-height: auto;
     }
 
     h1 {
@@ -39,7 +40,7 @@
 
     .page-link {
         width: 100px;
-        margin: 200px 0 0 35%;
+        margin: 130px 0 0 35%;
         text-align: center;
         font-size: 15pt;
         background-color: #1696ffbc;
@@ -107,6 +108,20 @@
         width: 120px;
     }
 
+    .area-list {
+        font-size: 13pt;
+        line-height: 2.0;
+    }
+
+    .kantou-list {
+        font-size: 13pt;
+        line-height: 2.0;
+    }
+
+    .okinawa-area ul ol {
+        padding-left: 30px;
+    }
+
     form .search-area {
         width: 80%;
         margin: 50px 0 0 10%;
@@ -131,5 +146,9 @@
     .spot-table {
         width: 80%;
         margin-left: 10%;
+    }
+
+    .spot-table tr td {
+        line-height: 2.0;
     }
 }
