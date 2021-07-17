@@ -32,14 +32,14 @@
         margin: 0;
         padding-top: 80px;
         font-family: 'Shippori Mincho B1', serif;
-        font-size: 13pt;
+        font-size: 15pt;
         letter-spacing: 10px;
         color: #2F4F4F;
     }
 
     .page-link {
         width: 100px;
-        margin: 95px 0 0 35%;
+        margin: 200px 0 0 35%;
         text-align: center;
         font-size: 15pt;
         background-color: #1696ffbc;

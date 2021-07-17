@@ -51,7 +51,7 @@ header {
     background-color:rgba(255,255,255,0.2);
     background-blend-mode:lighten;
     background-position: center center;
-    min-height: auto;
+    min-height: 100vh;
 }
 
 h1 {
@@ -68,6 +68,7 @@ h1 {
     width: 200px;
     margin-top: 200px;
     margin-left: 41%;
+    margin-bottom: 0;
     text-align: center;
     font-size: 20pt;
     background-color: #1696ff71;
