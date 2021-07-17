@@ -151,4 +151,24 @@
     .spot-table tr td {
         line-height: 2.0;
     }
+
+    .spot-show-contents {
+        display: unset;
+    }
+
+    .image-contents {
+        width: 80%;
+        margin-top: 50px; 
+    }
+
+    .image-contents img {
+        padding: 0 20%;
+        width: 80%;
+        height: 100%;
+    }
+
+    .spot-details-contents {
+        width: 80%;
+        margin: 50px 20% 0 20%; 
+    }
 }
