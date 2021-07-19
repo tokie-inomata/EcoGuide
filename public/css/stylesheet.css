@@ -724,6 +724,11 @@ h4 {
     line-height: 2.0;
 }
 
+.spot-details-contents dd:last-child {
+    width: 30%;
+    word-break:break-word;
+}
+
 .spot-edit-button {
     margin-top: 50px;
     margin-left: 50%;
@@ -743,5 +748,6 @@ h4 {
 }
 
 .etc-link:link, .etc-link:visited {
+    word-break:break-word;
     color: #3392ffd1
 }
