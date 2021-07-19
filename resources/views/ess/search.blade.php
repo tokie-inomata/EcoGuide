@@ -21,26 +21,25 @@
                     </select>
                 </td>
             </tr>
-            @if($details_flg == 0)
-                <tr>
-                    <th rowspan="2">市区町村</th>
-                </tr>
-                <tr id="city-list">
-                </tr>
-                <tr></tr>
-                <tr>
-                    <th rowspan="5">品目</th>
-                    @foreach($items as $k => $val)
-                        <td class="details">
-                            <input type="checkbox" name="item[]" value="{{ $val->id }}" >{{ $val->recycling_item }}
-                        </td>
-                    @endforeach
-                </tr>
-            @endif
+            <tr class="details-contents">
+                <th rowspan="2">市区町村</th>
+            </tr>
+            <tr id="city-list" class="details-contents">
+            </tr>
+            <tr class="details-contents">
+                <th rowspan="5">品目</th>
+                @foreach($items as $k => $val)
+                    <td class="details">
+                        <input type="checkbox" name="item[]" value="{{ $val->id }}" >{{ $val->recycling_item }}
+                    </td>
+                @endforeach
+            </tr>
         </table>
-        <input type="hidden" id="details_flg" name="flg" value="{{ $details_flg }}">
         <input type='hidden' name="paginate" value="{{$paginate}}">
-        <input type="submit" value="詳細検索" class="search-button">
+        <div class="search-buttons">
+            <input type="button" value="詳細" class="search-button details-button">
+            <input type="submit" value="検索" class="search-button">
+        </div>
     </form>
 
     <h2 class="title">検索結果</h2>

@@ -447,8 +447,12 @@ footer {
     margin-left: 80px;
 }
 
+.search-buttons {
+    display: flex;
+    margin: 0 45%;
+}
+
 .search-button {
-    margin: 0 48%;
     border: solid #B0E0E6 1px;
     background-color: #b0e0e6a9;
     border-radius: 0 0 5px 5px;
@@ -464,6 +468,14 @@ footer {
 .not-spot {
     text-align: center;
     padding: 100px 0 ;
+}
+
+.details-contents {
+    visibility: collapse;
+}
+
+.details-contents.open {
+    visibility: visible;
 }
 
 /*             検索結果             */

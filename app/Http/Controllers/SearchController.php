@@ -94,21 +94,6 @@ class SearchController extends Controller
                 }
             }
 
-            //詳細検索の窓を開けるためのflg
-            $flg = $request->input('flg');
-            //configにあるconstをforeach
-            foreach(config('const') as $k => $val) {
-                //flgの情報に限定
-                if($k == 'flg') {
-                    //flgの中身をforeach
-                    foreach($val as $k2 ){
-                        //$flgと同じ数字じゃないものを取得
-                        if($flg != $k2) {
-                            $details_flg = $k2;
-                        }
-                    }
-                }
-            }
 
             //市区町村と品目が選択された場合
             if(!empty($item) && !empty($municipality)) {
@@ -174,7 +159,6 @@ class SearchController extends Controller
 
             $param = [
                 'spots'        => $spots,
-                'flg'          => $flg,
                 'request'      => $request,
                 'city'         => $city,
                 'items'        => $items,
@@ -185,7 +169,6 @@ class SearchController extends Controller
                 'paginate'     => $paginate,
                 'count_spots'  => $count_spots,
                 'search_param' => $search_param,
-                'details_flg'  => $details_flg,
                 'count_city'   => $count_city,
             ];
 

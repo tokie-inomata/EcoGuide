@@ -49,21 +49,26 @@ $(function() {
 });
 
 $(function() {
-    var details_flg =   $('#details_flg').val();
-    if(details_flg == 0) {
-        var area = $('#area option:selected').val();
+    $('.details-button').on('click', function() {
+        if($('.details-contents').hasClass('open')) {
+            $('#city-list').empty();
+            $('.details-contents').removeClass('open');
+        } else {
+            $('.details-contents').addClass('open');
+            var area = $('#area option:selected').val();
 
-        $.ajax({
-            type: "GET",
-            url: "/citysearch",
-            data: {"area":area},
-        })
-        .done(function(data) {
-            $.each(data,function(key,obj) {
-                $('#city-list').append('<td class="details"><input class="select-city" type="checkbox"  name="municipality[]" value="'+obj.cityCode+'"><span class="city-name">'+obj.cityName+'</span></td>');
+            $.ajax({
+                type: "GET",
+                url: "/citysearch",
+                data: {"area":area},
+            })
+            .done(function(data) {
+                $.each(data,function(key,obj) {
+                    $('#city-list').append('<td class="details"><input class="select-city" type="checkbox"  name="municipality[]" value="'+obj.cityCode+'"><span class="city-name">'+obj.cityName+'</span></td>');
+                });
             });
-        });
-    }
+        }
+    });
 });
 
 $(function() {
