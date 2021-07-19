@@ -10,6 +10,7 @@ use App\User;
 use App\Spot;
 use App\Recycling_item;
 use App\Recycling_item_spot;
+use App\Libs\PlanetextToUrl;
 
 class SpotController extends Controller
 {
@@ -120,11 +121,17 @@ class SpotController extends Controller
     {
         //選択されたスポットIDを取得
         $search_id = $request->input('id');
-        $spots = Spot::where('id', $search_id)->get();
+        $spots     = Spot::where('id', $search_id)->get();
+
+        foreach($spots as $spot) {
+            //備考欄にURLが入力されていたら<a>で囲む
+            $remarks = PlanetextToUrl::convertLink($spot->etc);
+        }
 
         $param = [
-            'spots' => $spots,
+            'spots'     => $spots,
             'search_id' => $search_id,
+            'remarks'   => $remarks,
         ];
 
         return view('ess/spot_show', $param);

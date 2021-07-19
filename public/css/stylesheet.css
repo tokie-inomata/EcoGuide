@@ -720,6 +720,10 @@ h4 {
     margin: 200px 5% 0 0; 
 }
 
+.spot-details-contents td, .spot-details-contents dd {
+    line-height: 2.0;
+}
+
 .spot-edit-button {
     margin-left: 50%;
     padding: 5px;
@@ -735,4 +739,8 @@ h4 {
     text-align: center;
     font-size: 10pt;
     color: #ff6363
+}
+
+.etc-link:link, .etc-link:visited {
+    color: #3392ffd1
 }
