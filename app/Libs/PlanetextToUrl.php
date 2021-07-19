@@ -12,7 +12,7 @@ class PlanetextToUrl
         //該当する文字列に処理
         $convert_text = preg_replace_callback($pattern,function ($matches) {
 
-            return '<a href="'.$matches[0].'" class="etc-link">'.$matches[0].'</a><br>';
+            return '<a href="'.$matches[0].'" class="etc-link">'.$matches[0].'</a>';
         },htmlspecialchars($plane_text));
 
         return $convert_text;

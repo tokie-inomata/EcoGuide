@@ -44,7 +44,7 @@
                             <input type="text" name="house_number" value="{{ $spot->house_number }}"><br>
                         </dd>
                         <dt>備考欄</dt>
-                        <dd><input type="text" name="etc" value="{{ $spot->etc }}"></dd>
+                        <dd><textarea name="etc" rows="4" cols="40">{{ $spot->etc }}</textarea></dd>
                         <dt>品目</dt>
                         <dd>
                             @foreach($recycling_item as $k)

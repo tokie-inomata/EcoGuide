@@ -43,7 +43,7 @@
                         @endforeach
                     </dd>
                 <dt>備考欄</dt>
-                    <dd><input type="text" name="etc"></dd>
+                    <dd><textarea name="etc" rows="4" cols="40"></textarea></dd>
                 <dt>画像</dt>
                 @if($errors->has('image_path'))
                     エラー:{{ $errors->first('image_path') }}
