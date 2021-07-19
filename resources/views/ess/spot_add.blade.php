@@ -42,6 +42,8 @@
                             <input type="checkbox" name="recycling_item_id[]" value="{{ $k->id }}">{{ $k->recycling_item }}
                         @endforeach
                     </dd>
+                <dt>備考欄</dt>
+                    <dd><input type="text" name="etc"></dd>
                 <dt>画像</dt>
                 @if($errors->has('image_path'))
                     エラー:{{ $errors->first('image_path') }}

@@ -135,8 +135,9 @@
         margin-bottom: 0;
     }
 
-    .search-button {
-        margin: 0 40%;
+    .search-buttons {
+        display: flex;
+        margin: 0 45%;
     }
 
     .result-number {
@@ -171,4 +172,9 @@
         width: 80%;
         margin: 50px 20% 0 20%; 
     }
+
+    .spot-edit-button {
+        display: none;
+    }
+    
 }

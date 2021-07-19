@@ -63,6 +63,7 @@ class SpotController extends Controller
         $spot->prefecture   = $add_pref;
         $spot->city         = $request->city;
         $spot->house_number = $request->house_number;
+        $spot->etc          = $request->etc;
         if($request->hasFile('image_path')){
             $path = $request->file('image_path')->store('public/spot_image');
             $spot->image_path = basename($path);
@@ -145,6 +146,7 @@ class SpotController extends Controller
         $spot->prefecture = $edit_pref;
         $spot->city = $request->city;
         $spot->house_number = $request->house_number;
+        $spot->etc          = $request->etc;
         if($request->hasFile('image_path')) {
             if(!empty($spot->image_path)) {
                 $delete_image = $spot->image_path;
