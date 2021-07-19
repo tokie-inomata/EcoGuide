@@ -2,8 +2,8 @@
 
 @section('js')
     <script src="{{ mix('js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script type="module" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 @endsection
 
 @section('main')
@@ -24,7 +24,6 @@
                     @endif
                     <dd>
                         <select name="prefecture" id="prefecture">
-                            <option disabled selected value>選択してください</option>
                             @foreach(config('pref') as $k => $val)
                                 @foreach($val as $k2 => $val2 )
                                     <option value="{{ $k2 }}">{{ $val2 }}</option>
