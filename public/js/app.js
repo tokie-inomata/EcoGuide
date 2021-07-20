@@ -50009,7 +50009,7 @@ $(function () {
         }
       }).done(function (data) {
         $.each(data, function (key, obj) {
-          $('#city-list').append('<td class="details"><input class="select-city" type="checkbox"  name="municipality[]" value="' + obj.cityCode + '"><span class="city-name">' + obj.cityName + '</span></td>');
+          $('#city-list').append('<td class="details"><input class="select-city" type="radio"  name="municipality[]" value="' + obj.cityCode + '"><span class="city-name">' + obj.cityName + '</span></td>');
         });
       });
     }
@@ -50027,7 +50027,7 @@ $(function () {
       }
     }).done(function (data) {
       $.each(data, function (key, obj) {
-        $('#city-list').append('<td class="details"><input class="select-city" type="checkbox"  name="municipality[]" value="' + obj.cityCode + '"><span class="city-name">' + obj.cityName + '</span></td>');
+        $('#city-list').append('<td class="details"><input class="select-city" type="radio" name="municipality[]" value="' + obj.cityCode + '"><span class="city-name">' + obj.cityName + '</span></td>');
       });
     });
   });
