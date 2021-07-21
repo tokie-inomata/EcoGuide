@@ -31,7 +31,7 @@ $(function() {
 $(function() {
     $('#prefecture').on('change', function() {
         var pref = $(this).val();
-        
+
         $.ajax({
             type: "GET",
             url: "./autocomplete",
