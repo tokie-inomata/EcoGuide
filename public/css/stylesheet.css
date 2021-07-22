@@ -725,7 +725,6 @@ h4 {
 }
 
 .spot-details-contents dd:last-child {
-    width: 30%;
     word-break:break-word;
 }
 
