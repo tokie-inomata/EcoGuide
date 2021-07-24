@@ -1,11 +1,12 @@
 <!doctype html>
 <html>
 <head>
-    <title>ESS</title>
-    <meta charset="utf-8">	
+    <title>Ecoスポットサーチ</title>
+    <meta name="description" content="Ecoスポットサーチは資源の回収ボックスの場所を検索するサイトです。段ボールや雑誌、小型家電・蛍光灯・電池などを回収できる場所を探してみませんか">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     @yield('js')
-    
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
