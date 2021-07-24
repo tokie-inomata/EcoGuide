@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Ecoスポットサーチ</title>
-    <meta name="description" content="Ecoスポットサーチは資源の回収ボックスの場所を検索するサイトです。段ボールや雑誌、小型家電・蛍光灯・電池などを回収できる場所を探してみませんか">
+    <meta name="description" content="段ボールや雑誌、小型家電・蛍光灯・電池などを回収できる場所を探してみませんか？Ecoスポットサーチは資源の回収ボックスの場所を検索するサイトです。">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     @yield('js')
