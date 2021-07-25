@@ -21,19 +21,19 @@ class AdminController extends Controller
         if(!empty($admin_user_search)) {
         //検索ワードから条件の合うユーザー情報を取得
             $user = User::where('id',$admin_user_search)
-                          ->orWhere('name', 'like', '%'.$admin_user_search.'%')
-                          ->orWhere('email', 'like', '%'.$admin_user_search.'%')
-                          ->paginate($paginate);
+                        ->orWhere('name', 'like', '%'.$admin_user_search.'%')
+                        ->orWhere('email', 'like', '%'.$admin_user_search.'%')
+                        ->paginate($paginate);
         } else {
         //全ユーザー情報取得
             $user = User::paginate($paginate);
         }
-        //ページリンク時のGETパラメータ保持用パラメータ        
+        //ページリンク時のGETパラメータ保持用パラメータ
         $search_param = [
             'admin_user_search' => $admin_user_search,
             'paginate'          => $paginate,
         ];
-        
+
         $param = [
             'login_user' => $login_user,
             'user'       => $user,
@@ -55,22 +55,22 @@ class AdminController extends Controller
         if(!empty($admin_spot_search)) {
         //検索ワードの条件に合うスポット情報を取得
             $spots = Spot::where('id', $admin_spot_search)
-                         ->orWhere('name', 'like', '%'.$admin_spot_search.'%')
-                         ->orWhere('prefecture', 'like', '%'.$admin_spot_search.'%')
-                         ->orWhere('city', 'like', '%'.$admin_spot_search.'%')
-                         ->orWhere('house_number', 'like', '%'.$admin_spot_search.'%')
-                         ->orWhereHas('recycling_items', function($query) use ($admin_spot_search) {
+                        ->orWhere('name', 'like', '%'.$admin_spot_search.'%')
+                        ->orWhere('prefecture', 'like', '%'.$admin_spot_search.'%')
+                        ->orWhere('city', 'like', '%'.$admin_spot_search.'%')
+                        ->orWhere('house_number', 'like', '%'.$admin_spot_search.'%')
+                        ->orWhereHas('recycling_items', function($query) use ($admin_spot_search) {
                             $query->Where('recycling_item', 'like', '%'.$admin_spot_search.'%');
-                         })
-                         ->orWhereHas('user', function($query) use ($admin_spot_search) {
+                        })
+                        ->orWhereHas('user', function($query) use ($admin_spot_search) {
                             $query->Where('name', 'like', '%'.$admin_spot_search.'%');
-                         })
-                         ->paginate($paginate);
+                        })
+                        ->paginate($paginate);
         } else {
         //全スポット情報を取得
             $spots = Spot::paginate($paginate);
         }
-        //ページリンク時のGETパラメータ保持用パラメータ        
+        //ページリンク時のGETパラメータ保持用パラメータ
         $search_param = [
             'admin_spot_search' => $admin_spot_search,
             'paginate'          => $paginate,
@@ -116,7 +116,7 @@ class AdminController extends Controller
         //ブラックリストに入ってる全ユーザー情報を取得
             $user = User::where('blacklist_flg', 1)->paginate($paginate);
         }
-        //ページリンク時のGETパラメータ保持用パラメータ        
+        //ページリンク時のGETパラメータ保持用パラメータ
         $search_param = [
             'admin_blacklist_search' => $admin_blacklist_search,
             'paginate'               => $paginate,

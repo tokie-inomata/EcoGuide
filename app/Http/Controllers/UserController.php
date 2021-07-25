@@ -32,7 +32,7 @@ class UserController extends Controller
         $user->admin_flg     = $request->admin_flg;
         $user->blacklist_flg = $request->blacklist_flg;
         $user->save();
-        
+
         //ユーザー追加が成功した場合ログイン状態にする
         Auth::guard()->login($user);
 
@@ -50,7 +50,7 @@ class UserController extends Controller
         $email    = $request->email;
         //フォームに入力されたパスワード情報取得
         $password = $request->password;
-        
+
         //ログイン処理
         if(Auth::attempt(['email' => $email, 'password' => $password, 'blacklist_flg' => 1])) {
             Auth::logout();
@@ -96,7 +96,7 @@ class UserController extends Controller
         if(!empty($request->password)){
             if(!password_verify($request->password, $user->password)) {
                 $user->password  = Hash::make($request->password);
-            }            
+            }
         }
         if(!empty($request->admin_flg)) {
             $user->admin_flg = $request->admin_flg;

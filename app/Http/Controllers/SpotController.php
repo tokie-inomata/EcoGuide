@@ -14,7 +14,7 @@ use App\Libs\PlanetextToUrl;
 
 class SpotController extends Controller
 {
-    
+
     public function index(Request $request)
     {
         //ログインユーザー情報取得
@@ -31,7 +31,7 @@ class SpotController extends Controller
             'spots'       => $spots,
             'spots_count' => $spots_count,
         ];
-        
+
         return view("ess.spot_add_list", $param);
     }
 
@@ -81,7 +81,7 @@ class SpotController extends Controller
                 $recycling_item_spot->spot_id = $spot->id;
                 $recycling_item_spot->recycling_item_id = $recycling_item_id;
                 $recycling_item_spot->save();
-            }            
+            }
         }
 
         return redirect('/spot/index')->with('flash_message', '回収スポットを登録しました。');
