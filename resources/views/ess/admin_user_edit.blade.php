@@ -27,7 +27,7 @@
                         <dd><input type="checkbox" value="1" name="admin_flg" {{$user->admin_flg == 1 ? 'checked' : ''}}></dd>
                         <dt>ブラックリスト</dt>
                         <dd><input type="checkbox" value="1" name="blacklist_flg" {{$user->blacklist_flg == 1 ? 'checked' : ''}}></dd>
-                    </dl>   
+                    </dl>
                     <input type="submit" value="変更" class="submit-button button" name="edit">
                     <input type="submit" value="削除" class="submit-button button delete" name="delete">
                 </form>

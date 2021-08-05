@@ -17,7 +17,7 @@
                 <dd><input type="password" name="password"></dd>
             </dl>
             <input type="submit" value="ログイン" class="button" name="login">
-        </form>   
+        </form>
     </div>
     <a href="/pass/forget" class="user-pass-edit">パスワードを忘れ方はこちら</a>
 @endsection

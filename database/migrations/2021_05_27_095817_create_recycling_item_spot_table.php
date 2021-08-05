@@ -20,14 +20,14 @@ class CreateRecyclingItemSpotTable extends Migration
             $table->timestamps();
 
             $table->foreign('spot_id')
-                  ->references('id')
-                  ->on('spots')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('spots')
+                ->onDelete('cascade');
 
             $table->foreign('recycling_item_id')
-                  ->references('id')
-                  ->on('recycling_items')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('recycling_items')
+                ->onDelete('cascade');
         });
     }
 
