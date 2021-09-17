@@ -727,8 +727,8 @@ h4 {
 }
 
 .image-contents {
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     margin: 0 auto;
     margin-top: 100px;
 }
@@ -738,8 +738,9 @@ h4 {
 }
 
 .spot-details-contents {
-    width: 30%;
-    margin: 150px 5% 0 0;
+    width: 400px;
+    margin: 150px auto;
+    margin-left: 0;
 }
 
 .spot-details-contents td, .spot-details-contents dd {
