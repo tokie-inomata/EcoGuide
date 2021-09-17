@@ -50,7 +50,7 @@
         <div class="result-number">
             <form action="" method="get">
                 <input type="hidden" name="area" value="{{$area}}">
-                <select type="text" class="number" name="paginate">
+                <select class="number" name="paginate">
                 @foreach(config('const') as $k => $val)
                     @if($k == 'paginate_number')
                         @foreach($val as $k2 => $val2)
@@ -69,16 +69,16 @@
                         <tr>
                             <th rowspan="5">
                                 @if(!empty($spot->image_path) && Storage::exists('/public/spot_image/'.$spot->image_path))
-                                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="90%">
+                                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}">
                                 @else
-                                    <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="50%">
+                                    <img src="{{ asset('img/EcoSpotSearch-logo.png') }}">
                                 @endif
                             </th>
                         </tr>
                         <tr><td>名前 : {{ $spot->name }}</td></tr>
-                        <tr><td id="municipality-{{$k2}}">住所 : {{ $spot->getData() }}</td></tr>
+                        <tr><td id="municipality">住所 : {{ $spot->getData() }}</td></tr>
                         <tr>
-                            <td>品目 : 
+                            <td>品目 :
                                 @foreach( $spot->recycling_items as $recycling_item )
                                     {{ $recycling_item->recycling_item }}
                                 @endforeach

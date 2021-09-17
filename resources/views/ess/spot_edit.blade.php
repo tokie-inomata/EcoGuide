@@ -71,7 +71,7 @@
                             エラー:{{ $errors->first('image_path') }}
                         @endif
                         <dd>
-                            <input type="file" name="image_path">
+                            <input type="file" name="image_path" value="{{ $spot->image_path }}">
                         </dd>
                     </dl>
                     <input type="submit" name="edit" class="submit-button button edit-button" value="変更">

@@ -5,9 +5,9 @@
         <div class="spot-show-contents">
             <div class="image-contents">
                 @if(!empty($spot->image_path) && Storage::exists('/public/spot_image/'.$spot->image_path))
-                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="70%">
+                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}">
                 @else
-                    <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="30%">
+                    <img src="{{ asset('img/EcoSpotSearch-logo.png') }}">
                 @endif
             </div>
             <div class="spot-details-contents">

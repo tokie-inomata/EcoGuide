@@ -34,9 +34,9 @@
                         <tr>
                             <th rowspan="5">
                                 @if(!empty($spot->image_path) && Storage::exists('/public/spot_image/'.$spot->image_path))
-                                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}" width="90%">
+                                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}">
                                 @else
-                                    <img src="{{ asset('img/EcoSpotSearch-logo.png') }}" width="50%">
+                                    <img src="{{ asset('img/EcoSpotSearch-logo.png') }}">
                                 @endif
                             </th>
                         </tr>

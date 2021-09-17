@@ -1,6 +1,7 @@
 /*             全体のCSS             */
 body {
     margin: 0;
+    min-width: 100vw;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -24,7 +25,7 @@ header {
     background-color: #f8fdb11d;
 }
 
-.logo-title { 
+.logo-title {
     padding: 0 5%;
 }
 
@@ -132,11 +133,14 @@ article p {
 .area-search {
     padding: 60px 0;
     position: relative;
+    margin: 0 auto;
 }
 
 .area-search-container {
     position: relative;
-    margin: 60px 33%;
+    width: 500px;
+    min-width: 150px;
+    margin: 60px auto;
 }
 
 .area-search a {
@@ -155,7 +159,9 @@ article p {
 
 .search-image img{
     height: 500px;
+    min-height: 100px;
     width: 500px;
+    min-width: 100px;
 }
 
 .hokkaidou-area {
@@ -340,7 +346,7 @@ footer {
     position: absolute;
     bottom: 0;
     height: 80px;
-    width: 100%;
+    min-width: 100vw;
     color: #FFFFFF;
     background-color: rgba(82,161,128,0.7);
 }
@@ -359,7 +365,7 @@ footer {
     text-align: center;
 }
 
-.add-form form, .user-login form, .user-edit-form form { 
+.add-form form, .user-login form, .user-edit-form form {
     width: 70%;
     margin: 0 28%;
 }
@@ -383,17 +389,17 @@ footer {
 
 .button {
     margin: 30px 0 30px 28%;
-    padding: 5px;
-    background-color: #50aef142;
-    border-color: #06365842;
+    padding: 8px;
+    background-color: #97f4a06a;
+    border: #97f4a086;
     border-radius: 8px;
 }
 
 .user-edit {
     margin: 30px 0 30px 5%;
     padding: 5px;
-    background-color: #50aef142;
-    border-color: #06365842;
+    background-color: #97f4a06a;
+    border-color: #97f4a086;
     border-radius: 8px;
 }
 
@@ -421,7 +427,6 @@ footer {
 
 .user-edit {
     margin-right: 40px;
-    
 }
 
 /*             検索フォームのテーブル             */
@@ -433,15 +438,22 @@ footer {
 
 .search-area th {
     width: 30%;
-    border-right: 1px black solid;
+    border-right: 1px #81b1b8a9 solid;
 }
 
 .details {
     display: inline-block;
     width: 48%;
+    padding: 5px 0;
 }
 
 /*             検索ページ             */
+
+select {
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 .search-control {
     margin-left: 80px;
@@ -450,6 +462,7 @@ footer {
 .search-buttons {
     display: flex;
     margin: 0 48%;
+    padding: 0 10px;
 }
 
 .search-button {
@@ -460,9 +473,10 @@ footer {
 
 .search-area {
     margin-top: 100px;
-    border: solid #B0E0E6 1px;
+    /* border: solid #B0E0E6 1px; */
     border-radius: 10px;
     background-color: #b0e0e6a9;
+    border-collapse: collapse;
 }
 
 .not-spot {
@@ -491,7 +505,7 @@ footer {
 }
 
 .number {
-    height: 20px;
+    height: 30px;
     margin-top: 18px;
     margin-left: 5px;
 }
@@ -509,7 +523,7 @@ footer {
 
 .paginate-button {
     border: none;
-    background-color: #50aef142;
+    background-color: #97f4a06a;
     border-radius: 10%;
 }
 
@@ -527,7 +541,7 @@ footer {
     margin: 50px 0 0 50px;
 }
 
-#user-info {    
+#user-info {
     height: 100vh;
     overflow-y: scroll;
 }
@@ -579,29 +593,29 @@ footer {
 
 .user-list-table tr th:nth-child(2), .user-list-table tr td:nth-child(2) {
     width: 30%;
-} 
+}
 
 .user-list-table tr th:nth-child(3), .user-list-table tr td:nth-child(3) {
     width: 45%;
-} 
+}
 
 .user-list-table tr th:last-child, .user-list-table tr td:last-child {
     width: 15%;
-} 
+}
 
 .blasklist-user td:first-child {
     background-color: #f651511c;
 }
 
 .admin-user-edit {
-    background-color: #50aef142;
+    background-color: #97f4a06a;
     padding: 5px;
     border-radius: 10%;
 }
 
 .word-search {
     border: none;
-    background-color: #50aef142;
+    background-color: #97f4a06a;
     padding: 5px;
     border-radius: 10%;
 }
@@ -652,7 +666,7 @@ h4 {
 
 .item-delete-button {
     border: none;
-    background-color: #50aef142;
+    background-color: #97f4a06a;
 }
 
 /*              スポット用テーブル              */
@@ -663,12 +677,19 @@ h4 {
 }
 
 .spot-table th {
-    width: 30%;
+    width: 100px;
+    min-width: 100px;
+    padding: 0 20px;
+    padding-top: 5px;
     border-right: solid 1px #000000;
 }
 
+.spot-table th img {
+    width: 100%;
+}
+
 .spot-table td {
-    width: 70%;
+    min-width: 200px;
 }
 
 /*              ペジネーション              */
@@ -702,22 +723,22 @@ h4 {
 
 .spot-show-contents {
     display: flex;
+    justify-content: space-around;
 }
 
 .image-contents {
-    width: 60%;
-    margin-top: 100px; 
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
 }
 
 .image-contents img {
-    padding-top: 100px;
-    padding-left: 30%;
-    height: 80%;
+    width: 100%;
 }
 
 .spot-details-contents {
     width: 30%;
-    margin: 150px 5% 0 0; 
+    margin: 150px 5% 0 0;
 }
 
 .spot-details-contents td, .spot-details-contents dd {
@@ -733,7 +754,7 @@ h4 {
     margin-left: 50%;
     padding: 5px;
     border-radius: 10%;
-    background-color: #50aef142;
+    background-color: #97f4a06a;
 }
 
 .google-map-contents {
@@ -749,4 +770,11 @@ h4 {
 .etc-link:link, .etc-link:visited {
     word-break:break-word;
     color: #3392ffd1
+}
+
+form input[type="text"], form input[type="password"], form input[type="email"] {
+    width: 25%;
+    padding: 5px 10px;
+    border: 1px solid #8e8e8e;
+    border-radius: 5px;
 }
