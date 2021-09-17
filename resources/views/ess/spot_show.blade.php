@@ -27,7 +27,5 @@
                 @endif
             </div>
         </div>
-        <div class="google-map-contents">
-        </div>
     @endforeach
 @endsection
