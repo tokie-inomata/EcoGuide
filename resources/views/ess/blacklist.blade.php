@@ -3,7 +3,7 @@
 @section('main')
     <h2 class="title">ブラックリスト</h2>
     <form action="" method="get" class="search-box">
-        <input type="text" size="45%" name="admin_blacklist_search"><input type="submit" class="word-search" value="Search">
+        <input type="text" name="admin_blacklist_search"><input type="submit" class="word-search" value="Search">
     </form>
     <div class="result-number">
         <form action="" method="get">

@@ -8,7 +8,7 @@
     @endif
     <h2 class="title">全登録スポット一覧</h2>
     <form action="" method="get" class="search-box">
-        <input type="text" size="45%" name="admin_spot_search"><input type="submit" class="word-search" value="Search">
+        <input type="text" name="admin_spot_search"><input type="submit" class="word-search" value="Search">
     </form>
     <div class="result-number">
         <form action="" method="get">

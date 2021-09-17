@@ -564,7 +564,13 @@ select {
 
 /*             admin 全ユーザー一覧             */
 .search-box {
-    padding-left: 35%;
+    display: flex;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.search-box input[type="text"] {
+    width: 100%;
 }
 
 .user-list-reslut {
