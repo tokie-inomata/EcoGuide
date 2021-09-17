@@ -731,7 +731,7 @@ h4 {
     height: 500px;
     margin: 0 auto;
     margin-top: 100px;
-    margin-right: 0;
+    margin-right: 20px;
 }
 
 .image-contents img {
@@ -741,7 +741,7 @@ h4 {
 .spot-details-contents {
     width: 400px;
     margin: 0 auto;
-    margin-left: 0;
+    margin-left: 20px;
     padding-top: 150px;
 }
 
