@@ -9,8 +9,8 @@
 @section('main')
     <h2 class="title">ユーザー情報変更</h2>
     <div class="user-edit-form">
-        @foreach ( $users as $user)
-            @if( $user->id == $id)
+        @foreach($users as $user)
+            @if($user->id == $id)
                 <form action="{{ route('user.update') }}" method="post">
                     @csrf
                     <input type="hidden" name="id" value="{{ $user->id }}">

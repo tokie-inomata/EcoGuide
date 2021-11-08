@@ -8,12 +8,8 @@
     <div class="result-number">
         <form action="" method="get">
             <select type="text" class="number" name="paginate">
-                @foreach(config('const') as $k => $val)
-                    @if($k == 'paginate_number')
-                        @foreach($val as $k2 => $val2)
-                            <option value="{{$val2}}" {{$paginate == $val2 ? 'selected' : '' }}>{{$val2}}件</option>
-                        @endforeach
-                    @endif
+                @foreach(config('const')['paginate_number'] as $k => $val)
+                    <option value="{{$val}}" {{$paginate == $val ? 'selected' : '' }}>{{$val}}件</option>
                 @endforeach
             </select>
             <input type="submit" class="paginate-button" value="表示">
@@ -29,7 +25,7 @@
             </tr>
             @foreach($user as $k )
                 @if($k->blacklist_flg == 1)
-                    <tr class="blasklist-user">
+                    <tr {{$k->blacklist_flg == 1 ? 'class=blacklist-user' : '' }}>
                         <td>{{ $k->id }}</td>
                         <td>{{ $k->name }}</td>
                         <td>{{ $k->email }}</td>

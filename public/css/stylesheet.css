@@ -610,7 +610,7 @@ select {
     width: 15%;
 }
 
-.blasklist-user td:first-child {
+.blacklist-user td:first-child {
     background-color: #f651511c;
 }
 
