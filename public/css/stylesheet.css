@@ -1,48 +1,10 @@
 /*             全体のCSS             */
-body {
-    margin: 0;
-    min-width: 100vw;
-}
 
 a:link, a:visited, a:hover, a:active {
     color: #163802;
     text-decoration: none;
 }
 
-.footer-fixed {
-    position: relative;
-    min-height: 100vh;
-    padding-bottom: 80px;
-    box-sizing: border-box;
-}
-
-/*             ヘッダー部分のCSS             */
-
-header {
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #f8fdb11d;
-}
-
-.logo-title {
-    padding: 0 5%;
-}
-
-.main-menu {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-    margin-right: 130px;
-}
-
-.main-menu ol {
-    font-size: 10pt;
-}
-
-.menu-button {
-    padding-left: 30px;
-}
 
 /*             メイン部分のCSS（トップページ）             */
 
@@ -75,9 +37,6 @@ h1 {
     background-color: #1696ff71;
 }
 
-.container {
-    background-color: #f9de9521;
-}
 
 .first-article-area {
     display: flex;
