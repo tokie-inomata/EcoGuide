@@ -13,4 +13,11 @@ $(function(){
         $('body,html').animate({scrollTop:position}, speed, 'swing');
         return false;
     });
+
+    // ハンバーガーメニュー
+    $('.open').on('click', function() {
+      $(this).toggleClass('close-button');
+      $('.border').toggleClass('close');
+      $('.main-menu').toggleClass('sp-menu');
+    });
 });

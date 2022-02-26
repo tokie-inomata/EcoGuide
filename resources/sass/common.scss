@@ -1,0 +1,252 @@
+@import "_variables";
+
+
+body {
+    margin: 0;
+    min-width: 100vw;
+}
+
+// header部分
+header {
+    height: 85px;
+    margin: 0 7%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f8fdb11d;
+    .logo-title {
+        font-family: 'YuMincho';
+        font-size: 15px;
+        line-height: 30px;
+        text-align: center;
+        color: $title-color;
+        text-shadow: 1px 1px 0 #fcffae,
+        -1px 1px 0 #fcffae,
+        1px -1px 0 #fcffae,
+        -1px -1px 0 #fcffae;
+        span {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 50px;
+        }
+    }
+    .open {
+        display: none;
+    }
+    .main-menu {
+        min-width: 450px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        .menu-button {
+            padding-left: 80px;
+            a {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        position: relative;
+        header {
+            .logo-title {
+                font-family: 'YuMincho';
+                font-size: 10px;
+                line-height: 20px;
+                padding-top: 16px;
+                text-align: center;
+                color: $title-color;
+                text-shadow: 1px 1px 0 #fcffae,
+                -1px 1px 0 #fcffae,
+                1px -1px 0 #fcffae,
+                -1px -1px 0 #fcffae;
+                span {
+                    font-family: 'Kaushan Script', cursive;
+                    font-size: 30px;
+                }
+            }
+            .open {
+                display: block;
+                position: fixed;
+                right: 5%;
+                z-index: 100;
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: 35px;
+                    right: 1%;
+                    width: 30px;
+                    border-top: 2px solid #000;
+                }
+                &::before {
+                    position: absolute;
+                    content: "";
+                    top: 45px;
+                    right: 1%;
+                    width: 30px;
+                    border-top: 2px solid #000;
+                }
+                .border {
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        top: 55px;
+                        right: 1%;
+                        width: 30px;
+                        border-top: 2px solid #000;
+                    }
+                }
+            }
+            .close {
+                &::after {
+                    display: none;
+                }
+            }
+            .close-button{
+                &::before {
+                    transform: rotate(45deg);
+                    border-top: 2px solid #fff;
+                }
+                &::after {
+                    top: 45px;
+                    transform: rotate(-45deg);
+                    border-top: 2px solid #fff;
+                }
+            }
+            nav {
+                .main-menu {
+                    display: none;
+                }
+                .sp-menu {
+                    position: fixed;
+                    display: block;
+                    text-align: center;
+                    margin: 0;
+                    padding: 150px 0;
+                    background-color: #7d7d7dbe;
+                    width: 30vw;
+                    height: 100vh;
+                    z-index: 99;
+                    right: 0;
+                    animation: SlideIn 1.6s;
+                    @keyframes SlideIn {
+                        0% {
+                            transform: translateX(100%);
+                        }
+                        100% {
+                            transform: translateX(0);
+                        }
+                    }
+                    .menu-button {
+                        padding: 0;
+                        margin-bottom: 50px;
+                        vertical-align: middle;
+                        a {
+                            color: #fff;
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// footerを最下部に固定
+.footer-fixed {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+}
+
+// index
+.container {
+    background-size: cover;
+    background-image: url(../img/index_img.jpg);
+    background-color:rgba(255,255,255,0.5);
+    background-blend-mode:lighten;
+    background-position: center center;
+    min-height: 100vh;
+    animation: fadeIn 3s ease 0.2s 1 normal;
+    position: relative;
+    // img {
+    //     opacity: 0.4;
+    //     width: 100%;
+    // }
+    h2 {
+        position: absolute;
+        top: 70px;
+        left: 10%;
+        letter-spacing: 20px;
+        font-size: 50px;
+        font-family: 'Kaushan Script', cursive;
+        color: $title-color;
+        text-shadow: 1px 1px 0 #fcffae,
+                    -1px 1px 0 #fcffae,
+                    1px -1px 0 #fcffae,
+                    -1px -1px 0 #fcffae;
+    }
+    p {
+        position: absolute;
+        width: 40%;
+        top: 400px;
+        left: 50%;
+        font-size: 18px;
+        line-height: 3;
+        vertical-align: baseline;
+        color: $font-color;
+    }
+    @media screen and (max-width: 768px) {
+        p {
+            top: 320px;
+            font-size: 13px;
+        }
+    }
+}
+@keyframes fadeIn { /*animation-nameで設定した値を書く*/
+    0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
+    100% {opacity: 1} /*アニメーション終了時は不透明度100%*/
+}
+
+.search {
+    width: 90%;
+    margin: 0 auto;
+    .search-image {
+        text-align: center;
+        position: relative;
+        img {
+            min-width: 700px;
+        }
+    }
+    .area {
+        position: absolute;
+        width: 110px;
+        top: -90px;
+        left: 80%;
+        .ttl {
+            width: 100%;
+            font-size: 15px;
+            text-align: center;
+        }
+        .group {
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .list {
+                padding: 0;
+                a {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .area {
+            top: 50px;
+            right: 10%;
+        }
+    }
+}

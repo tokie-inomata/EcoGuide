@@ -1,0 +1,291 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  min-width: 100vw;
+}
+
+header {
+  height: 85px;
+  margin: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8fdb11d;
+}
+
+header .logo-title {
+  font-family: "YuMincho";
+  font-size: 15px;
+  line-height: 30px;
+  text-align: center;
+  color: #367777;
+  text-shadow: 1px 1px 0 #fcffae, -1px 1px 0 #fcffae, 1px -1px 0 #fcffae, -1px -1px 0 #fcffae;
+}
+
+header .logo-title span {
+  font-family: "Kaushan Script", cursive;
+  font-size: 50px;
+}
+
+header .open {
+  display: none;
+}
+
+header .main-menu {
+  min-width: 450px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+header .main-menu .menu-button {
+  padding-left: 80px;
+}
+
+header .main-menu .menu-button a {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    position: relative;
+  }
+
+  body header .logo-title {
+    font-family: "YuMincho";
+    font-size: 10px;
+    line-height: 20px;
+    padding-top: 16px;
+    text-align: center;
+    color: #367777;
+    text-shadow: 1px 1px 0 #fcffae, -1px 1px 0 #fcffae, 1px -1px 0 #fcffae, -1px -1px 0 #fcffae;
+  }
+
+  body header .logo-title span {
+    font-family: "Kaushan Script", cursive;
+    font-size: 30px;
+  }
+
+  body header .open {
+    display: block;
+    position: fixed;
+    right: 5%;
+    z-index: 100;
+  }
+
+  body header .open::after {
+    position: absolute;
+    content: "";
+    top: 35px;
+    right: 1%;
+    width: 30px;
+    border-top: 2px solid #000;
+  }
+
+  body header .open::before {
+    position: absolute;
+    content: "";
+    top: 45px;
+    right: 1%;
+    width: 30px;
+    border-top: 2px solid #000;
+  }
+
+  body header .open .border::after {
+    position: absolute;
+    content: "";
+    top: 55px;
+    right: 1%;
+    width: 30px;
+    border-top: 2px solid #000;
+  }
+
+  body header .close::after {
+    display: none;
+  }
+
+  body header .close-button::before {
+    transform: rotate(45deg);
+    border-top: 2px solid #fff;
+  }
+
+  body header .close-button::after {
+    top: 45px;
+    transform: rotate(-45deg);
+    border-top: 2px solid #fff;
+  }
+
+  body header nav .main-menu {
+    display: none;
+  }
+
+  body header nav .sp-menu {
+    position: fixed;
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 150px 0;
+    background-color: #7d7d7dbe;
+    width: 30vw;
+    height: 100vh;
+    z-index: 99;
+    right: 0;
+    -webkit-animation: SlideIn 1.6s;
+            animation: SlideIn 1.6s;
+  }
+
+@-webkit-keyframes SlideIn {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+}
+
+@keyframes SlideIn {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+}
+
+  body header nav .sp-menu .menu-button {
+    padding: 0;
+    margin-bottom: 50px;
+    vertical-align: middle;
+  }
+
+  body header nav .sp-menu .menu-button a {
+    color: #fff;
+    font-size: 30px;
+  }
+}
+
+.footer-fixed {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.container {
+  background-size: cover;
+  background-image: url(/images/index_img.jpg?38f26cc2d8eeee13bc7365ded312ad01);
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
+  background-position: center center;
+  min-height: 100vh;
+  -webkit-animation: fadeIn 3s ease 0.2s 1 normal;
+          animation: fadeIn 3s ease 0.2s 1 normal;
+  position: relative;
+}
+
+.container h2 {
+  position: absolute;
+  top: 70px;
+  left: 10%;
+  letter-spacing: 20px;
+  font-size: 50px;
+  font-family: "Kaushan Script", cursive;
+  color: #367777;
+  text-shadow: 1px 1px 0 #fcffae, -1px 1px 0 #fcffae, 1px -1px 0 #fcffae, -1px -1px 0 #fcffae;
+}
+
+.container p {
+  position: absolute;
+  width: 40%;
+  top: 400px;
+  left: 50%;
+  font-size: 18px;
+  line-height: 3;
+  vertical-align: baseline;
+  color: #6b3719;
+}
+
+@media screen and (max-width: 768px) {
+  .container p {
+    top: 320px;
+    font-size: 13px;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  /*animation-nameで設定した値を書く*/
+  0% {
+    opacity: 0;
+  }
+
+  /*アニメーション開始時は不透明度0%*/
+  100% {
+    opacity: 1;
+  }
+
+  /*アニメーション終了時は不透明度100%*/}
+
+@keyframes fadeIn {
+  /*animation-nameで設定した値を書く*/
+  0% {
+    opacity: 0;
+  }
+
+  /*アニメーション開始時は不透明度0%*/
+  100% {
+    opacity: 1;
+  }
+
+  /*アニメーション終了時は不透明度100%*/}
+
+.search {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.search .search-image {
+  text-align: center;
+  position: relative;
+}
+
+.search .search-image img {
+  min-width: 700px;
+}
+
+.search .area {
+  position: absolute;
+  width: 110px;
+  top: -90px;
+  left: 80%;
+}
+
+.search .area .ttl {
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+}
+
+.search .area .group {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.search .area .group .list {
+  padding: 0;
+}
+
+.search .area .group .list a {
+  font-size: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .search .area {
+    top: 50px;
+    right: 10%;
+  }
+}
+

@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CommonController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +15,7 @@
 */
 
 
-Route::get('/',                     'MainController@index')  ->name('home');
+Route::resource('/', CommonController::class)->only('index');
 Route::get('/sitemap.xml',          'SitemapController@index');
 
 /*             パスワード変更メール送信ルート              */
