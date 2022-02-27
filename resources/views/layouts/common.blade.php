@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/smartphone.css') }}" media="screen and (max-width: 480px)">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
 </head>
 <body>
@@ -23,7 +21,7 @@
                 <span class="border"></span>
             </div>
             <nav>
-                <ul class="main-menu">
+                <ul class="main-menu sp-menu">
                     <ol class="menu-button"><a href="#search">検索</a></ol>
                     @if(Auth::check())
                         <ol class="menu-button"><a href="/mypage">マイページ</a></ol>

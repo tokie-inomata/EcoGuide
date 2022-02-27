@@ -1,0 +1,160 @@
+@import '_variables';
+
+// index
+.container {
+    background-size: cover;
+    background-image: url(../img/index_img.jpg);
+    background-color:rgba(255,255,255,0.5);
+    background-blend-mode:lighten;
+    background-position: center center;
+    min-height: 100vh;
+    animation: fadeIn 3s ease 0.2s 1 normal;
+    position: relative;
+    h2 {
+        position: absolute;
+        top: 70px;
+        left: 10%;
+        letter-spacing: 20px;
+        font-size: 50px;
+        font-family: 'Kaushan Script', cursive;
+        color: $title-color;
+        text-shadow: 1px 1px 0 #fcffae,
+                    -1px 1px 0 #fcffae,
+                    1px -1px 0 #fcffae,
+                    -1px -1px 0 #fcffae;
+    }
+    p {
+        position: absolute;
+        width: 40%;
+        top: 400px;
+        left: 50%;
+        font-size: 18px;
+        line-height: 3;
+        vertical-align: baseline;
+        color: $font-color;
+    }
+    @media screen and (max-width: 768px) {
+        p {
+            top: 320px;
+            font-size: 13px;
+        }
+    }
+}
+
+@keyframes fadeIn { /*animation-nameで設定した値を書く*/
+    0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
+    100% {opacity: 1} /*アニメーション終了時は不透明度100%*/
+}
+
+.area-search {
+    width: 90vw;
+    margin: 0 auto;
+    h2 {
+        display: inline-block;
+        padding: 5px 10px 0 5px;
+        border-bottom: 3px solid $blue;
+        border-left: 3px solid $blue;
+        line-height: 1;
+    }
+    .search {
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative;
+        .search-image {
+            text-align: center;
+            img {
+                min-width: 700px;
+            }
+        }
+        .area {
+            position: absolute;
+            width: 150px;
+            top: 100px;
+            right: 15%;
+            border-radius: 10px;
+            .ttl {
+                width: 100%;
+                margin: 0;
+                margin-top: 10px;
+                font-size: 15px;
+                text-align: center;
+            }
+            .group {
+                margin: 0;
+                margin-bottom: 10px;
+                padding: 0 10px;
+                display: flex;
+                flex-wrap: wrap;
+                .list {
+                    padding: 0;
+                    width: 33%;
+                    text-align: center;
+                    a {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+        .hokkaidou {
+            background: $hokkaidou;
+            width: 80px;
+            .group .list {
+                width: 100%;
+            }
+        }
+        .touhoku {
+            background: $touhoku;
+            top: 200px;
+        }
+        .kantou {
+            background: $kantou;
+            top: 300px;
+        }
+        .tyuubu {
+            background: $tyuubu;
+            top: 150px;
+            right: 500px;
+        }
+        .kansai {
+            background: $kansai;
+            top: 480px;
+            right: 340px;
+        }
+        .tyuugoku {
+            background: $tyuugoku;
+            top: 300px;
+            right: 660px;
+        }
+        .shikoku {
+            background: $shikoku;
+            width: 110px;
+            top: 504px;
+            right: 510px;
+            .group {
+                .list {
+                    width: 50%;
+                }
+            }
+        }
+        .kyuusyuu {
+            background: $kyuusyuu;
+            top: 450px;
+            right: 800px;
+        }
+        .okinawa {
+            background: $okinawa;
+            top: 500px;
+            width: 80px;
+            .group .list {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .area {
+                top: 50px;
+                right: 10%;
+            }
+        }
+    }
+}

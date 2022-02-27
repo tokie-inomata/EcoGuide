@@ -1,5 +1,9 @@
 @extends('layouts.common')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+@stop
+
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('js/common.js')}}"></script>

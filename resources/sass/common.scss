@@ -6,6 +6,12 @@ body {
     min-width: 100vw;
 }
 
+a:link, a:visited, a:hover, a:active {
+    color: #163802;
+    text-decoration: none;
+}
+
+
 // header部分
 header {
     height: 85px;
@@ -77,6 +83,7 @@ header {
                     right: 1%;
                     width: 30px;
                     border-top: 2px solid #000;
+                    transition: all 1s;
                 }
                 &::before {
                     position: absolute;
@@ -85,6 +92,7 @@ header {
                     right: 1%;
                     width: 30px;
                     border-top: 2px solid #000;
+                    transition: all 1s;
                 }
                 .border {
                     &::after {
@@ -94,17 +102,21 @@ header {
                         right: 1%;
                         width: 30px;
                         border-top: 2px solid #000;
+                        transition: all 1s;
                     }
                 }
-            }
-            .close {
-                &::after {
-                    display: none;
+                .close {
+                    &::after {
+                        top: 45px;
+                        transform: rotate(45deg);
+                        border-top: 2px solid #fff;
+                        animation: lefttrans 1s;
+                    }
                 }
             }
             .close-button{
                 &::before {
-                    transform: rotate(45deg);
+                    opacity: 0;
                     border-top: 2px solid #fff;
                 }
                 &::after {
@@ -127,16 +139,8 @@ header {
                     width: 30vw;
                     height: 100vh;
                     z-index: 99;
-                    right: 0;
-                    animation: SlideIn 1.6s;
-                    @keyframes SlideIn {
-                        0% {
-                            transform: translateX(100%);
-                        }
-                        100% {
-                            transform: translateX(0);
-                        }
-                    }
+                    right: -500px;
+                    transition: all 1s;
                     .menu-button {
                         padding: 0;
                         margin-bottom: 50px;
@@ -146,6 +150,9 @@ header {
                             font-size: 30px;
                         }
                     }
+                }
+                .sp-open {
+                    right: 0;
                 }
             }
         }
@@ -159,94 +166,17 @@ header {
     min-height: 100vh;
     padding-bottom: 80px;
     box-sizing: border-box;
-}
-
-// index
-.container {
-    background-size: cover;
-    background-image: url(../img/index_img.jpg);
-    background-color:rgba(255,255,255,0.5);
-    background-blend-mode:lighten;
-    background-position: center center;
-    min-height: 100vh;
-    animation: fadeIn 3s ease 0.2s 1 normal;
-    position: relative;
-    // img {
-    //     opacity: 0.4;
-    //     width: 100%;
-    // }
-    h2 {
+    footer {
         position: absolute;
-        top: 70px;
-        left: 10%;
-        letter-spacing: 20px;
-        font-size: 50px;
-        font-family: 'Kaushan Script', cursive;
-        color: $title-color;
-        text-shadow: 1px 1px 0 #fcffae,
-                    -1px 1px 0 #fcffae,
-                    1px -1px 0 #fcffae,
-                    -1px -1px 0 #fcffae;
-    }
-    p {
-        position: absolute;
-        width: 40%;
-        top: 400px;
-        left: 50%;
-        font-size: 18px;
-        line-height: 3;
-        vertical-align: baseline;
-        color: $font-color;
-    }
-    @media screen and (max-width: 768px) {
-        p {
-            top: 320px;
-            font-size: 13px;
-        }
-    }
-}
-@keyframes fadeIn { /*animation-nameで設定した値を書く*/
-    0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
-    100% {opacity: 1} /*アニメーション終了時は不透明度100%*/
-}
-
-.search {
-    width: 90%;
-    margin: 0 auto;
-    .search-image {
-        text-align: center;
-        position: relative;
-        img {
-            min-width: 700px;
-        }
-    }
-    .area {
-        position: absolute;
-        width: 110px;
-        top: -90px;
-        left: 80%;
-        .ttl {
-            width: 100%;
-            font-size: 15px;
+        bottom: 0;
+        height: 80px;
+        min-width: 100vw;
+        color: #FFFFFF;
+        background-color: rgba(82,161,128,0.7);
+        .copyright {
+            margin: 0;
+            padding-top: 30px;
             text-align: center;
-        }
-        .group {
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            .list {
-                padding: 0;
-                a {
-                    font-size: 10px;
-                }
-            }
-        }
-    }
-    @media screen and (max-width: 768px) {
-        .area {
-            top: 50px;
-            right: 10%;
         }
     }
 }

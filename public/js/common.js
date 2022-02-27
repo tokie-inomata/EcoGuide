@@ -18,6 +18,6 @@ $(function(){
     $('.open').on('click', function() {
       $(this).toggleClass('close-button');
       $('.border').toggleClass('close');
-      $('.main-menu').toggleClass('sp-menu');
+      $('.sp-menu').toggleClass('sp-open');
     });
 });

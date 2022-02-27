@@ -1,53 +1,5 @@
 @charset "UTF-8";
 
-body {
-  margin: 0;
-  min-width: 100vw;
-}
-
-header {
-  height: 85px;
-  margin: 0 7%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #f8fdb11d;
-}
-
-header .logo-title {
-  font-family: "YuMincho";
-  font-size: 15px;
-  line-height: 30px;
-  text-align: center;
-  color: #367777;
-}
-
-header .logo-title span {
-  font-family: "Kaushan Script", cursive;
-  font-size: 50px;
-}
-
-header .main-menu {
-  min-width: 450px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 25px;
-}
-
-header .main-menu .menu-button {
-  padding-left: 80px;
-}
-
-header .main-menu .menu-button a {
-  font-size: 20px;
-}
-
-.footer-fixed {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 80px;
-  box-sizing: border-box;
-}
-
 .container {
   background-size: cover;
   background-image: url(/images/index_img.jpg?38f26cc2d8eeee13bc7365ded312ad01);
@@ -68,6 +20,7 @@ header .main-menu .menu-button a {
   font-size: 50px;
   font-family: "Kaushan Script", cursive;
   color: #367777;
+  text-shadow: 1px 1px 0 #fcffae, -1px 1px 0 #fcffae, 1px -1px 0 #fcffae, -1px -1px 0 #fcffae;
 }
 
 .container p {
@@ -79,6 +32,13 @@ header .main-menu .menu-button a {
   line-height: 3;
   vertical-align: baseline;
   color: #6b3719;
+}
+
+@media screen and (max-width: 768px) {
+  .container p {
+    top: 320px;
+    font-size: 13px;
+  }
 }
 
 @-webkit-keyframes fadeIn {
@@ -106,4 +66,136 @@ header .main-menu .menu-button a {
   }
 
   /*アニメーション終了時は不透明度100%*/}
+
+.area-search {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.area-search h2 {
+  display: inline-block;
+  padding: 5px 10px 0 5px;
+  border-bottom: 3px solid #3490dc;
+  border-left: 3px solid #3490dc;
+  line-height: 1;
+}
+
+.area-search .search {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.area-search .search .search-image {
+  text-align: center;
+}
+
+.area-search .search .search-image img {
+  min-width: 700px;
+}
+
+.area-search .search .area {
+  position: absolute;
+  width: 150px;
+  top: 100px;
+  right: 15%;
+  border-radius: 10px;
+}
+
+.area-search .search .area .ttl {
+  width: 100%;
+  margin: 0;
+  margin-top: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.area-search .search .area .group {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.area-search .search .area .group .list {
+  padding: 0;
+  width: 33%;
+  text-align: center;
+}
+
+.area-search .search .area .group .list a {
+  font-size: 10px;
+}
+
+.area-search .search .hokkaidou {
+  background: #2aab39;
+  width: 80px;
+}
+
+.area-search .search .hokkaidou .group .list {
+  width: 100%;
+}
+
+.area-search .search .touhoku {
+  background: #f8d939;
+  top: 200px;
+}
+
+.area-search .search .kantou {
+  background: #00caff;
+  top: 300px;
+}
+
+.area-search .search .tyuubu {
+  background: #2ca6e0;
+  top: 150px;
+  right: 500px;
+}
+
+.area-search .search .kansai {
+  background: #ff9fd4;
+  top: 480px;
+  right: 340px;
+}
+
+.area-search .search .tyuugoku {
+  background: #97c932;
+  top: 300px;
+  right: 660px;
+}
+
+.area-search .search .shikoku {
+  background: #e95711;
+  width: 110px;
+  top: 504px;
+  right: 510px;
+}
+
+.area-search .search .shikoku .group .list {
+  width: 50%;
+}
+
+.area-search .search .kyuusyuu {
+  background: #d6e20e;
+  top: 450px;
+  right: 800px;
+}
+
+.area-search .search .okinawa {
+  background: #f29600;
+  top: 500px;
+  width: 80px;
+}
+
+.area-search .search .okinawa .group .list {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .area-search .search .area {
+    top: 50px;
+    right: 10%;
+  }
+}
 
