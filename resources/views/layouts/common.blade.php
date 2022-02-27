@@ -25,10 +25,10 @@
                     <ol class="menu-button"><a href="#search">検索</a></ol>
                     @if(Auth::check())
                         <ol class="menu-button"><a href="/mypage">マイページ</a></ol>
-                        <ol class="menu-button"><a href="{{ route('user_logout') }}">ログアウト</a></ol>
+                        <ol class="menu-button"><a href="{{ route('user.logout') }}">ログアウト</a></ol>
                     @else
-                        <ol class="menu-button"><a href="/user/login">ログイン</a></ol>
-                        <ol class="menu-button"><a href="/user/create">登録</a></ol>
+                        <ol class="menu-button"><a href="{{ route('user.login') }}">ログイン</a></ol>
+                        <ol class="menu-button"><a href="{{ route('user.create') }}">登録</a></ol>
                     @endif
                 </ul>
             </nav>
@@ -37,7 +37,7 @@
         @yield('contents')
 
         <footer>
-            <p class="copyright">Copyright ©︎ 2021 ESS</p>
+            <p class="copyright">Copyright ©︎ 2021 EcoSpotSearch</p>
         </footer>
     </div>
     @yield('js')

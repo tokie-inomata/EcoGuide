@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CommonController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,28 +16,31 @@ use App\Http\Controllers\CommonController;
 |
 */
 
+Route::middleware('auth')->group(function() {
+    Route::resource('user', UserController::class)->only(['index']);
+});
 
-Route::resource('/', CommonController::class)->only('index');
+// 新ルート
+Route::resource('/',  CommonController::class)                                   ->only('index');
+Route::get('/login',  [LoginController::class, 'login'])                         ->name('user.login');
+Route::post('/login', [LoginController::class, 'signin'])                        ->name('user.signin');
+Route::get('/user/create',  [LoginController::class, 'create'])                        ->name('user.create');
+Route::post('/user/create', [LoginController::class, 'store'])                         ->name('user.store');
+Route::get('/logout', [LoginController::class, 'getLogout'])                     ->name('user.logout');
+
+
+// 旧ルート
 Route::get('/sitemap.xml',          'SitemapController@index');
-
 /*             パスワード変更メール送信ルート              */
 Route::get('/pass/edit/{token}',    'Auth\ResetPasswordController@showResetForm')      ->name('pass.edit');
 Route::post('/pass/edit',           'Auth\ResetPasswordController@reset')              ->name('password.update');
-Route::get('/pass/forget',          'MainController@pass_forget')                      ->name('pass.forget');
-Route::get('/pass/reset',           'MainController@pass_reset')                       ->name('pass.reset');
+Route::get('/pass/forget',          [LoginController::class ,'pass_forget'])           ->name('pass.forget');
+Route::get('/pass/reset',           [LoginController::class ,'pass_reset'])            ->name('pass.reset');
 
 /*             オートコンプリートルート                */
 Route::get('spot/autocomplete',     'AutoCompleteController@autocomplete');
 
 /*             ユーザー側ルート             */
-Route::get('/mypage',      'UserController@mypage')    ->middleware('auth')->name('user.page');
-Route::get('/user/create', 'UserController@create')                        ->name('user.add');
-Route::post('user/create', 'UserController@add')                           ->name('user.create');
-Route::get('/user/login',  'UserController@login')                         ->name('user_login');
-Route::post('/user/login', 'UserController@signin')                        ->name('user_signin');
-Route::get('/logout',      'UserController@getLogout')                     ->name('user_logout');
-Route::get('/user/edit',   'UserController@edit')      ->middleware('auth')->name('user.edit');
-Route::post('/user/edit',  'UserController@branch')    ->middleware('auth')->name('user.update');
 
 /*             検索ルート             */
 
@@ -59,6 +64,6 @@ Route::get('/admin/item/create',  'AdminController@item_create') ->middleware('a
 Route::post('/admin/item/create', 'AdminController@item_add')    ->middleware('auth') ->name('item.create');
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index');
