@@ -6,50 +6,44 @@
   background-color: rgba(255, 255, 255, 0.5);
   background-blend-mode: lighten;
   background-position: center center;
-  min-height: 100vh;
+  min-height: 750px;
   -webkit-animation: fadeIn 3s ease 0.2s 1 normal;
           animation: fadeIn 3s ease 0.2s 1 normal;
-  position: relative;
 }
 
-.container h2 {
-  position: absolute;
-  top: 70px;
-  left: 10%;
+.container .site-ttl {
   letter-spacing: 20px;
-  font-size: 50px;
+  font-size: 4.3em;
   font-family: "Kaushan Script", cursive;
   color: #367777;
   text-shadow: 1px 1px 0 #fcffae, -1px 1px 0 #fcffae, 1px -1px 0 #fcffae, -1px -1px 0 #fcffae;
+  margin: 0;
+  padding: 200px 0 50px;
 }
 
-.container p {
-  position: absolute;
-  width: 40%;
-  top: 400px;
-  left: 50%;
-  font-size: 18px;
+.container .site-details {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  font-size: 1.8em;
   line-height: 3;
-  vertical-align: baseline;
   color: #6b3719;
+  margin: 100px auto 50px;
 }
 
-@media screen and (max-width: 768px) {
+.container .site-details .site-text {
+  width: 50%;
+}
+
+@media screen and (max-width: 1000px) {
   .container p {
-    top: 320px;
-    font-size: 13px;
+    width: 90%;
   }
 }
 
 @media screen and (max-width: 425px) {
   .container h2 {
-    font-size: 50px;
     letter-spacing: 2px;
-  }
-
-  .container p {
-    left: 5%;
-    width: 90%;
   }
 }
 
@@ -84,8 +78,9 @@
   margin: 0 auto;
 }
 
-.area-search h2 {
+.area-search .content-ttl {
   display: inline-block;
+  margin-left: 10%;
   padding: 5px 10px 0 5px;
   border-bottom: 3px solid #3490dc;
   border-left: 3px solid #3490dc;
@@ -112,7 +107,6 @@
   top: 100px;
   right: 15%;
   border-radius: 10px;
-  color: #fff;
 }
 
 .area-search .search .area .ttl {
@@ -139,70 +133,69 @@
 
 .area-search .search .area .group .list a {
   font-size: 10px;
-  color: #fff;
 }
 
-.area-search .search .hokkaidou {
+.area-search .search .area:nth-child(2) {
   background: #2aab39;
   width: 80px;
 }
 
-.area-search .search .hokkaidou .group .list {
+.area-search .search .area:nth-child(2) .group .list {
   width: 100%;
 }
 
-.area-search .search .touhoku {
+.area-search .search .area:nth-child(3) {
   background: #f8d939;
   top: 200px;
 }
 
-.area-search .search .kantou {
+.area-search .search .area:nth-child(4) {
   background: #00caff;
   top: 300px;
 }
 
-.area-search .search .tyuubu {
+.area-search .search .area:nth-child(5) {
   background: #2ca6e0;
   top: 150px;
   right: 500px;
 }
 
-.area-search .search .kansai {
+.area-search .search .area:nth-child(6) {
   background: #ff9fd4;
   top: 480px;
   right: 340px;
 }
 
-.area-search .search .tyuugoku {
+.area-search .search .area:nth-child(7) {
   background: #97c932;
   top: 300px;
   right: 660px;
 }
 
-.area-search .search .shikoku {
+.area-search .search .area:nth-child(8) {
   background: #e95711;
   width: 110px;
   top: 504px;
   right: 510px;
 }
 
-.area-search .search .shikoku .group .list {
+.area-search .search .area:nth-child(8) .group .list {
   width: 50%;
 }
 
-.area-search .search .kyuusyuu {
+.area-search .search .area:nth-child(9) {
   background: #d6e20e;
   top: 450px;
   right: 800px;
 }
 
-.area-search .search .okinawa {
+.area-search .search .area:nth-child(10) {
   background: #f29600;
   top: 500px;
   width: 80px;
 }
 
-.area-search .search .okinawa .group .list {
+.area-search .search .area:nth-child(10) .group .list {
   width: 100%;
 }
 
@@ -216,51 +209,51 @@
     max-width: 300px;
   }
 
-  .area-search .search .hokkaidou {
+  .area-search .search .area:nth-child(2) {
     right: 10%;
   }
 
-  .area-search .search .touhoku {
+  .area-search .search .area:nth-child(3) {
     top: 180px;
     right: 10%;
   }
 
-  .area-search .search .kantou {
+  .area-search .search .area:nth-child(4) {
     right: 10%;
   }
 
-  .area-search .search .okinawa {
-    top: 440px;
-    right: 10%;
+  .area-search .search .area:nth-child(5) {
+    right: 350px;
   }
 
-  .area-search .search .kansai {
+  .area-search .search .area:nth-child(6) {
     top: 435px;
     right: 240px;
   }
 
-  .area-search .search .shikoku {
-    top: 460px;
-    right: 400px;
-  }
-
-  .area-search .search .tyuubu {
-    right: 350px;
-  }
-
-  .area-search .search .tyuugoku {
+  .area-search .search .area:nth-child(7) {
     top: 280px;
     right: 520px;
   }
 
-  .area-search .search .kyuusyuu {
+  .area-search .search .area:nth-child(8) {
+    top: 460px;
+    right: 400px;
+  }
+
+  .area-search .search .area:nth-child(9) {
     width: 110px;
     top: 400px;
     right: 600px;
   }
 
-  .area-search .search .kyuusyuu .group .list {
+  .area-search .search .area:nth-child(9) .group .list {
     width: 50%;
+  }
+
+  .area-search .search .area:nth-child(10) {
+    top: 440px;
+    right: 10%;
   }
 }
 
@@ -271,7 +264,7 @@
 
   .area-search .search .area {
     position: static;
-    width: 80vw;
+    width: 80vw !important;
     margin: 0 auto;
   }
 

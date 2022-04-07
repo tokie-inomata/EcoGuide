@@ -3,7 +3,8 @@
 
 body {
     margin: 0;
-    min-width: 100vw;
+    width: 100vw;
+    font-size: 62.5%;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -15,7 +16,7 @@ a:link, a:visited, a:hover, a:active {
 // header部分
 header {
     height: 85px;
-    margin: 0 7%;
+    padding: 0 7%;
     display: flex;
     justify-content: space-between;
     background-color: #f8fdb11d;

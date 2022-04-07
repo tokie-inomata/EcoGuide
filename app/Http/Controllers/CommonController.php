@@ -8,6 +8,7 @@ class CommonController extends Controller
 {
     public function index()
     {
-        return view('ecospotsearch.index');
+        $prefectures = config('pref')->groupBy('area');
+        return view('ecospotsearch.index', ['prefectures' => $prefectures]);
     }
 }

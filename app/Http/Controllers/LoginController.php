@@ -21,16 +21,9 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
-        //新しいユーザーを追加
-        $user                = new User;
-        $user->name          = $request->name;
-        $user->email         = $request->email;
+        $user                = new User($request->exsept('password'));
         $user->password      = Hash::make($request->password);
-        $user->admin_flg     = $request->admin_flg;
-        $user->blacklist_flg = $request->blacklist_flg;
         $user->save();
-
-        //ユーザー追加が成功した場合ログイン状態にする
         Auth::guard()->login($user);
 
         return redirect('/mypage')->with('flash_message', 'ユーザーを作成しました。');
@@ -38,13 +31,11 @@ class LoginController extends Controller
 
     public function signin(Request $request)
     {
-        //フォームに入力されたメールアドレス情報取得
         $email    = $request->email;
-        //フォームに入力されたパスワード情報取得
         $password = $request->password;
 
         //ログイン処理
-        if(Auth::attempt(['email' => $email, 'password' => $password, 'blacklist_flg' => 1])) {
+        if(Auth::attempt(['blacklist_flg' => 1])) {
             Auth::logout();
             return redirect('/user/login')->with('flash_message', 'このユーザーではログインできません。');
         } elseif(Auth::attempt(['email' => $email, 'password' => $password])) {
@@ -56,7 +47,6 @@ class LoginController extends Controller
 
     public function getLogout()
     {
-        //ログインユーザーをログアウトさせる
         Auth::logout();
         return redirect('/');
     }

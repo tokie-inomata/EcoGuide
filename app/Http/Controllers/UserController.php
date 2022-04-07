@@ -12,17 +12,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        //ログインユーザー情報取得
-        $login_user = Auth::user();
-        return view("ess.user_page", ['login_user' => $login_user]);
-    }
-
-    public function create()
-    {
-    }
-
-    public function store(UserRequest $request)
-    {
+        $user = Auth::user();
+        return view("ess.user_page", ['user' => $user]);
     }
 
     public function show(Request $request)
