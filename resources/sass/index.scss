@@ -38,15 +38,6 @@
             width: 90%;
         }
     }
-    @media screen and (max-width: 768px) {
-        p {
-        }
-    }
-    @media screen and (max-width: 425px) {
-        h2 {
-            letter-spacing: 2px;
-        }
-    }
 }
 
 @keyframes fadeIn { /*animation-nameで設定した値を書く*/
@@ -64,6 +55,7 @@
         border-bottom: 3px solid $blue;
         border-left: 3px solid $blue;
         line-height: 1;
+        font-size: 3em;
     }
     .search {
         max-width: 1000px;
@@ -71,13 +63,14 @@
         position: relative;
         .search-image {
             text-align: center;
+            padding-left: 50px;
             img {
                 min-width: 700px;
             }
         }
         .area {
             position: absolute;
-            width: 150px;
+            width: 190px;
             top: 100px;
             right: 15%;
             border-radius: 10px;
@@ -86,7 +79,7 @@
                 width: 100%;
                 margin: 0;
                 margin-top: 10px;
-                font-size: 15px;
+                font-size: 2em;
                 text-align: center;
             }
             .group {
@@ -100,8 +93,7 @@
                     width: 33%;
                     text-align: center;
                     a {
-                        font-size: 10px;
-                        // color: #fff;
+                        font-size: 1.2em;
                     }
                 }
             }
@@ -123,23 +115,23 @@
             &:nth-child(5) {
                 background: $tyuubu;
                 top: 150px;
-                right: 500px;
+                left: 300px;
             }
             &:nth-child(6) {
                 background: $kansai;
                 top: 480px;
-                right: 340px;
+                right: 320px;
             }
             &:nth-child(7) {
                 background: $tyuugoku;
                 top: 300px;
-                right: 660px;
+                left: 180px;
             }
             &:nth-child(8) {
                 background: $shikoku;
                 width: 110px;
-                top: 504px;
-                right: 510px;
+                top: 500px;
+                right: 520px;
                 .group {
                     .list {
                         width: 50%;
@@ -149,7 +141,7 @@
             &:nth-child(9) {
                 background: $kyuusyuu;
                 top: 450px;
-                right: 800px;
+                left: 10px;
             }
             &:nth-child(10) {
                 background: $okinawa;
@@ -161,61 +153,59 @@
             }
         }
     }
-
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1123px){
         .search {
-            max-width: 700px;
-            margin-bottom: 50px;
             .search-image {
                 img {
-                    max-width: 300px;
+                    display: none;
                 }
             }
             .area {
-                &:nth-child(2) {
-                    right: 10%;
+                position: static;
+                width: 80vw !important;
+                margin: 0 auto;
+                .ttl {
+                    padding: 10px 0;
                 }
-                &:nth-child(3) {
-                    top: 180px;
-                    right: 10%;
-                }
-                &:nth-child(4) {
-                    right: 10%;
-                }
-                &:nth-child(5) {
-                    right: 350px;
-                }
-                &:nth-child(6) {
-                    top: 435px;
-                    right: 240px;
-                }
-                &:nth-child(7) {
-                    top: 280px;
-                    right: 520px;
-                }
-                &:nth-child(8) {
-                    top: 460px;
-                    right: 400px;
-                }
-                &:nth-child(9) {
-                    width: 110px;
-                    top: 400px;
-                    right: 600px;
-                    .group {
-                        .list {
-                            width: 50%;
+                .group {
+                    justify-content: space-between;
+                    flex-wrap: nowrap;
+                    padding-bottom: 10px;
+                    .list {
+                        width: 33%;
+                        a {
+                            font-size: 2em;
                         }
                     }
-                }
-                &:nth-child(10) {
-                    top: 440px;
-                    right: 10%;
                 }
             }
         }
     }
 
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: 1000px) {
+        .search {
+            .search-image {
+                img {
+                    display: none;
+                }
+            }
+            .area {
+                position: static;
+                width: 80vw !important;
+                margin: 0 auto;
+                .ttl {
+                    padding: 10px 0;
+                }
+                .group {
+                    padding-bottom: 10px;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
         .search {
             .search-image {
                 img {

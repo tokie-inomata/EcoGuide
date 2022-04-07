@@ -41,12 +41,6 @@
   }
 }
 
-@media screen and (max-width: 425px) {
-  .container h2 {
-    letter-spacing: 2px;
-  }
-}
-
 @-webkit-keyframes fadeIn {
   /*animation-nameで設定した値を書く*/
   0% {
@@ -85,6 +79,7 @@
   border-bottom: 3px solid #3490dc;
   border-left: 3px solid #3490dc;
   line-height: 1;
+  font-size: 3em;
 }
 
 .area-search .search {
@@ -95,6 +90,7 @@
 
 .area-search .search .search-image {
   text-align: center;
+  padding-left: 50px;
 }
 
 .area-search .search .search-image img {
@@ -103,7 +99,7 @@
 
 .area-search .search .area {
   position: absolute;
-  width: 150px;
+  width: 190px;
   top: 100px;
   right: 15%;
   border-radius: 10px;
@@ -113,7 +109,7 @@
   width: 100%;
   margin: 0;
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 2em;
   text-align: center;
 }
 
@@ -132,7 +128,7 @@
 }
 
 .area-search .search .area .group .list a {
-  font-size: 10px;
+  font-size: 1.2em;
 }
 
 .area-search .search .area:nth-child(2) {
@@ -157,26 +153,26 @@
 .area-search .search .area:nth-child(5) {
   background: #2ca6e0;
   top: 150px;
-  right: 500px;
+  left: 300px;
 }
 
 .area-search .search .area:nth-child(6) {
   background: #ff9fd4;
   top: 480px;
-  right: 340px;
+  right: 320px;
 }
 
 .area-search .search .area:nth-child(7) {
   background: #97c932;
   top: 300px;
-  right: 660px;
+  left: 180px;
 }
 
 .area-search .search .area:nth-child(8) {
   background: #e95711;
   width: 110px;
-  top: 504px;
-  right: 510px;
+  top: 500px;
+  right: 520px;
 }
 
 .area-search .search .area:nth-child(8) .group .list {
@@ -186,7 +182,7 @@
 .area-search .search .area:nth-child(9) {
   background: #d6e20e;
   top: 450px;
-  right: 800px;
+  left: 10px;
 }
 
 .area-search .search .area:nth-child(10) {
@@ -199,65 +195,59 @@
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .area-search .search {
-    max-width: 700px;
-    margin-bottom: 50px;
-  }
-
+@media screen and (max-width: 1123px) {
   .area-search .search .search-image img {
-    max-width: 300px;
+    display: none;
   }
 
-  .area-search .search .area:nth-child(2) {
-    right: 10%;
+  .area-search .search .area {
+    position: static;
+    width: 80vw !important;
+    margin: 0 auto;
   }
 
-  .area-search .search .area:nth-child(3) {
-    top: 180px;
-    right: 10%;
+  .area-search .search .area .ttl {
+    padding: 10px 0;
   }
 
-  .area-search .search .area:nth-child(4) {
-    right: 10%;
+  .area-search .search .area .group {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
   }
 
-  .area-search .search .area:nth-child(5) {
-    right: 350px;
+  .area-search .search .area .group .list {
+    width: 33%;
   }
 
-  .area-search .search .area:nth-child(6) {
-    top: 435px;
-    right: 240px;
-  }
-
-  .area-search .search .area:nth-child(7) {
-    top: 280px;
-    right: 520px;
-  }
-
-  .area-search .search .area:nth-child(8) {
-    top: 460px;
-    right: 400px;
-  }
-
-  .area-search .search .area:nth-child(9) {
-    width: 110px;
-    top: 400px;
-    right: 600px;
-  }
-
-  .area-search .search .area:nth-child(9) .group .list {
-    width: 50%;
-  }
-
-  .area-search .search .area:nth-child(10) {
-    top: 440px;
-    right: 10%;
+  .area-search .search .area .group .list a {
+    font-size: 2em;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 1000px) {
+  .area-search .search .search-image img {
+    display: none;
+  }
+
+  .area-search .search .area {
+    position: static;
+    width: 80vw !important;
+    margin: 0 auto;
+  }
+
+  .area-search .search .area .ttl {
+    padding: 10px 0;
+  }
+
+  .area-search .search .area .group {
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .area-search .search .search-image img {
     display: none;
   }
