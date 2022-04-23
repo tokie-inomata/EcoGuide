@@ -11,12 +11,12 @@ class Spot extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
     public function recycling_items()
     {
-        return $this->belongsToMany('App\Recycling_item','App\Recycling_item_spot')->withTimestamps();
+        return $this->belongsToMany(Recycling_item::class, Recycling_item_spot::class)->withTimestamps();
     }
 
     public function getData()

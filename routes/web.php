@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -17,15 +16,15 @@ use App\Http\Controllers\UserController;
 */
 
 Route::middleware('auth')->group(function() {
-    Route::resource('user', UserController::class)->only(['index']);
+    Route::resource('user', UserController::class)->only(['index', 'edit', 'update', 'destroy']);
 });
 
 // 新ルート
 Route::resource('/',  CommonController::class)                                   ->only('index');
 Route::get('/login',  [LoginController::class, 'login'])                         ->name('user.login');
 Route::post('/login', [LoginController::class, 'signin'])                        ->name('user.signin');
-Route::get('/user/create',  [LoginController::class, 'create'])                        ->name('user.create');
-Route::post('/user/create', [LoginController::class, 'store'])                         ->name('user.store');
+Route::get('/signup',  [LoginController::class, 'create'])                        ->name('user.create');
+Route::post('/signup', [LoginController::class, 'store'])                         ->name('user.signup');
 Route::get('/logout', [LoginController::class, 'getLogout'])                     ->name('user.logout');
 
 
@@ -66,4 +65,4 @@ Route::post('/admin/item/create', 'AdminController@item_add')    ->middleware('a
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');

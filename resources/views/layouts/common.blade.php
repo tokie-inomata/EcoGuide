@@ -22,9 +22,13 @@
             </div>
             <nav>
                 <ul class="main-menu sp-menu">
-                    <ol class="menu-button"><a href="#search">検索</a></ol>
+                    @if(Request::is('/'))
+                        <ol class="menu-button"><a href="#search">検索</a></ol>
+                    @else
+                        <ol class="menu-button"><a href="/">HOME</a></ol>
+                    @endif
                     @if(Auth::check())
-                        <ol class="menu-button"><a href="/mypage">マイページ</a></ol>
+                        <ol class="menu-button"><a href="{{ route('user.index') }}">マイページ</a></ol>
                         <ol class="menu-button"><a href="{{ route('user.logout') }}">ログアウト</a></ol>
                     @else
                         <ol class="menu-button"><a href="{{ route('user.login') }}">ログイン</a></ol>

@@ -22,7 +22,7 @@ header {
 
 header .logo-title {
   font-family: "YuMincho";
-  font-size: 15px;
+  font-size: 1.5em;
   line-height: 30px;
   text-align: center;
   color: #367777;
@@ -50,7 +50,7 @@ header .main-menu .menu-button {
 }
 
 header .main-menu .menu-button a {
-  font-size: 20px;
+  font-size: 2em;
 }
 
 @media screen and (max-width: 768px) {
@@ -183,29 +183,32 @@ header .main-menu .menu-button a {
   margin: 0;
   padding-top: 30px;
   text-align: center;
+  font-size: 1.7em;
 }
 
 .flash-message {
   text-align: center;
 }
 
-h2 {
+.title,
+.site-ttl {
   text-align: center;
   margin-top: 80px;
+  font-size: 2.5em;
 }
 
 .form {
   border: 1px solid #000;
   border-radius: 10px;
   width: 50vw;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   padding: 50px 0;
 }
 
 .form form ul {
-  width: 800px;
   margin: 0 auto;
   line-height: 3;
+  padding: 0 50px;
 }
 
 .form form ul li {

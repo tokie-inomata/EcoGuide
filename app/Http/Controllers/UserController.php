@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Enums\Role;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class UserController extends Controller
@@ -13,20 +13,17 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view("ess.user_page", ['user' => $user]);
+        return view("ecospotsearch.user.index", ['user' => $user]);
     }
 
-    public function show(Request $request)
+    public function edit()
     {
+        $user = Auth::user();
+        return view("ecospotsearch.user.edit", ['user' => $user]);
     }
 
-    public function edit(Request $request)
+    public function update(UserRequest $request, User $user)
     {
-    }
-
-    public function update($request)
-    {
-        //選択されたユーザーIDを検索し更新
         $user = User::find($request->id);
         $user->name          = $request->name;
         $user->email         = $request->email;
@@ -48,16 +45,15 @@ class UserController extends Controller
 
         if($user->isDirty()) {
             $user->save();
-            return redirect('/mypage')->with('flash_message', 'ユーザー情報を変更しました。');
+            return redirect(route('user.index'))->with('flash_message', 'ユーザー情報を変更しました。');
         } else {
-            return redirect('/mypage')->with('flash_message', 'ユーザー情報の変更をしていません。');
+            return redirect(route('user.index'))->with('flash_message', 'ユーザー情報の変更をしていません。');
         }
     }
 
-    public function destroy($request)
+    public function destroy(User $user)
     {
-        //選択されたユーザーIDを検索し削除
-        User::find($request->id)->delete();
+        $user->delete();
 
         return redirect('/user/login')->with('flash_message','登録ユーザーを削除しました。');
     }

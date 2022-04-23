@@ -5,16 +5,15 @@
 @stop
 
 @section('contents')
-    <h2 class="title">ログイン</h2>
+    <h2 class="title">ユーザー登録</h2>
     <div class="form">
-        @if(session('flash_message'))
-            <div class="flash-message">
-                {{ session('flash_message') }}
-            </div>
-        @endif
-        <form action="{{ route('user.signin') }}" method="post">
+        <form action="{{ route('user.signup') }}" method="post">
             @csrf
             <ul>
+                <li class="input-ttl">
+                    <p>名前</p>
+                    <input type="text" name="name">
+                </li>
                 <li class="input-ttl">
                     <p>メールアドレス</p>
                     <input type="text" name="email">
@@ -23,11 +22,14 @@
                     <p>パスワード</p>
                     <input type="password" name="password">
                 </li>
+                <li class="input-ttl">
+                    <p>パスワード確認</p>
+                    <input type="password" name="password_confirm">
+                </li>
             </ul>
             <div class="btn">
-                <input type="submit" value="ログイン" class="button" name="login">
-                <span>パスワードを忘れた方は<a href="/pass/forget" class="user-pass-edit">こちら</a></span>
+                <input type="submit" value="登録する" class="button">
             </div>
         </form>
     </div>
-@stop
+@endsection

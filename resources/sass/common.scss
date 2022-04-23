@@ -1,12 +1,5 @@
 @import "_variables";
 
-
-body {
-    margin: 0;
-    width: 100vw;
-    font-size: 62.5%;
-}
-
 a:link, a:visited, a:hover, a:active {
     color: #163802;
     text-decoration: none;
@@ -22,7 +15,7 @@ header {
     background-color: #f8fdb11d;
     .logo-title {
         font-family: 'YuMincho';
-        font-size: 15px;
+        font-size: 1.5em;
         line-height: 30px;
         text-align: center;
         color: $title-color;
@@ -46,7 +39,7 @@ header {
         .menu-button {
             padding-left: 80px;
             a {
-                font-size: 20px;
+                font-size: 2em;
             }
         }
     }
@@ -178,6 +171,7 @@ header {
             margin: 0;
             padding-top: 30px;
             text-align: center;
+            font-size: 1.7em;
         }
     }
 }
@@ -186,22 +180,23 @@ header {
     text-align: center;
 }
 
-h2 {
+.title, .site-ttl {
     text-align: center;
     margin-top: 80px;
+    font-size: 2.5em;
 }
 
 .form {
     border: 1px solid #000;
     border-radius: 10px;
     width: 50vw;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     padding: 50px 0;
     form {
         ul {
-            width: 800px;
             margin: 0 auto;
             line-height: 3;
+            padding: 0 50px;
             li {
                 list-style: none;
                 label {

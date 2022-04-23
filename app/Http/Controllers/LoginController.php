@@ -16,17 +16,19 @@ class LoginController extends Controller
 
     public function create()
     {
-        return view("ecospotsearch.user.add");
+        return view("ecospotsearch.signup");
     }
 
     public function store(Request $request)
     {
-        $user                = new User($request->exsept('password'));
+        $user                = new User($request->except('password'));
         $user->password      = Hash::make($request->password);
+        $user->admin_flg     = 0;
+        $user->blacklist_flg = 0;
         $user->save();
         Auth::guard()->login($user);
 
-        return redirect('/mypage')->with('flash_message', 'ユーザーを作成しました。');
+        return redirect(route('user.index'))->with('flash_message', 'ユーザーを作成しました。');
     }
 
     public function signin(Request $request)
@@ -35,11 +37,11 @@ class LoginController extends Controller
         $password = $request->password;
 
         //ログイン処理
-        if(Auth::attempt(['blacklist_flg' => 1])) {
+        if(Auth::attempt(['email' => $email, 'password' => $password, 'blacklist_flg' => 1])) {
             Auth::logout();
-            return redirect('/user/login')->with('flash_message', 'このユーザーではログインできません。');
+            return redirect(route('user.index'))->with('flash_message', 'このユーザーではログインできません。');
         } elseif(Auth::attempt(['email' => $email, 'password' => $password])) {
-            return redirect("/mypage");
+            return redirect(route('user.index'));
         } else {
             return redirect('/user/login')->with('flash_message', 'ログインに失敗しました。');
         }

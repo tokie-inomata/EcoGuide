@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+body {
+  margin: 0;
+  width: 100vw;
+  font-size: 62.5%;
+}
+
 .container {
   background-size: cover;
   background-image: url(/images/index_img.jpg?38f26cc2d8eeee13bc7365ded312ad01);
@@ -84,7 +90,7 @@
 
 .area-search .search {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   position: relative;
 }
 
