@@ -2,6 +2,7 @@ body {
   margin: 0;
   width: 100vw;
   font-size: 62.5%;
+  font-family: "M PLUS Rounded 1c";
 }
 
 a:link,
@@ -17,7 +18,8 @@ header {
   padding: 0 7%;
   display: flex;
   justify-content: space-between;
-  background-color: #f8fdb11d;
+  align-items: center;
+  background-color: #90a7901d;
 }
 
 header .logo-title {
@@ -25,8 +27,7 @@ header .logo-title {
   font-size: 1.5em;
   line-height: 30px;
   text-align: center;
-  color: #367777;
-  text-shadow: 1px 1px 0 #fcffae, -1px 1px 0 #fcffae, 1px -1px 0 #fcffae, -1px -1px 0 #fcffae;
+  color: #3e4742;
 }
 
 header .logo-title span {
@@ -42,15 +43,11 @@ header .main-menu {
   min-width: 450px;
   display: flex;
   justify-content: space-between;
-  margin-top: 25px;
-}
-
-header .main-menu .menu-button {
-  padding-left: 80px;
 }
 
 header .main-menu .menu-button a {
-  font-size: 2em;
+  font-size: 1.7em;
+  letter-spacing: 0.2em;
 }
 
 @media screen and (max-width: 768px) {
@@ -60,11 +57,10 @@ header .main-menu .menu-button a {
 
   body header .logo-title {
     font-family: "YuMincho";
-    font-size: 10px;
+    font-size: 1em;
     line-height: 20px;
-    padding-top: 16px;
     text-align: center;
-    color: #367777;
+    color: #3e4742;
     text-shadow: 1px 1px 0 #fcffae, -1px 1px 0 #fcffae, 1px -1px 0 #fcffae, -1px -1px 0 #fcffae;
   }
 
@@ -76,6 +72,7 @@ header .main-menu .menu-button a {
   body header .open {
     display: block;
     position: fixed;
+    top: 0;
     right: 5%;
     z-index: 100;
   }
@@ -144,6 +141,7 @@ header .main-menu .menu-button a {
     height: 100vh;
     z-index: 99;
     right: -500px;
+    top: 0;
     transition: all 1s;
   }
 
@@ -160,6 +158,7 @@ header .main-menu .menu-button a {
 
   body header nav .sp-open {
     right: 0;
+    top: 0;
   }
 }
 
@@ -176,7 +175,7 @@ header .main-menu .menu-button a {
   height: 80px;
   min-width: 100vw;
   color: #FFFFFF;
-  background-color: rgba(82, 161, 128, 0.7);
+  background-color: #252525b3;
 }
 
 .footer-fixed footer .copyright {
@@ -243,12 +242,12 @@ header .main-menu .menu-button a {
 }
 
 .form form .btn input[type=submit]:hover {
-  background: #52a180b3;
+  background: #252525b3;
   color: #fff;
 }
 
 .form form .btn span a {
-  color: #52a180b3;
+  color: #252525b3;
 }
 
 .form form .btn span a:hover {

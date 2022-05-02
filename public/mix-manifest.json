@@ -4,5 +4,6 @@
     "/css/common.css": "/css/common.css",
     "/css/index.css": "/css/index.css",
     "/css/login.css": "/css/login.css",
-    "/css/admin.css": "/css/admin.css"
+    "/css/admin.css": "/css/admin.css",
+    "/css/search.css": "/css/search.css"
 }

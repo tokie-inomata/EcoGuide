@@ -1,88 +1,81 @@
-@extends('layouts.main')
+@extends('layouts.common')
+
+@section('css')
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="{{ asset('css/search.css')}}">
+@stop
 
 @section('js')
-    <script src="{{ mix('js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="{{ asset('js/jquery.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-@endsection
+@stop
 
-@section('main')
+@section('contents')
+    <h2 class="content-ttl">資源回収スポット検索</h2>
     <form action="/search" method="get">
-        <table class="search-area">
-            <tr>
-                <th>都道府県</th>
-                <td class="details">
-                    <select class="search-control" name="area" id="area">
-                    @foreach(config('pref') as $k => $val)
-                        @foreach($val as $k2 => $val2 )
-                            <option  value="{{ $k2 }}" {{$area == $k2 ? 'selected' : '' }}>{{ $val2 }}</option>
+        <div class="search-form">
+            <div class="prefecture-area search-area">
+                <p class="search-content-ttl">都道府県</p>
+                <div class="search-content">
+                    <select class="area-list" name="area" id="area">
+                        @foreach(config('pref') as $city)
+                            <option  value="{{ $city['pref_num'] }}" {{$area == $city['pref_num'] ? 'selected' : '' }}>{{ $city['pref'] }}</option>
                         @endforeach
-                    @endforeach
                     </select>
-                </td>
-            </tr>
-            <tr class="details-contents">
-                <th rowspan="2">市区町村</th>
-            </tr>
-            <tr id="city-list" class="details-contents">
-            </tr>
-            <tr class="details-contents">
-                <th rowspan="5">品目</th>
-                @foreach($items as $k => $val)
-                    <td class="details">
-                        <input type="checkbox" name="item[]" value="{{ $val->id }}" >{{ $val->recycling_item }}
-                    </td>
-                @endforeach
-            </tr>
-        </table>
-        <input type='hidden' name="paginate" value="{{$paginate}}">
-        <div class="search-buttons">
-            <input type="button" value="詳細" class="search-button details-button">
+                    <span class="details-button"></span>
+                </div>
+            </div>
+            <div class="city-area details search-area close">
+                <p class="search-content-ttl">市区町村</p>
+                <div class="search-content" id="city-list">
+                </div>
+            </div>
+            <div class="item-area details search-area close">
+                <p class="search-content-ttl">品目</p>
+                <div class="search-content">
+                    @foreach($allItems as $item)
+                        <div class="item-set">
+                            <input type="checkbox" name="item[]" value="{{ $item->id }}" id="item">
+                            <label for="item">{{ $item->recycling_item }}</label>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <input type='hidden' name="paginate" value="{{$paginate}}">
+        </div>
+        <div class="button-area">
             <input type="submit" value="検索" class="search-button">
         </div>
     </form>
 
     <h2 class="title">検索結果</h2>
 
-    @if($count_spots == 0)
-        <p class="not-spot">登録スポットがありません。</p>
-    @elseif(!empty($spots))
-        <div class="result-number">
-            <form action="" method="get">
-                <input type="hidden" name="area" value="{{$area}}">
-                <select class="number" name="paginate">
-                @foreach(config('const')['paginate_number'] as $k => $val)
-                    <option value="{{$val}}" {{$paginate == $val ? 'selected' : '' }}>{{$val}}件</option>
-                @endforeach
-                </select>
-                <input type="submit" value="表示">
-            </form>
-        </div>
-        <div class="result">
-            @foreach ( $spots as $spot )
-                <a href="spot/show?id={{$spot->id}}">
-                    <table class="search-result spot-table" id="result-{{$spot->id}}">
-                        <tr>
-                            <th rowspan="5">
-                                @if(!empty($spot->image_path) && Storage::exists('/public/spot_image/'.$spot->image_path))
-                                    <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}">
-                                @else
-                                    <img src="{{ asset('img/EcoSpotSearch-logo.png') }}">
-                                @endif
-                            </th>
-                        </tr>
-                        <tr><td>名前 : {{ $spot->name }}</td></tr>
-                        <tr><td id="municipality">住所 : {{ $spot->getData() }}</td></tr>
-                        <tr>
-                            <td>品目 :
-                                @foreach( $spot->recycling_items as $recycling_item )
-                                    {{ $recycling_item->recycling_item }}
-                                @endforeach
-                            </td>
-                        </tr>
-                    </table>
-                </a>
-            @endforeach
-        </div>
+    @if($spotsCount == 0)
+        <p>
+            検索結果がありません。<br>
+            条件を変更して検索してください。
+        </p>
+    @else
+        @foreach($spots as $spot)
+            <div class="search-result">
+                <div class="result-img">
+                    @if(!empty($spot->image_path) && Storage::exists('/public/spot_image/'.$spot->image_path))
+                        <img src="{{ asset('storage/spot_image/' . $spot->image_path) }}">
+                    @else
+                        <img src="{{ asset('img/EcoSpotSearch-logo.png') }}">
+                    @endif
+                </div>
+                <div class="result-detail">
+                    <p class="text">{{$spot->name}}</p>
+                    <p class="text">{{$spot->getData()}}</p>
+                    <p class="text">
+                        @foreach($spot->recycling_items as $item)
+                            {{$item->recycling_item}}
+                        @endforeach
+                    </p>
+                </div>
+            </div>
+        @endforeach
     @endif
-@endsection
+@stop

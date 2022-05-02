@@ -12,17 +12,14 @@ header {
     padding: 0 7%;
     display: flex;
     justify-content: space-between;
-    background-color: #f8fdb11d;
+    align-items: center;
+    background-color: $header;
     .logo-title {
         font-family: 'YuMincho';
         font-size: 1.5em;
         line-height: 30px;
         text-align: center;
         color: $title-color;
-        text-shadow: 1px 1px 0 #fcffae,
-        -1px 1px 0 #fcffae,
-        1px -1px 0 #fcffae,
-        -1px -1px 0 #fcffae;
         span {
             font-family: 'Kaushan Script', cursive;
             font-size: 50px;
@@ -35,11 +32,10 @@ header {
         min-width: 450px;
         display: flex;
         justify-content: space-between;
-        margin-top: 25px;
         .menu-button {
-            padding-left: 80px;
             a {
-                font-size: 2em;
+                font-size: 1.7em;
+                letter-spacing: 0.2em;
             }
         }
     }
@@ -51,9 +47,8 @@ header {
         header {
             .logo-title {
                 font-family: 'YuMincho';
-                font-size: 10px;
+                font-size: 1em;
                 line-height: 20px;
-                padding-top: 16px;
                 text-align: center;
                 color: $title-color;
                 text-shadow: 1px 1px 0 #fcffae,
@@ -68,6 +63,7 @@ header {
             .open {
                 display: block;
                 position: fixed;
+                top: 0;
                 right: 5%;
                 z-index: 100;
                 &::after {
@@ -134,6 +130,7 @@ header {
                     height: 100vh;
                     z-index: 99;
                     right: -500px;
+                    top: 0;
                     transition: all 1s;
                     .menu-button {
                         padding: 0;
@@ -147,6 +144,7 @@ header {
                 }
                 .sp-open {
                     right: 0;
+                    top: 0;
                 }
             }
         }
@@ -166,7 +164,7 @@ header {
         height: 80px;
         min-width: 100vw;
         color: #FFFFFF;
-        background-color: rgba(82,161,128,0.7);
+        background-color: $footer;
         .copyright {
             margin: 0;
             padding-top: 30px;

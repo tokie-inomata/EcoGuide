@@ -5,12 +5,15 @@
     <meta name="description" content="段ボールや雑誌、小型家電・蛍光灯・電池などを回収できる場所を探してみませんか？Ecoスポットサーチは資源の回収ボックスの場所を検索するサイトです。">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    @yield('js')
+    <script src="{{ asset('js/common.js') }}" defer></script>
 
     @yield('css')
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
 </head>
 <body>
@@ -44,6 +47,5 @@
             <p class="copyright">Copyright ©︎ 2021 EcoSpotSearch</p>
         </footer>
     </div>
-    @yield('js')
 </body>
 </html>
