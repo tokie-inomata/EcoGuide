@@ -72,7 +72,7 @@ class SearchController extends Controller
             'searchParam' => $searchParam,
             'spotsCount' => $spotsCount,
         ];
-        return view('old-ess.search', $param);
+        return view('ecospotsearch.search', $param);
     }
 
     public function city_search(Request $request)

@@ -13,12 +13,12 @@ $(function() {
 
         $.ajax({
             type: "GET",
-            url: "./autocomplete",
+            url: "/autocomplete",
             data: {"pref":pref},
         })
         .done(function(data) {
             // 入力補完を実施する要素に単語リストを設定
-            $( "#city" ).autocomplete({
+            $('#city').autocomplete({
                 source: $.each(data,function(key,obj){
                     obj;
                 }),
@@ -34,12 +34,12 @@ $(function() {
 
         $.ajax({
             type: "GET",
-            url: "./autocomplete",
+            url: "/autocomplete",
             data: {"pref":pref},
         })
         .done(function(data) {
             // 入力補完を実施する要素に単語リストを設定
-            $( "#city" ).autocomplete({
+            $('#city').autocomplete({
                 source: $.each(data,function(key,obj){
                     obj;
                 }),
@@ -117,5 +117,19 @@ $(function() {
                 position.appendChild(citySet);
             });
         });
+    });
+});
+
+$(function() {
+    $('#preview-img').on('change', function(e) {
+        var fileset = $(this).val();
+        if (fileset === '') {
+            $("#preview").attr('src', "");
+        }
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $("#preview").attr('src', e.target.result);
+        }
+        reader.readAsDataURL(e.target.files[0]);
     });
 });

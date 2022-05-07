@@ -8,6 +8,9 @@ use App\Recycling_item_spot;
 
 class Spot extends Model
 {
+    protected $fillable = [
+        'user_id','name', 'prefecture', 'city','house_number','image_path',
+    ];
 
     public function user()
     {

@@ -2,194 +2,139 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SpotRequest;
-use App\User;
 use App\Spot;
 use App\Recycling_item;
 use App\Recycling_item_spot;
-use App\Libs\PlanetextToUrl;
+use App\Services\SearchService;
+use Exception;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class SpotController extends Controller
 {
-
-    public function index(Request $request)
+    public function __construct(SearchService $service)
     {
-        //ログインユーザー情報取得
-        $login_user = Auth::user();
+        $this->service = $service;
+    }
 
-        //ログインユーザーが作成したスポット情報取得
-        $spots = Spot::where('user_id',$login_user->id)->get();
+    public function index()
+    {
+        $user = Auth::user();
+        $spots = Spot::where('user_id',$user->id)->get();
 
         //スポットの数を取得
-        $spots_count = count($spots);
+        $spotsCount = count($spots);
+        // dd(Spot::where('prefecture', '岩手県')->get());
+
 
         $param = [
-            'login_user'  => $login_user,
-            'spots'       => $spots,
-            'spots_count' => $spots_count,
+            'user'          => $user,
+            'spots'         => $spots,
+            'spotsCount'   => $spotsCount,
         ];
 
-        return view("ess.spot_add_list", $param);
+        return view("ecospotsearch.spot.index", $param);
     }
 
-    public function create(Request $request)
+    public function create()
     {
-        //全品目情報取得
-        $recycling_item = Recycling_item::all();
-        //ログインユーザのID取得
-        $users_id = Auth::id();
+        $recyclingItems = Recycling_item::all();
         $param = [
-            'recycling_item' => $recycling_item,
-            'users_id' => $users_id,
+            'recyclingItems' => $recyclingItems,
         ];
-        return view("ess/spot_add", $param);
+        return view("ecospotsearch.spot.add", $param);
     }
 
-    public function add(SpotRequest $request)
+    public function store(SpotRequest $request)
     {
-        foreach(config('pref') as $k => $val) {
-            foreach($val as $k2 => $val2) {
-                if($k2 == $request->prefecture) {
-                    $add_pref = $val2;
-                }
+        try {
+            DB::beginTransaction();
+            $spot = new Spot($request->except('prefecture', 'image_path', 'recycling_item_id'));
+            $selectAreaName = $this->service->selectArea($request->prefecture);
+            $spot->user_id = Auth::id();
+            $spot->prefecture = $selectAreaName;
+            if($request->hasFile('image_path')){
+                $path = $request->file('image_path')->store('public/spot_image');
+                $spot->image_path = basename($path);
             }
-        }
-        //新しくスポット情報を登録
-        $spot               = new Spot;
-        $spot->name         = $request->name;
-        $spot->user_id      = $request->users_id;
-        $spot->prefecture   = $add_pref;
-        $spot->city         = $request->city;
-        $spot->house_number = $request->house_number;
-        $spot->etc          = $request->etc;
-        if($request->hasFile('image_path')){
-            $path = $request->file('image_path')->store('public/spot_image');
-            $spot->image_path = basename($path);
-        }
-        $spot->save();
-
-        //選択された品目IDを取得
-        $recycling_item_ids = $request->recycling_item_id;
-        if(!empty($recycling_item_ids)) {
-            foreach( $recycling_item_ids as $recycling_item_id)
-            {
-                //選択された品目IDを中間テーブルに登録
-                $recycling_item_spot = new Recycling_item_spot;
-                $recycling_item_spot->spot_id = $spot->id;
-                $recycling_item_spot->recycling_item_id = $recycling_item_id;
-                $recycling_item_spot->save();
-            }
-        }
-
-        return redirect('/spot/index')->with('flash_message', '回収スポットを登録しました。');
-    }
-
-    public function edit(Request $request)
-    {
-        //全品目情報取得
-        $recycling_item = Recycling_item::all();
-        //選択されたスポットのID
-        $search_id = $request->input('id');
-        //選択されたspot情報取得
-        $spots = Spot::where('id',$search_id)->get();
-
-        $param = [
-            'recycling_item' => $recycling_item,
-            'spots' => $spots,
-            'search_id' => $search_id,
-        ];
-
-        return view("ess/spot_edit", $param);
-    }
-
-    public function branch(SpotRequest $request)
-    {
-        //editが押された場合
-        if(!empty($_POST['edit']))
-        {
-            return $this->updata($request);
-        //deleteが押された場合
-        } elseif(!empty($_POST['delete'])) {
-            return $this->destroy($request);
-        }
-    }
-
-    public function show(Request $request)
-    {
-        //選択されたスポットIDを取得
-        $search_id = $request->input('id');
-        $spots     = Spot::where('id', $search_id)->get();
-
-        foreach($spots as $spot) {
-            //備考欄にURLが入力されていたら<a>で囲む
-            $remarks = PlanetextToUrl::convertLink($spot->etc);
-        }
-
-        $param = [
-            'spots'     => $spots,
-            'search_id' => $search_id,
-            'remarks'   => $remarks,
-        ];
-
-        return view('ess/spot_show', $param);
-    }
-
-    public function updata($request)
-    {
-        foreach(config('pref') as $k => $val) {
-            foreach($val as $k2 => $val2) {
-                if($k2 == $request->prefecture) {
-                    $edit_pref = $val2;
-                }
-            }
-        }
-        //全スポットから選択されたスポットIDを検索して更新
-        $spot = Spot::find($request->id);
-        $spot->name = $request->name;
-        $spot->user_id = $request->user_id;
-        $spot->prefecture = $edit_pref;
-        $spot->city = $request->city;
-        $spot->house_number = $request->house_number;
-        $spot->etc          = $request->etc;
-        if($request->hasFile('image_path')) {
-            if(!empty($spot->image_path)) {
-                $delete_image = $spot->image_path;
-                Storage::delete('public/spot_image/' . $delete_image);
-            }
-            $path = $request->file('image_path')->store('public/spot_image');
-            $spot->image_path = basename($path);
-        }
-
-
-        $recycling_item_spot = Recycling_item_spot::where('spot_id',$spot->id)->get();
-        foreach($recycling_item_spot as $k => $val) {
-            $before_item[] = $val->recycling_item_id;
-        }
-        //中間テーブルの情報を更新
-        $recycling_item_ids = $request->recycling_item_id;
-        $spot->recycling_items()->sync($recycling_item_ids);
-
-        if($spot->isDirty() || !empty($before_item) && $before_item != $recycling_item_ids || empty($before_item) && !empty($recycling_item_ids)) {
             $spot->save();
-            return redirect('/spot/index')->with('flash_message', 'スポット情報を変更しました。');
-        } else {
-            return redirect('/spot/index')->with('flash_message', 'スポット情報の変更をしていません。');
+
+            $recyclingItemIds = $request->recycling_item_id;
+            foreach($recyclingItemIds as $recyclingItemId) {
+                $recyclingItemSpot = new Recycling_item_spot(['recycling_item_id' => $recyclingItemId]);
+                $recyclingItemSpot->spot_id = $spot->id;
+                $recyclingItemSpot->save();
+            }
+
+            DB::commit();
+        } catch(Exception $e) {
+            DB::rollBack();
+            throw new Exception($e);
+        }
+
+        return redirect(route('spot.index'));
+    }
+
+    public function show(Spot $spot)
+    {
+        return view('ecospotsearch.spot.show', ['spot' => $spot]);
+    }
+
+    public function edit(Spot $spot)
+    {
+        $recyclingItemSpots = Recycling_item_spot::where('spot_id', $spot->id)->get();
+        foreach($recyclingItemSpots as $recyclingItemSpot) {
+            $ids[] = $recyclingItemSpot->recycling_item_id;
+        }
+        $selectItems = Recycling_item::whereIn('id', $ids)->get();
+        $otherItems = Recycling_item::whereNotIn('id', $ids)->get();
+        $param = [
+            'selectItems' => $selectItems,
+            'otherItems' => $otherItems,
+            'spot' => $spot,
+        ];
+        return view('ecospotsearch.spot.edit', $param);
+    }
+
+    public function update(SpotRequest $request, Spot $spot)
+    {
+        try {
+            DB::beginTransaction();
+
+            $spot->fill($request->except('prefecture', 'image_path', 'recycling_item_id'));
+
+            if($request->hasFile('image_path')) {
+                if(isset($spot->image_path)) {
+                    $delete_image = $spot->image_path;
+                    Storage::delete('public/spot_image/' . $delete_image);
+                }
+                $path = $request->file('image_path')->store('public/spot_image');
+                $spot->image_path = basename($path);
+            }
+
+            $recycling_item_ids = $request->recycling_item_id;
+            $spot->recycling_items()->sync($recycling_item_ids);
+
+            if($spot->isDirty()) {
+                $spot->save();
+            }
+
+            DB::commit();
+            return redirect(route('spot.index'));
+        } catch(Exception $e) {
+            DB::rollBack();
+            throw new Exception($e);
         }
     }
 
-    public function destroy($request)
+    public function destroy(Spot $spot)
     {
-        //全スポットから選択されたスポットIDを検索
-        $spot = Spot::find($request->id);
-        //画像パスを取得してストレージ内から削除
-        $delete_image = $spot->image_path;
-        Storage::delete('public/spot_image/' . $delete_image);
-        //スポット情報を削除する
+        Storage::delete('public/spot_image/' . $spot->image_path);
         $spot->delete();
 
-        return redirect('/spot/index')->with('flash_message', '登録スポットを削除しました。');
+        return redirect(route('spot.index'));
     }
 }

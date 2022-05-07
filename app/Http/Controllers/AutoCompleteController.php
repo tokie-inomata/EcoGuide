@@ -14,17 +14,11 @@ class AutoCompleteController extends Controller
 
     public function autocomplete(Request $request)
     {
-        if(empty($_SERVER['HTTP_REFERER'])) {
-            return redirect('/');
-        }
-        $selectAreaNum = $request->input('area');
+        $selectAreaNum = $request->input('pref');
         $cityInArea = $this->service->getCityListApi($selectAreaNum);
-        //配列の中から市区町村の名前を配列に格納
         foreach($cityInArea as $city) {
             $cityList[] = $city['cityName'];
         }
-        //jquery.jsのajaxにレスポンス
-        header("Content-type: application/json; charset=UTF-8");
         return response()->json($cityList);
     }
 }

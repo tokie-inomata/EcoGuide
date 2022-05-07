@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
-  margin: 0 auto 100px;
+  margin: 0 auto;
 }
 
 .content .content-ttl {
@@ -20,6 +20,13 @@ body {
 
 .content .left {
   width: 50%;
+}
+
+.content .left .img-content img {
+  width: 300px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .content .right {
@@ -35,8 +42,29 @@ body {
   font-size: 2em;
 }
 
+.content.spot-content {
+  align-items: center;
+}
+
+.content.spot-content .right {
+  font-size: 1.5em;
+}
+
+.content.spot-content .right .detail {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content.spot-content .right .detail p {
+  width: 30%;
+}
+
 .btn-form {
   text-align: center;
+}
+
+.btn-form .btn-content {
+  margin: 50px 0;
 }
 
 .btn-form .btn-content .btn {
@@ -44,26 +72,179 @@ body {
   font-weight: bold;
   margin: 0 10px;
   padding: 10px 50px;
+  width: 200px;
+  padding: 10px 0;
 }
 
 .btn-form .btn-content .edit-btn {
-  border: 1px solid #535353;
-  box-shadow: inset 0 -2px 2px 0 #3b3b3b;
+  border: none;
+  box-shadow: inset 0 -2px 2px 0 #303030;
 }
 
 .btn-form .btn-content .edit-btn:hover {
-  background-color: #535353;
+  background: #252525b3;
   color: #fff;
 }
 
 .btn-form .btn-content .delete-btn {
-  border: 1px solid #be1c16;
-  color: #be1c16;
+  border: 1px solid #810c0c;
+  color: #810c0c;
   box-shadow: inset 0 -2px 2px 0 #810c0c;
 }
 
 .btn-form .btn-content .delete-btn:hover {
-  background-color: #be1c16;
+  background-color: #810c0c;
   color: #fff;
+}
+
+.table {
+  margin-bottom: 50px;
+}
+
+.table tbody tr td {
+  vertical-align: middle;
+}
+
+.table tbody tr td img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content-top {
+  margin: 50px auto 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.content-top .content-ttl {
+  margin: 0;
+  width: 100%;
+}
+
+.content-top .btn {
+  margin-top: 30px;
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 50px;
+  border: none;
+  box-shadow: inset 0 -2px 2px 0 #303030;
+}
+
+.content-top .btn:hover {
+  background: #252525b3;
+  color: #fff;
+}
+
+.dataTables_wrapper {
+  margin-bottom: 50px;
+}
+
+.paginate_button {
+  padding: 0 2px;
+}
+
+.add-form form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.add-form form .form-content {
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.add-form form .form-content input[type=text],
+.add-form form .form-content textarea {
+  width: 75%;
+  padding: 5px 10px;
+  font-size: 1.5em;
+}
+
+.add-form form .form-content .address-content {
+  width: 75%;
+}
+
+.add-form form .form-content .address-content input[type=text] {
+  font-size: 1.5em;
+}
+
+.add-form form .form-content .address-content select {
+  width: 75%;
+  padding: 5px 10px;
+  font-size: 1.5em;
+}
+
+.add-form form .form-content label {
+  font-size: 1.5em;
+  font-weight: normal;
+  padding-right: 15px;
+}
+
+.add-form form .form-content label input[type=checkbox] {
+  margin-right: 5px;
+}
+
+.add-form form .form-content .form-ttl {
+  font-size: 1.5em;
+  width: 15%;
+}
+
+.add-form form .form-content .img-content {
+  width: 75%;
+  display: flex;
+  align-items: center;
+}
+
+.add-form form .form-content .img-content .left #preview {
+  border: 0.5px solid #000;
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.add-form form .form-content .form-checkbox {
+  width: 75%;
+}
+
+.add-form form .btn {
+  text-align: center;
+  display: block;
+}
+
+.add-form form .btn input[type=submit] {
+  margin-top: 30px;
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 50px;
+  border: none;
+  box-shadow: inset 0 -2px 2px 0 #303030;
+}
+
+.add-form form .btn input[type=submit]:hover {
+  background: #252525b3;
+  color: #fff;
+}
+
+.ui-autocomplete {
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.red {
+  background-color: #810c0c;
+  color: #fff;
+  font-size: 0.5em;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
 }
 

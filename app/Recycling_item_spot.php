@@ -9,4 +9,8 @@ use App\Recycling_item;
 class Recycling_item_spot extends Model
 {
     protected $table = 'recycling_item_spot';
+
+    protected $fillable = [
+        'recycling_item_id','spot_id',
+    ];
 }

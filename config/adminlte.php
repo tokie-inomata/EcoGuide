@@ -231,7 +231,7 @@ return [
         ],
         [
             'text' => 'スポット管理',
-            'route' => 'user.index',
+            'route' => 'spot.index',
         ],
         [
             'text' => '全スポット管理',
