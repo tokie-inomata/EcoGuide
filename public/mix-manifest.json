@@ -1,9 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/_variables.css": "/css/_variables.css",
+    "/css/admin.css": "/css/admin.css",
     "/css/app.css": "/css/app.css",
     "/css/common.css": "/css/common.css",
     "/css/index.css": "/css/index.css",
     "/css/login.css": "/css/login.css",
-    "/css/admin.css": "/css/admin.css",
     "/css/search.css": "/css/search.css"
 }

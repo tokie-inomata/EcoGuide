@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SpotRequest;
 use App\Spot;
@@ -25,10 +24,7 @@ class SpotController extends Controller
         $user = Auth::user();
         $spots = Spot::where('user_id',$user->id)->get();
 
-        //スポットの数を取得
         $spotsCount = count($spots);
-        // dd(Spot::where('prefecture', '岩手県')->get());
-
 
         $param = [
             'user'          => $user,

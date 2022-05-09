@@ -49935,6 +49935,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/_variables.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/_variables.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/admin.scss":
 /*!***********************************!*\
   !*** ./resources/sass/admin.scss ***!
@@ -50002,18 +50013,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/common.scss ./resources/sass/index.scss ./resources/sass/login.scss ./resources/sass/admin.scss ./resources/sass/search.scss ***!
-  \***********************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/_variables.scss ./resources/sass/admin.scss ./resources/sass/app.scss ./resources/sass/common.scss ./resources/sass/index.scss ./resources/sass/login.scss ./resources/sass/search.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/sass/_variables.scss */"./resources/sass/_variables.scss");
+__webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/sass/admin.scss */"./resources/sass/admin.scss");
 __webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/sass/common.scss */"./resources/sass/common.scss");
 __webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/sass/index.scss */"./resources/sass/index.scss");
 __webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/sass/login.scss */"./resources/sass/login.scss");
-__webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/sass/admin.scss */"./resources/sass/admin.scss");
 module.exports = __webpack_require__(/*! /Users/inomatatokie/WEB制作作品/EcoSpotSearch/resources/sass/search.scss */"./resources/sass/search.scss");
 
 

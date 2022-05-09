@@ -9,12 +9,6 @@
 @stop
 
 @section('contents')
-    <div class="title-image">
-        <h1 class="main-ttl">
-            資源回収ボックス検索サイト<br>
-            EcoSpotSearch
-        </h1>
-    </div>
     <div class="wrapper">
         <div class="area-search" id="search">
             <div class="search">
@@ -39,7 +33,8 @@
                     身近にある資源回収ボックス<br>
                     雑誌や衣服だけじゃなく、小型金属や小型家電<br>
                     電球や電池も回収してくれるんです<br>
-                    捨て方に困ってた物を、回収ボックスへ持っていきませんか？
+                    捨て方に困っちゃうその品<br>
+                    回収ボックスへ持っていきませんか？
                 </p>
             </div>
             <div class="info-image">
