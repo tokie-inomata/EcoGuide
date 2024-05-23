@@ -9,6 +9,7 @@ class MainController extends Controller
 {
     public function index()
     {
+        $test = "test";
         return view('ess.index');
     }
 
